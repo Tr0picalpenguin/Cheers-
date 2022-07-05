@@ -13,17 +13,17 @@
             <objects>
                 <viewController id="SIG-sJ-XoY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x2u-Gi-02W">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cheers!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3t-nV-5D2" userLabel="titleLabel">
-                                <rect key="frame" x="20" y="96" width="374" height="48"/>
+                                <rect key="frame" x="20" y="52" width="374" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="0Tf-s2-Om0">
-                                <rect key="frame" x="94" y="746" width="226.5" height="96"/>
+                                <rect key="frame" x="94" y="726" width="226.5" height="96"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCK-mw-CD0">
                                         <rect key="frame" x="13" y="0.0" width="200" height="31"/>
@@ -112,11 +112,11 @@
             <objects>
                 <viewController id="uk4-me-ZWY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDE-WK-3eR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v2-Ud-VAN">
-                                <rect key="frame" x="20" y="96" width="374" height="36"/>
+                                <rect key="frame" x="20" y="52" width="374" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -198,7 +198,7 @@
         <!--Home-->
         <scene sceneID="UCS-tP-7wt">
             <objects>
-                <viewControllerPlaceholder storyboardName="Home" id="so5-eh-7N9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Home" storyboardName="Home" id="so5-eh-7N9" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="iHa-s4-TRK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XD-ed-cq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -207,8 +207,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yeK-Un-VU5"/>
-        <segue reference="E4G-5D-KwD"/>
+        <segue reference="D2l-tW-YOe"/>
+        <segue reference="Jw1-L2-Dr9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

@@ -17,6 +17,14 @@
 		EDB0BE6C287498F9005EC7E9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE6A287498F9005EC7E9 /* Home.storyboard */; };
 		EDB0BE6F28749968005EC7E9 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE6D28749968005EC7E9 /* Create.storyboard */; };
 		EDB0BE7128749995005EC7E9 /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE7028749995005EC7E9 /* Favorites.storyboard */; };
+		EDB0BE762874AF42005EC7E9 /* CocktailListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE752874AF42005EC7E9 /* CocktailListViewModel.swift */; };
+		EDB0BE782874AF51005EC7E9 /* CocktailDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE772874AF51005EC7E9 /* CocktailDetailViewModel.swift */; };
+		EDB0BE7B2874AFD4005EC7E9 /* CocktailListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE7A2874AFD4005EC7E9 /* CocktailListViewController.swift */; };
+		EDB0BE7D2874AFEB005EC7E9 /* CocktailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE7C2874AFEB005EC7E9 /* CocktailDetailViewController.swift */; };
+		EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */; };
+		EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */; };
+		EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */; };
+		EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +40,14 @@
 		EDB0BE6B287498F9005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Cheers!/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		EDB0BE6E28749968005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Cheers!/Storyboards/Base.lproj/Create.storyboard"; sourceTree = "<group>"; };
 		EDB0BE7028749995005EC7E9 /* Favorites.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		EDB0BE752874AF42005EC7E9 /* CocktailListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListViewModel.swift; sourceTree = "<group>"; };
+		EDB0BE772874AF51005EC7E9 /* CocktailDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewModel.swift; sourceTree = "<group>"; };
+		EDB0BE7A2874AFD4005EC7E9 /* CocktailListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListViewController.swift; sourceTree = "<group>"; };
+		EDB0BE7C2874AFEB005EC7E9 /* CocktailDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetailViewController.swift; sourceTree = "<group>"; };
+		EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCocktailViewModel.swift; sourceTree = "<group>"; };
+		EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCocktailViewController.swift; sourceTree = "<group>"; };
+		EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListTableViewCell.swift; sourceTree = "<group>"; };
+		EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +80,10 @@
 		EDB0BE4E286CD5BD005EC7E9 /* Cheers! */ = {
 			isa = PBXGroup;
 			children = (
+				EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */,
+				EDB0BE792874AF94005EC7E9 /* Cocktail Detail */,
+				EDB0BE742874AF25005EC7E9 /* Cocktail List */,
+				EDB0BE732874AC83005EC7E9 /* Services */,
 				EDB0BE64286E15F2005EC7E9 /* Models */,
 				EDB0BE63286CD5C5005EC7E9 /* Resources */,
 				EDB0BE6928747FF8005EC7E9 /* Storyboards */,
@@ -101,6 +121,58 @@
 				EDB0BE7028749995005EC7E9 /* Favorites.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EDB0BE732874AC83005EC7E9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EDB0BE742874AF25005EC7E9 /* Cocktail List */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BE752874AF42005EC7E9 /* CocktailListViewModel.swift */,
+				EDB0BE7A2874AFD4005EC7E9 /* CocktailListViewController.swift */,
+				EDB0BE832874C3B9005EC7E9 /* Custom Cell */,
+			);
+			path = "Cocktail List";
+			sourceTree = "<group>";
+		};
+		EDB0BE792874AF94005EC7E9 /* Cocktail Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BE772874AF51005EC7E9 /* CocktailDetailViewModel.swift */,
+				EDB0BE7C2874AFEB005EC7E9 /* CocktailDetailViewController.swift */,
+			);
+			path = "Cocktail Detail";
+			sourceTree = "<group>";
+		};
+		EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */,
+				EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */,
+				EDB0BE862874C4F1005EC7E9 /* Custom Cell */,
+			);
+			path = "Create Cocktail";
+			sourceTree = "<group>";
+		};
+		EDB0BE832874C3B9005EC7E9 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		EDB0BE862874C4F1005EC7E9 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */,
+			);
+			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,10 +249,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB0BE7B2874AFD4005EC7E9 /* CocktailListViewController.swift in Sources */,
+				EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */,
 				EDB0BE68286E1742005EC7E9 /* User.swift in Sources */,
+				EDB0BE762874AF42005EC7E9 /* CocktailListViewModel.swift in Sources */,
+				EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */,
 				EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */,
 				EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */,
+				EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */,
+				EDB0BE7D2874AFEB005EC7E9 /* CocktailDetailViewController.swift in Sources */,
 				EDB0BE66286E160A005EC7E9 /* Cocktail.swift in Sources */,
+				EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */,
+				EDB0BE782874AF51005EC7E9 /* CocktailDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
