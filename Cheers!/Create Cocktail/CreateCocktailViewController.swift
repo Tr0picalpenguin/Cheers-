@@ -9,6 +9,11 @@ import UIKit
 
 class CreateCocktailViewController: UIViewController {
 
+    @IBOutlet weak var cocktailNameTextField: UITextField!
+    @IBOutlet weak var glassTypeTextField: UITextField!
+    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

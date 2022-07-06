@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create Cocktail View Controller-->
         <scene sceneID="wJ1-LQ-cem">
             <objects>
-                <viewController id="4n0-d2-q7K" sceneMemberID="viewController">
+                <viewController id="4n0-d2-q7K" customClass="CreateCocktailViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Du-gX-6CD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,6 +32,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cocktailNameTextField:" destination="NzN-5G-ip3" eventType="editingDidEnd" id="6Q6-D2-7Un"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter glass type..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbh-Gx-lyL">
                                 <rect key="frame" x="82" y="393" width="250" height="34"/>
@@ -128,8 +131,13 @@
                             <constraint firstItem="EWk-tJ-xrh" firstAttribute="trailing" secondItem="vTO-35-KNe" secondAttribute="trailing" constant="20" id="tVv-MR-4W6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cocktailNameTextField" destination="JTc-gt-NCp" id="aCp-Re-HFs"/>
+                        <outlet property="glassTypeTextField" destination="mbh-Gx-lyL" id="PPq-bN-UlB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnE-fd-Uz3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="NzN-5G-ip3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="821.73913043478262" y="1606.4732142857142"/>
         </scene>
