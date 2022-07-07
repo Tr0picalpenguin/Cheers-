@@ -132,8 +132,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cocktailImageView" destination="Qrs-2c-hnc" id="iXA-Ct-xXo"/>
                         <outlet property="cocktailNameTextField" destination="JTc-gt-NCp" id="aCp-Re-HFs"/>
                         <outlet property="glassTypeTextField" destination="mbh-Gx-lyL" id="PPq-bN-UlB"/>
+                        <outlet property="instructionsTextView" destination="hoZ-EH-8AX" id="uBT-vz-eKm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GnE-fd-Uz3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

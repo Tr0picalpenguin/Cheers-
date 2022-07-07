@@ -14,7 +14,7 @@ class Cocktail {
         static let collectionType = "cocktails"
         static let drinkID = "idDrink"
         static let name = "strDrink"
-        static let description = "strInstructions"
+        static let instruction = "strInstructions"
         static let glass = "strGlass"
         static let uuid = "uuid"
         static let imageURL = "imageURL"
@@ -53,12 +53,11 @@ class Cocktail {
     // MARK: - Properties
     var drinkID: String
     var name: String
-    var description: String
-    var ingredient1: String
+    var instruction: String
     var glass: String
     let uuid: String
     var imageURL: URL?
-//    var ingredient1: String
+    var ingredient1: String
     var ingredient2: String
     var ingredient3: String
     var ingredient4: String
@@ -92,7 +91,7 @@ class Cocktail {
     var cocktailData: [String: AnyHashable] {
         [Keys.drinkID: self.drinkID,
          Keys.name: self.name,
-         Keys.description: self.description,
+         Keys.instruction: self.instruction,
          Keys.glass: self.glass,
          Keys.uuid: self.uuid,
          Keys.imageURL: self.imageURL,
@@ -128,10 +127,10 @@ class Cocktail {
          Keys.measurement15: self.measurement15]
     }
     
-    init(dinkID: String, name:String, description: String, glass: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String, measurement13: String, measurement14: String, measurement15: String) {
+    init(dinkID: String, name:String, instruction: String, glass: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String, measurement13: String, measurement14: String, measurement15: String) {
         self.drinkID = dinkID
         self.name = name
-        self.description = description
+        self.instruction = instruction
         self.glass = glass
         self.uuid = uuid
         self.imageURL = URL(string: imageURL)
@@ -173,7 +172,7 @@ extension Cocktail {
     convenience init?(dictionary: [String: Any]) {
         guard let drinkID = dictionary[Keys.drinkID] as? String,
               let name = dictionary[Keys.name] as? String,
-              let description = dictionary[Keys.description] as? String,
+              let instruction = dictionary[Keys.instruction] as? String,
               let glass = dictionary[Keys.glass] as? String,
               let imageURL = dictionary[Keys.imageURL] as? String,
               let uuid = dictionary[Keys.uuid] as? String,
@@ -210,7 +209,7 @@ extension Cocktail {
         
         self.init(dinkID: drinkID,
                   name: name,
-                  description: description,
+                  instruction: instruction,
                   glass: glass,
                   uuid: uuid,
                   imageURL: imageURL,

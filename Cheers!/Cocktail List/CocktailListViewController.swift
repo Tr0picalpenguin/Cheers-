@@ -19,13 +19,13 @@ class CocktailListViewController: UIViewController {
        
     }
     
-  
+    var viewModel: CocktailListViewModel!
   
    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+       // wil need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
         }
      
     // This needs to be reviewed.
@@ -49,7 +49,15 @@ extension CocktailListViewController: UITableViewDataSource {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //depending on what segment the user is on I want to display the correct tableview list.
-        return CocktailListViewModel.customCocktails.count
+        // if the segmented control == index 0 then return viewModel.standardCocktails.count
+        // else if the segmented control == index1 then return viewModel.customCocktails.count
+        if homeSegmentedControl.selectedSegmentIndex == 0 {
+            return viewModel.standardCocktails.count
+        } else if homeSegmentedControl.selectedSegmentIndex == 1 {
+            return viewModel.customCocktails.count
+        }
+        // Im not sure if this is right
+        return 0
     }
     
     
@@ -57,8 +65,9 @@ extension CocktailListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else {return UITableViewCell() }
         
        //depending on what segment the user is on I want to display the correct tableview list.
-       let cocktail = CocktailListViewModel.customCocktails[indexPath.row]
-        cell.updateView(for: cocktail)
+       let cocktail = viewModel.customCocktails[indexPath.row]
+       cell.cocktail = cocktail
+       
         return cell
     }
 }

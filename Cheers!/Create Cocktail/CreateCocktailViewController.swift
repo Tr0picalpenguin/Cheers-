@@ -11,9 +11,12 @@ class CreateCocktailViewController: UIViewController {
 
     @IBOutlet weak var cocktailNameTextField: UITextField!
     @IBOutlet weak var glassTypeTextField: UITextField!
+    @IBOutlet weak var instructionsTextView: UITextView!
     
 
-
+    
+    @IBOutlet weak var cocktailImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -12,7 +12,6 @@ import Foundation
 class CocktailListViewModel {
     
     
-    
     var standardCocktails: [Cocktail] = []
     var customCocktails: [Cocktail] = []
     

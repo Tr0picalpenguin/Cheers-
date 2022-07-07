@@ -18,7 +18,7 @@ class CreateCocktailViewModel {
         
         // Mock Data
         let name1 = "old fashioned"
-        let description1 = "this is a really good drink"
+        let instruction1 = "just make it and enjoy!"
         let glass1 = "tumbler"
         let ingredient1 = "Bourbon"
         let ingredient2 = "simple syrup"
@@ -27,8 +27,8 @@ class CreateCocktailViewModel {
         let measurement1 = "1.5oz"
         let measurement2 = "half teaspoon"
         
-        let cocktail = Cocktail(dinkID: uuid1, name: name1, description: description1, glass: glass1, uuid: uuid1, imageURL: image1, ingredient1: ingredient1, ingredient2: ingredient2, ingredient3: "", ingredient4: "", ingredient5: "", ingredient6: "", ingredient7: "", ingredient8: "", ingredient9: "", ingredient10: "", ingredient11: "", ingredient12: "", ingredient13: "", ingredient14: "", ingredient15: "", measurement1: measurement1, measurement2: measurement2, measurement3: "", measurement4: "", measurement5: "", measurement6: "", measurement7: "", measurement8: "", measurement9: "", measurement10: "", measurement11: "", measurement12: "", measurement13: "", measurement14: "", measurement15: "")
+        let cocktail = Cocktail(dinkID: uuid1, name: name1, instruction: instruction1, glass: glass1, uuid: uuid1, imageURL: image1, ingredient1: ingredient1, ingredient2: ingredient2, ingredient3: "", ingredient4: "", ingredient5: "", ingredient6: "", ingredient7: "", ingredient8: "", ingredient9: "", ingredient10: "", ingredient11: "", ingredient12: "", ingredient13: "", ingredient14: "", ingredient15: "", measurement1: measurement1, measurement2: measurement2, measurement3: "", measurement4: "", measurement5: "", measurement6: "", measurement7: "", measurement8: "", measurement9: "", measurement10: "", measurement11: "", measurement12: "", measurement13: "", measurement14: "", measurement15: "")
         
-        CocktailListViewModel.customCocktails.append(cocktail)
+        // add cocktail to a network service which will be the SOT for the custom cocktails.
     }
 }
