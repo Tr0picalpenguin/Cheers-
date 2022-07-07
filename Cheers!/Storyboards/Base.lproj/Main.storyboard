@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Login View Controller-->
         <scene sceneID="DV6-6Z-L0t">
             <objects>
-                <viewController id="SIG-sJ-XoY" sceneMemberID="viewController">
+                <viewController id="SIG-sJ-XoY" customClass="UserLoginViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x2u-Gi-02W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,6 +33,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="(Create New Account)"/>
                                         <connections>
+                                            <action selector="createAccountButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="ZaL-jH-JOL"/>
                                             <segue destination="uk4-me-ZWY" kind="show" id="R6F-3a-krA"/>
                                         </connections>
                                     </button>
@@ -41,6 +42,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Continue with Limited Access..."/>
                                         <connections>
+                                            <action selector="continueButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="l6i-s1-YUz"/>
                                             <segue destination="so5-eh-7N9" kind="show" id="yeK-Un-VU5"/>
                                         </connections>
                                     </button>
@@ -73,6 +75,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="(Login)"/>
                                         <connections>
+                                            <action selector="loginButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="msl-dx-Ayz"/>
                                             <segue destination="so5-eh-7N9" kind="show" id="OH4-2G-VyQ"/>
                                         </connections>
                                     </button>
@@ -85,6 +88,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="(Sign in with Apple)">
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signInWithAppleButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="qwz-bA-s56"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -102,15 +108,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="t0Y-Ql-gF9"/>
+                    <connections>
+                        <outlet property="appNameLabel" destination="T3t-nV-5D2" id="7ai-eO-qSF"/>
+                        <outlet property="passwordTextField" destination="Vph-h1-Uig" id="9b1-f1-cWE"/>
+                        <outlet property="usernameTextField" destination="0Vp-Dk-Lzi" id="22P-sQ-hdj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJA-qD-hQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="823.1884057971015" y="99.776785714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Create User View Controller-->
         <scene sceneID="7Cf-zh-OUQ">
             <objects>
-                <viewController id="uk4-me-ZWY" sceneMemberID="viewController">
+                <viewController id="uk4-me-ZWY" customClass="CreateUserViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDE-WK-3eR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +218,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="D2l-tW-YOe"/>
+        <segue reference="R6F-3a-krA"/>
+        <segue reference="yeK-Un-VU5"/>
         <segue reference="Jw1-L2-Dr9"/>
     </inferredMetricsTieBreakers>
     <resources>

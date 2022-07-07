@@ -25,7 +25,8 @@ class CocktailListViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // wil need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
+       // will need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
+       
         }
      
     // This needs to be reviewed.

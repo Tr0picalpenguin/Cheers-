@@ -31,6 +31,12 @@
 		EDB0BEBA28760389005EC7E9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB928760389005EC7E9 /* FirebaseFirestore */; };
 		EDB0BEBC28760389005EC7E9 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEBB28760389005EC7E9 /* FirebaseFirestoreCombine-Community */; };
 		EDB0BEBE28760389005EC7E9 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEBD28760389005EC7E9 /* FirebaseFirestoreSwift */; };
+		EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */; };
+		EDB0BEC328778F62005EC7E9 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */; };
+		EDB0BEC628778F89005EC7E9 /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */; };
+		EDB0BEC828778F97005EC7E9 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC728778F97005EC7E9 /* CreateUserViewController.swift */; };
+		EDB0BECB2877A5F9005EC7E9 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */; };
+		EDB0BECD2877A66C005EC7E9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +61,12 @@
 		EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListTableViewCell.swift; sourceTree = "<group>"; };
 		EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientTableViewCell.swift; sourceTree = "<group>"; };
 		EDB0BEB2287602CE005EC7E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewModel.swift; sourceTree = "<group>"; };
+		EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
+		EDB0BEC728778F97005EC7E9 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				EDB0BEB2287602CE005EC7E9 /* GoogleService-Info.plist */,
+				EDB0BEC92877A5D2005EC7E9 /* Favorites */,
+				EDB0BEC428778F6C005EC7E9 /* Create User */,
+				EDB0BEBF28778F18005EC7E9 /* User Login */,
 				EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */,
 				EDB0BE792874AF94005EC7E9 /* Cocktail Detail */,
 				EDB0BE742874AF25005EC7E9 /* Cocktail List */,
@@ -188,6 +203,33 @@
 			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
+		EDB0BEBF28778F18005EC7E9 /* User Login */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */,
+				EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */,
+			);
+			path = "User Login";
+			sourceTree = "<group>";
+		};
+		EDB0BEC428778F6C005EC7E9 /* Create User */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */,
+				EDB0BEC728778F97005EC7E9 /* CreateUserViewController.swift */,
+			);
+			path = "Create User";
+			sourceTree = "<group>";
+		};
+		EDB0BEC92877A5D2005EC7E9 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */,
+				EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,14 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */,
 				EDB0BE7B2874AFD4005EC7E9 /* CocktailListViewController.swift in Sources */,
+				EDB0BEC628778F89005EC7E9 /* CreateUserViewModel.swift in Sources */,
 				EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */,
 				EDB0BE68286E1742005EC7E9 /* User.swift in Sources */,
 				EDB0BE762874AF42005EC7E9 /* CocktailListViewModel.swift in Sources */,
 				EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */,
+				EDB0BECB2877A5F9005EC7E9 /* FavoritesViewModel.swift in Sources */,
 				EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */,
+				EDB0BEC328778F62005EC7E9 /* UserLoginViewController.swift in Sources */,
+				EDB0BECD2877A66C005EC7E9 /* FavoritesViewController.swift in Sources */,
 				EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */,
 				EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */,
+				EDB0BEC828778F97005EC7E9 /* CreateUserViewController.swift in Sources */,
 				EDB0BE7D2874AFEB005EC7E9 /* CocktailDetailViewController.swift in Sources */,
 				EDB0BE66286E160A005EC7E9 /* Cocktail.swift in Sources */,
 				EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */,
