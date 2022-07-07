@@ -12,18 +12,30 @@ class CocktailListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
     }
     
+    // I need to figure out how to add a tableview onto the view controller.
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return CocktailListViewModel.sharedInstance.cocktails.count
+    }
 
-    /*
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else {return UITableViewCell() }
+        let cocktail = CocktailListViewModel.sharedInstance.cocktails[indexPath.row]
+        cell.updateView(for: cocktail)
+        return cell
+    }
+  
+  
+   
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+       
+        }
+            
 
 }// End of class

@@ -6,14 +6,38 @@
 //
 
 import UIKit
+import SwiftUI
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+
 
 @main
+
+//MARK: - Add the following code to the apps main entry point.
+
+struct YourApp: App {
+    // register app delegate for Firebase setup
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    content_copy
+    
+    
+    var body: some Scene {
+        WindowGroup {
+            NavigationView {
+                ContentView()
+            }
+        }
+    }
+}
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
         return true
     }
 

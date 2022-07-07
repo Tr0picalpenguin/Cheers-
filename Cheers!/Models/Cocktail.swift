@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
-class Cocktail: Codable {
+class Cocktail {
     
     enum Keys {
         static let collectionType = "cocktails"
         static let name = "name"
         static let description = "description"
-        static let ingredient = "ingredient"
+        static let ingredients = "ingredients"
         static let glass = "glassType"
         static let uuid = "uuid"
         static let imageURL = "imageURL"
@@ -22,7 +23,7 @@ class Cocktail: Codable {
     // MARK: - Properties
     var name: String
     var description: String
-    var ingredient: String
+    var ingredients: UITableView
     var glass: String
     let uuid: String
     var imageURL: URL?
@@ -31,15 +32,15 @@ class Cocktail: Codable {
         [Keys.name: self.name,
          Keys.description: self.description,
          Keys.glass: self.glass,
-         Keys.ingredient: self.ingredient,
+         Keys.ingredients: self.ingredients,
          Keys.uuid: self.uuid,
          Keys.imageURL: self.imageURL]
     }
     
-    init(name:String, description: String, ingredient: String, glass: String, uuid: String = UUID().uuidString, imageURL: String = "") {
+    init(name:String, description: String, ingredients: UITableView, glass: String, uuid: String = UUID().uuidString, imageURL: String = "") {
         self.name = name
         self.description = description
-        self.ingredient = ingredient
+        self.ingredients = ingredients
         self.glass = glass
         self.uuid = uuid
         self.imageURL = URL(string: imageURL)
@@ -51,14 +52,14 @@ extension Cocktail {
     convenience init?(dictionary: [String: Any]) {
         guard let name = dictionary[Keys.name] as? String,
               let description = dictionary[Keys.description] as? String,
-              let ingredient = dictionary[Keys.ingredient] as? String,
+              let ingredients = dictionary[Keys.ingredients] as? UITableView,
               let glass = dictionary[Keys.glass] as? String,
               let imageURL = dictionary[Keys.imageURL] as? String,
               let uuid = dictionary[Keys.uuid] as? String else { return nil }
         
         self.init(name: name,
                   description: description,
-                  ingredient: ingredient,
+                  ingredients: ingredients,
                   glass: glass,
                   uuid: uuid,
                   imageURL: imageURL)

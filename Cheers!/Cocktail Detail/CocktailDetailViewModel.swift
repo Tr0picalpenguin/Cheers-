@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+
+class CocktailDetailViewModel {
+    
+    // need to work out 2 different fetch operations. One will be from the network API and the other will be from the custom firestore
+    func fetchCocktail() {
+        
+    }
+}
