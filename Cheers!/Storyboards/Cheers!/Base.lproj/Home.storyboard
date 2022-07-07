@@ -26,6 +26,9 @@
                                     <segment title="Standard"/>
                                     <segment title="Custom"/>
                                 </segments>
+                                <connections>
+                                    <action selector="homeIndexChanged:" destination="uiR-dP-4dC" eventType="valueChanged" id="6Ua-Aj-eG1"/>
+                                </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lef-Yf-mRW">
                                 <rect key="frame" x="8" y="163" width="398" height="34"/>
@@ -102,8 +105,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="FON-lm-izm"/>
                     <connections>
+                        <outlet property="cocktailListTableView" destination="BmF-pO-kba" id="kGE-oe-dgz"/>
                         <outlet property="homeLabel" destination="fKv-05-UJy" id="KIT-xZ-AZz"/>
-                        <outlet property="homeSegmentedControl" destination="gj5-mH-RLF" id="CGp-pd-5sq"/>
+                        <outlet property="homeSegmentedControl" destination="gj5-mH-RLF" id="ifY-x5-wsJ"/>
                         <outlet property="searchBar" destination="Lef-Yf-mRW" id="bXf-BB-qtz"/>
                     </connections>
                 </viewController>

@@ -11,9 +11,10 @@ import Foundation
 
 class CocktailListViewModel {
     
-    static let sharedInstance = CocktailListViewModel()
-    
-    var cocktails: [Cocktail] = []
     
     
+    var standardCocktails: [Cocktail] = []
+    var customCocktails: [Cocktail] = []
+    
+    // MARK: - CRUD
 }
