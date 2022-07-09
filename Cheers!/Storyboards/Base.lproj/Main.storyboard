@@ -158,6 +158,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Create Account"/>
                                         <connections>
+                                            <action selector="createAccountButtonTapped:" destination="uk4-me-ZWY" eventType="touchUpInside" id="9gs-Rf-Ul4"/>
                                             <segue destination="so5-eh-7N9" kind="show" id="D2l-tW-YOe"/>
                                         </connections>
                                     </button>
@@ -166,7 +167,8 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Return to login"/>
                                         <connections>
-                                            <segue destination="SIG-sJ-XoY" kind="show" id="Jw1-L2-Dr9"/>
+                                            <action selector="returnToLoginButtonTapped:" destination="uk4-me-ZWY" eventType="touchUpInside" id="YQC-WB-VBQ"/>
+                                            <segue destination="SIG-sJ-XoY" kind="show" id="mpa-MT-dKc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -183,6 +185,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="82z-0L-a8Y"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="kZR-sP-tqz" id="2Kd-ev-hfO"/>
+                        <outlet property="passwordTextField" destination="kZR-sP-tqz" id="0T1-Dg-MVm"/>
+                        <outlet property="usernameTextField" destination="fwf-Tf-aJi" id="fjc-DB-ift"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvO-v6-OYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,8 +225,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yeK-Un-VU5"/>
-        <segue reference="Jw1-L2-Dr9"/>
+        <segue reference="D2l-tW-YOe"/>
+        <segue reference="mpa-MT-dKc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
