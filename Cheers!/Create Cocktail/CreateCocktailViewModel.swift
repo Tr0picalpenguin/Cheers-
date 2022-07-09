@@ -32,3 +32,4 @@ class CreateCocktailViewModel {
         // add cocktail to a network service which will be the SOT for the custom cocktails.
     }
 }
+

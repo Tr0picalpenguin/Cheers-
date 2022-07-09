@@ -50,6 +50,7 @@ class Cocktail {
         static let measurement15 = "strMeasure15"
     }
     
+    
     // MARK: - Properties
     var drinkID: String
     var name: String
@@ -57,36 +58,36 @@ class Cocktail {
     var glass: String
     let uuid: String
     var imageURL: URL?
-    var ingredient1: String
-    var ingredient2: String
-    var ingredient3: String
-    var ingredient4: String
-    var ingredient5: String
-    var ingredient6: String
-    var ingredient7: String
-    var ingredient8: String
-    var ingredient9: String
-    var ingredient10: String
-    var ingredient11: String
-    var ingredient12: String
-    var ingredient13: String
-    var ingredient14: String
-    var ingredient15: String
-    var measurement1: String
-    var measurement2: String
-    var measurement3: String
-    var measurement4: String
-    var measurement5: String
-    var measurement6: String
-    var measurement7: String
-    var measurement8: String
-    var measurement9: String
-    var measurement10: String
-    var measurement11: String
-    var measurement12: String
-    var measurement13: String
-    var measurement14: String
-    var measurement15: String
+    var ingredient1: String?
+    var ingredient2: String?
+    var ingredient3: String?
+    var ingredient4: String?
+    var ingredient5: String?
+    var ingredient6: String?
+    var ingredient7: String?
+    var ingredient8: String?
+    var ingredient9: String?
+    var ingredient10: String?
+    var ingredient11: String?
+    var ingredient12: String?
+    var ingredient13: String?
+    var ingredient14: String?
+    var ingredient15: String?
+    var measurement1: String?
+    var measurement2: String?
+    var measurement3: String?
+    var measurement4: String?
+    var measurement5: String?
+    var measurement6: String?
+    var measurement7: String?
+    var measurement8: String?
+    var measurement9: String?
+    var measurement10: String?
+    var measurement11: String?
+    var measurement12: String?
+    var measurement13: String?
+    var measurement14: String?
+    var measurement15: String?
     
     var cocktailData: [String: AnyHashable] {
         [Keys.drinkID: self.drinkID,
@@ -127,7 +128,7 @@ class Cocktail {
          Keys.measurement15: self.measurement15]
     }
     
-    init(dinkID: String, name:String, instruction: String, glass: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String, measurement13: String, measurement14: String, measurement15: String) {
+    init(dinkID: String, name:String, instruction: String, glass: String, uuid: String = UUID().uuidString, imageURL: String, ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String?, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String, measurement13: String, measurement14: String, measurement15: String) {
         self.drinkID = dinkID
         self.name = name
         self.instruction = instruction

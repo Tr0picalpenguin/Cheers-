@@ -7,17 +7,17 @@
 
 import Foundation
 
-//struct User {
-//    
-//    enum Keys {
-//        static let username = "username"
-//        static let password = "password"
-//        static let email = "email"
-//        static let profilePicture = "profilePicture"
-//    }
-//    // MARK: - Properties
-//    let username: String
-//    let password: String
-//    let email: String
-//    let profilePicture:
-//}
+struct User {
+    
+    enum Keys {
+        static let username = "username"
+        static let password = "password"
+        static let email = "email"
+        static let profilePicture = "profilePicture"
+    }
+    // MARK: - Properties
+    let username: String
+    let password: String
+    let email: String
+    let profilePicture: URL?
+}

@@ -55,6 +55,9 @@
                                 <rect key="frame" x="266" y="545" width="119" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Add Ingredient"/>
+                                <connections>
+                                    <action selector="addIngredientButtonTapped:" destination="4n0-d2-q7K" eventType="touchUpInside" id="swk-v6-s6j"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wrF-ux-6ED">
                                 <rect key="frame" x="20" y="592" width="374" height="204"/>
@@ -99,6 +102,15 @@
                                     <tabBarItem systemItem="favorites" id="jY1-P6-zyx"/>
                                 </items>
                             </tabBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iC6-hh-Oki">
+                                <rect key="frame" x="333" y="30" width="56" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="4n0-d2-q7K" eventType="touchUpInside" id="pC7-zr-vQN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EWk-tJ-xrh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

@@ -13,8 +13,7 @@ class CreateCocktailViewController: UIViewController {
     @IBOutlet weak var glassTypeTextField: UITextField!
     @IBOutlet weak var instructionsTextView: UITextView!
     
-
-    
+// I need to figure out how to do the outlets for the custom cells
     @IBOutlet weak var cocktailImageView: UIImageView!
     
     override func viewDidLoad() {
@@ -24,14 +23,11 @@ class CreateCocktailViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func addIngredientButtonTapped(_ sender: Any) {
     }
-    */
-
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+    }
+    
+   
 }

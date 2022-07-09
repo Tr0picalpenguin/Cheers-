@@ -23,7 +23,7 @@ class CocktailListTableViewCell: UITableViewCell {
     func updateView() {
         guard let cocktail = cocktail else { return }
         cocktailNameLabel.text = cocktail.name
-        // need to update the image in the cell
+        // need to update the image in the cell but this image is coming from a network call
     }
 
 }

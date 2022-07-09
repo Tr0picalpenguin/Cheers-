@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+class UserLogin {
+    
+    let usernameTest = "test user"
+    let passwordTest = "password123"
+    let emailTest = "test@email.com"
+    
+    func userLogin(with username: String, and password: String) {
+        
+        
+        let user = User(username: usernameTest, password: passwordTest, email: emailTest, profilePicture: nil)
+    }
+}

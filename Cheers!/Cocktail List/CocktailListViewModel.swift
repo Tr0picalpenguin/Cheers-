@@ -16,4 +16,5 @@ class CocktailListViewModel {
     var customCocktails: [Cocktail] = []
     
     // MARK: - CRUD
+    
 }
