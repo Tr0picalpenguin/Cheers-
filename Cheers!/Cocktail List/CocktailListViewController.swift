@@ -8,18 +8,23 @@
 import UIKit
 
 class CocktailListViewController: UIViewController {
+    
+    
+    var viewModel: CocktailListViewModel!
 
     @IBOutlet weak var homeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var cocktailListTableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        // fetch the cocktail
+        viewModel = CocktailListViewModel(delegate: self)
+        viewModel.loadData()
+        tableView.dataSource = self
     }
     
-    var viewModel: CocktailListViewModel!
   
    
     // MARK: - Navigation
@@ -63,17 +68,18 @@ extension CocktailListViewController: UITableViewDataSource {
         return 0
     }
     
-    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else {return UITableViewCell() }
         
        //depending on what segment the user is on I want to display the correct tableview list.
-       let cocktail = viewModel.customCocktails[indexPath.row]
-       cell.cocktail = cocktail
-       
-        return cell
+       let cocktail = viewModel.standardCocktails[indexPath.row]
+       cell.cocktailNameLabel.text = cocktail.name
+       return cell
     }
-    
-}
+} //  end of extension
 
-
+extension CocktailListViewController: CocktailListViewModelDelegate {
+    func cocktailsLoadedSuccessfully() {
+        tableView.reloadData()
+    }
+} //  end of extension

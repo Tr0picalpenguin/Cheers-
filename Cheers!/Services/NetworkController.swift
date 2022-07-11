@@ -12,7 +12,7 @@ import UIKit
 class NetworkController {
     
     private static let baseURLString = "www.thecocktaildb.com/api/json/v2/9973533"
-    private static let popularComponent = "popular.php"
+    private static let popularComponent = "popular.php" // This will change to the full list component once I hear back from the guys that manage the API.
     
     static func fetchCocktailList(with url: URL, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
         

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>377200817480-hh19ts5hlf77sstpet2jj35lj4ds3h5q.apps.googleusercontent.com</string>
+	<string>437820934667-2guaa898fv04u1gqorab7pi9fo3ogldr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.377200817480-hh19ts5hlf77sstpet2jj35lj4ds3h5q</string>
+	<string>com.googleusercontent.apps.437820934667-2guaa898fv04u1gqorab7pi9fo3ogldr</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCuS6Pa6ogbsQTeOpiPnyLhkLCZhn8XkBI</string>
+	<string>AIzaSyC1ZjwmhmggYrawHtiEpRSPFw3sf0lO50M</string>
 	<key>GCM_SENDER_ID</key>
-	<string>377200817480</string>
+	<string>437820934667</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.tr0picalpenguin-Firebase-Day1-MVVM</string>
+	<string>Tr0picalpenguin.Cheers-</string>
 	<key>PROJECT_ID</key>
-	<string>fir-traveldiary-mvvm</string>
+	<string>cheers-df5e5</string>
 	<key>STORAGE_BUCKET</key>
-	<string>fir-traveldiary-mvvm.appspot.com</string>
+	<string>cheers-df5e5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:377200817480:ios:899e80e17395c65e216f7d</string>
+	<string>1:437820934667:ios:dbd6d6e093c1d3823f550e</string>
 </dict>
 </plist>

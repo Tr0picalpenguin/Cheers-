@@ -27,7 +27,7 @@ class CocktailListViewModel {
     // MARK: - CRUD
    
     func loadData() {
-        fetchCocktailList { result in
+        fetchApiCocktailList { result in
             switch result {
             case .success(let cocktail):
                 DispatchQueue.main.async {
@@ -41,9 +41,11 @@ class CocktailListViewModel {
     }
     
     //  function that fetches the cocktail list and decodes from the API
-    func fetchCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
-        guard let url = URL(string: "www.thecocktaildb.com/api/json/v2/9973533/popular.php") else {
-            completion(.failure(.badURL)) ; return }
+    func fetchApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
+        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php") else {
+            completion(.failure(.badURL))
+            return
+        }
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 completion(.failure(.requestError(error)))
@@ -62,6 +64,8 @@ class CocktailListViewModel {
     }
     
     //function that updates the views from Firebase storage
-    
+    func fetchCustomCocktailList() {
+        
+    }
     
 }

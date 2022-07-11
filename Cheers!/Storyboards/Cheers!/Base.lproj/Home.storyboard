@@ -110,6 +110,7 @@
                     <connections>
                         <outlet property="cocktailListTableView" destination="BmF-pO-kba" id="kGE-oe-dgz"/>
                         <outlet property="homeSegmentedControl" destination="gj5-mH-RLF" id="ifY-x5-wsJ"/>
+                        <outlet property="tableView" destination="BmF-pO-kba" id="IzH-GL-D9i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZc-ek-ZhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
