@@ -19,3 +19,5 @@ class UserLogin {
         let user = User(username: usernameTest, password: passwordTest, email: emailTest, profilePicture: nil)
     }
 }
+
+// I think I need an extension that checks user equatability to determine if they can login or not.

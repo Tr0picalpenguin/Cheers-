@@ -24,7 +24,7 @@ class CocktailDetailViewController: UIViewController {
     }
     
    
-    var cocktailReciever: Cocktail?
+    
    
     
 

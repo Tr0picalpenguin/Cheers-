@@ -29,15 +29,17 @@ class CocktailListViewController: UIViewController {
        
         }
      
-    // This needs to be reviewed.
+   
     @IBAction func homeIndexChanged(_ sender: Any) {
         switch homeSegmentedControl.selectedSegmentIndex {
         case 0:
             homeSegmentedControl.titleForSegment(at: 0) // this will be deleted.
             // if the user has selected this index I want to load the data from the API.
+            
         case 1:
             homeSegmentedControl.titleForSegment(at: 1) // this will be deleted.
-            // if the user has selected this index then I want to populate the custom cocktails.
+            // if the user has selected this index then I want to populate the custom cocktails from Firestore.
+            
         default:
             break
         }
@@ -71,4 +73,7 @@ extension CocktailListViewController: UITableViewDataSource {
        
         return cell
     }
+    
 }
+
+

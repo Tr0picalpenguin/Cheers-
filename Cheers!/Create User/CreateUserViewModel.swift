@@ -19,5 +19,6 @@ class CreateUser {
         
         
         let newUser = User(username: usernameTest, password: passwordTest, email: emailTest, profilePicture: nil)
+        // I need to research how to store user data and where.
     }
 }

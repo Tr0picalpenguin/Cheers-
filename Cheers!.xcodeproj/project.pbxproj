@@ -39,6 +39,8 @@
 		EDB0BECD2877A66C005EC7E9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */; };
 		EDB0BECF2878F4BB005EC7E9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECE2878F4BB005EC7E9 /* FirebaseService.swift */; };
 		EDB0BED12878F722005EC7E9 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BED02878F722005EC7E9 /* FirebaseError.swift */; };
+		EDB0BED3287B8703005EC7E9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BED2287B8703005EC7E9 /* NetworkError.swift */; };
+		EDB0BED5287B8BD2005EC7E9 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BED4287B8BD2005EC7E9 /* NetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EDB0BECE2878F4BB005EC7E9 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		EDB0BED02878F722005EC7E9 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		EDB0BED2287B8703005EC7E9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EDB0BED4287B8BD2005EC7E9 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 			children = (
 				EDB0BECE2878F4BB005EC7E9 /* FirebaseService.swift */,
 				EDB0BED02878F722005EC7E9 /* FirebaseError.swift */,
+				EDB0BED2287B8703005EC7E9 /* NetworkError.swift */,
+				EDB0BED4287B8BD2005EC7E9 /* NetworkController.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB0BED5287B8BD2005EC7E9 /* NetworkController.swift in Sources */,
 				EDB0BECF2878F4BB005EC7E9 /* FirebaseService.swift in Sources */,
 				EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */,
 				EDB0BE7B2874AFD4005EC7E9 /* CocktailListViewController.swift in Sources */,
@@ -336,6 +343,7 @@
 				EDB0BECD2877A66C005EC7E9 /* FavoritesViewController.swift in Sources */,
 				EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */,
 				EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */,
+				EDB0BED3287B8703005EC7E9 /* NetworkError.swift in Sources */,
 				EDB0BEC828778F97005EC7E9 /* CreateUserViewController.swift in Sources */,
 				EDB0BE7D2874AFEB005EC7E9 /* CocktailDetailViewController.swift in Sources */,
 				EDB0BE66286E160A005EC7E9 /* Cocktail.swift in Sources */,

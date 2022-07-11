@@ -8,7 +8,14 @@
 import Foundation
 import UIKit
 
-class Cocktail {
+struct TopLevelDictionary: Decodable {
+    private enum CodingKeys: String, CodingKey {
+        case drinks
+    }
+    let drinks: [Cocktail]
+}
+
+class Cocktail: Codable {
     
     enum Keys {
         static let collectionType = "cocktails"
