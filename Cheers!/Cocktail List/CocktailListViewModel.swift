@@ -25,12 +25,7 @@ class CocktailListViewModel {
     }
     
     // MARK: - CRUD
-    // call this function in the viewDidLoad on the viewController
-    func loadMockData() {
-        
-    }
-    
-    
+   
     func loadData() {
         fetchCocktailList { result in
             switch result {

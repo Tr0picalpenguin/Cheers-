@@ -79,13 +79,11 @@ class NetworkController {
                 completion(.failure(.couldNotUnwrap))
                 return
             }
-            do {
-                let image = try JSONDecoder().decode(, from: <#T##Data#>)
-            } catch {
-                
+            guard let image = UIImage(data: imageData) else {
+                completion(.failure(.errorDecoding(error!)))
+                return
             }
-
-        }
+            completion(.success(image))
+        }.resume()
     }
- 
 }// end of class
