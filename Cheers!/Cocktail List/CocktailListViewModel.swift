@@ -14,7 +14,7 @@ protocol CocktailListViewModelDelegate: AnyObject {
 
 class CocktailListViewModel {
     
-    var topLevelDictionary: TopLevelDictionary?
+
     // is this right?
     var standardCocktails: [Cocktail] = []
     var customCocktails: [Cocktail] = []
@@ -42,25 +42,18 @@ class CocktailListViewModel {
     
     //  function that fetches the cocktail list and decodes from the API
     func fetchApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
-        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php") else {
-            completion(.failure(.badURL))
-            return
+        let mockURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
+        NetworkController.fetchCocktailList(with: mockURL!) { result in
+            switch result {
+            case.success(let cocktailDict):
+                DispatchQueue.main.async {
+                    self.standardCocktails = cocktailDict.drinks
+                    self.delegate?.cocktailsLoadedSuccessfully()
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                completion(.failure(.requestError(error)))
-            }
-            guard let data = data else {
-                completion(.failure(.couldNotUnwrap))
-                return
-            }
-            do {
-                let topLevelDictionary = try JSONDecoder().decode(TopLevelDictionary.self, from: data)
-                completion(.success(topLevelDictionary.drinks))
-            } catch {
-                completion(.failure(.errorDecoding(error)))
-            }
-        }.resume()
     }
     
     //function that updates the views from Firebase storage

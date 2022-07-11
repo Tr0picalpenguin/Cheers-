@@ -16,17 +16,11 @@ class NetworkController {
     
     static func fetchCocktailList(with url: URL, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
         
-        // set up the url
-        guard let url = URL(string: baseURLString) else {
-            completion(.failure(.badURL))
-            return
-        }
-        let popularURL = url.appendingPathComponent(popularComponent)
-        print(popularURL)
+   
         
-        URLSession.shared.dataTask(with: popularURL) { cocktailListData, _, error in
+        URLSession.shared.dataTask(with: url) { cocktailListData, _, error in
             if let error = error {
-                print("There was an error fetching the data. The url is \(popularURL), the error is \(error.localizedDescription)")
+                print("There was an error fetching the data. The url is \(url), the error is \(error.localizedDescription)")
                 completion(.failure(.badURL))
             }
             guard let cocktailListData = cocktailListData else {
