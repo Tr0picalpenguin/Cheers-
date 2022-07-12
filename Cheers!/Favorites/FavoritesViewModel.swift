@@ -10,7 +10,7 @@ import Foundation
 class Favorites {
     
     // need something to recieve cocktails
-    var cocktailReciever: Cocktail?
+    var cocktailReciever: CocktailDetail?
     
     // need to resolve the segmented control for the favorites and the custom cocktails created by the user. 
     

@@ -17,12 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-mH-RLF">
-                                <rect key="frame" x="131.5" y="116" width="151" height="31"/>
+                                <rect key="frame" x="105.5" y="116" width="203" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0mD-uD-0Jf"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Standard"/>
+                                    <segment title="Popular"/>
+                                    <segment title="Full List"/>
                                     <segment title="Custom"/>
                                 </segments>
                                 <connections>
@@ -30,7 +31,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lef-Yf-mRW">
-                                <rect key="frame" x="164.5" y="163" width="85" height="34"/>
+                                <rect key="frame" x="8" y="163" width="398" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -53,19 +54,19 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-fp-RQF">
-                                                    <rect key="frame" x="251" y="52" width="117.5" height="19"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="200.5" y="66.5" width="185.5" height="33.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Qbm-7p-9Bj" secondAttribute="bottom" constant="2" id="Aiw-14-Ybb"/>
-                                                <constraint firstItem="qJm-fp-RQF" firstAttribute="centerY" secondItem="H8c-Zt-prD" secondAttribute="centerY" id="Tue-8N-Zlo"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qJm-fp-RQF" secondAttribute="bottom" constant="12" id="dmX-h0-bwU"/>
                                                 <constraint firstItem="Qbm-7p-9Bj" firstAttribute="leading" secondItem="H8c-Zt-prD" secondAttribute="leading" constant="2" id="gPH-SO-4rx"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="qJm-fp-RQF" secondAttribute="trailing" constant="25.5" id="hD0-GS-06S"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="qJm-fp-RQF" secondAttribute="trailing" constant="8" id="hD0-GS-06S"/>
                                                 <constraint firstItem="Qbm-7p-9Bj" firstAttribute="top" secondItem="H8c-Zt-prD" secondAttribute="top" constant="2" id="oXT-dv-rQU"/>
-                                                <constraint firstItem="qJm-fp-RQF" firstAttribute="top" secondItem="H8c-Zt-prD" secondAttribute="topMargin" constant="41" id="pNf-c5-Fga"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -101,12 +102,14 @@
                             <constraint firstItem="gj5-mH-RLF" firstAttribute="top" secondItem="fKv-05-UJy" secondAttribute="bottom" constant="2" id="1TW-sU-QtG"/>
                             <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="BmF-pO-kba" secondAttribute="trailing" id="8uI-OC-6BT"/>
                             <constraint firstItem="BmF-pO-kba" firstAttribute="leading" secondItem="wr0-Oe-yJT" secondAttribute="leading" id="JeB-2I-Mhh"/>
+                            <constraint firstItem="Lef-Yf-mRW" firstAttribute="leading" secondItem="wr0-Oe-yJT" secondAttribute="leading" constant="8" id="L7p-T4-0SS"/>
                             <constraint firstItem="LOt-Zo-6qB" firstAttribute="bottom" secondItem="wr0-Oe-yJT" secondAttribute="bottom" id="LlX-Zq-qRg"/>
                             <constraint firstItem="wr0-Oe-yJT" firstAttribute="bottom" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="716" id="Lxd-2F-WbL"/>
                             <constraint firstItem="fKv-05-UJy" firstAttribute="top" secondItem="SQp-U7-hnW" secondAttribute="top" constant="38" id="M8r-j5-DBe"/>
                             <constraint firstItem="LOt-Zo-6qB" firstAttribute="leading" secondItem="BmF-pO-kba" secondAttribute="leading" id="QTU-kV-u5R"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="top" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="17" id="SRa-mS-cYr"/>
                             <constraint firstItem="gj5-mH-RLF" firstAttribute="centerX" secondItem="SQp-U7-hnW" secondAttribute="centerX" id="Tho-FB-6d5"/>
+                            <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="Lef-Yf-mRW" secondAttribute="trailing" constant="8" id="Vz5-8M-T9h"/>
                             <constraint firstItem="LOt-Zo-6qB" firstAttribute="top" secondItem="BmF-pO-kba" secondAttribute="bottom" constant="8" id="Xn8-Em-hMV"/>
                             <constraint firstItem="BmF-pO-kba" firstAttribute="top" secondItem="Lef-Yf-mRW" secondAttribute="bottom" constant="8" id="bGh-zf-iLJ"/>
                             <constraint firstItem="fKv-05-UJy" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="doe-nQ-L3j"/>
@@ -162,13 +165,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(# of likes)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrM-Zv-FnZ">
-                                <rect key="frame" x="41" y="763" width="80.5" height="21"/>
+                                <rect key="frame" x="41" y="756" width="80.5" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cP-rJ-eeU">
-                                <rect key="frame" x="320" y="758" width="51" height="31"/>
+                                <rect key="frame" x="320" y="756" width="51" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Like"/>
                                 <connections>
@@ -198,6 +201,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="MV1-Q6-vkb" firstAttribute="top" secondItem="Kas-0i-4wU" secondAttribute="bottom" constant="8" symbolic="YES" id="290-JF-exP"/>
+                            <constraint firstItem="1vR-aA-4iN" firstAttribute="top" secondItem="WrM-Zv-FnZ" secondAttribute="bottom" constant="8" id="2uM-9x-UNa"/>
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" secondItem="8cP-rJ-eeU" secondAttribute="trailing" constant="43" id="5jM-VM-lON"/>
                             <constraint firstItem="xDP-Os-jNk" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="41" id="6uc-MH-Q67"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="top" secondItem="2n2-Ow-tJB" secondAttribute="top" constant="68" id="B6Q-6G-6Mu"/>
@@ -212,10 +216,10 @@
                             <constraint firstItem="Kas-0i-4wU" firstAttribute="top" secondItem="vlO-HG-dsY" secondAttribute="bottom" constant="55" id="aXr-tJ-7pt"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="leading" secondItem="rnA-lB-TlJ" secondAttribute="leading" id="dyL-Xh-yAy"/>
                             <constraint firstItem="1vR-aA-4iN" firstAttribute="centerX" secondItem="rnA-lB-TlJ" secondAttribute="centerX" id="iyp-Uw-Av8"/>
-                            <constraint firstItem="8cP-rJ-eeU" firstAttribute="top" secondItem="xDP-Os-jNk" secondAttribute="bottom" constant="62" id="k2r-8S-EMO"/>
                             <constraint firstItem="WrM-Zv-FnZ" firstAttribute="centerY" secondItem="8cP-rJ-eeU" secondAttribute="centerY" id="mG6-eu-cwJ"/>
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="bottom" secondItem="1vR-aA-4iN" secondAttribute="bottom" constant="16" id="of6-gm-1mO"/>
                             <constraint firstItem="1vR-aA-4iN" firstAttribute="centerX" secondItem="Kas-0i-4wU" secondAttribute="centerX" id="qg4-s4-oAR"/>
+                            <constraint firstItem="1vR-aA-4iN" firstAttribute="top" secondItem="8cP-rJ-eeU" secondAttribute="bottom" constant="8" id="ueE-k3-VdV"/>
                             <constraint firstItem="xDP-Os-jNk" firstAttribute="leading" secondItem="WrM-Zv-FnZ" secondAttribute="leading" id="yK3-3y-Bef"/>
                             <constraint firstItem="xDP-Os-jNk" firstAttribute="top" secondItem="rnA-lB-TlJ" secondAttribute="bottom" constant="27" id="yMg-H8-1PQ"/>
                             <constraint firstItem="Kas-0i-4wU" firstAttribute="top" secondItem="RkJ-YW-TyV" secondAttribute="top" constant="295" id="zkt-TL-80z"/>
@@ -226,6 +230,7 @@
                         <outlet property="cocktailImageView" destination="vlO-HG-dsY" id="SOS-qf-ylq"/>
                         <outlet property="cocktailNameLabel" destination="Kas-0i-4wU" id="7Uv-tu-CXn"/>
                         <outlet property="glassTypeLabel" destination="MV1-Q6-vkb" id="ECA-LE-cpW"/>
+                        <outlet property="ingredientsTableView" destination="xDP-Os-jNk" id="q5l-xN-aIv"/>
                         <outlet property="intstructionsTextView" destination="rnA-lB-TlJ" id="jdc-HZ-q52"/>
                         <outlet property="likesLabel" destination="WrM-Zv-FnZ" id="sCw-Bw-oOJ"/>
                     </connections>

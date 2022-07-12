@@ -14,6 +14,8 @@ class CocktailListTableViewCell: UITableViewCell {
     @IBOutlet weak var cocktailImageView: UIImageView!
     @IBOutlet weak var cocktailNameLabel: UILabel!
     
+    var cocktailImage: UIImage?
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         cocktailImageView.image = nil
@@ -27,6 +29,7 @@ class CocktailListTableViewCell: UITableViewCell {
             case.success(let cocktailImage):
                 DispatchQueue.main.async {
                     self.cocktailImageView.image = cocktailImage
+                    self.cocktailImage = cocktailImage
                 }
             case .failure(let error):
                 print("Error", error.localizedDescription)
@@ -34,12 +37,11 @@ class CocktailListTableViewCell: UITableViewCell {
         }
     }
     
+    
     func updateViews(with cocktail: Cocktail) {
         cocktailNameLabel.text = cocktail.name
         // need to call the fetch image function that was created above.
         fetchImage(for: cocktail)
     }
-
-    
 } // end of class
 

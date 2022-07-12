@@ -29,11 +29,20 @@ class CocktailListViewController: UIViewController {
    
     // MARK: - Navigation
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // will need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
-        
-        }
-     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//       // will need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
+//        if segue.identifier == "toDetailVC" {
+//            if let destination = segue.destination as? CocktailDetailViewController {
+//                if let index = tableView.indexPathForSelectedRow {
+//                    let cocktail = viewModel.standardCocktails[index.row]
+//                    let cocktailDetailViewModel = CocktailDetailViewModel(delegate: destination, cocktailResult: cocktail)
+//                    destination.cocktailDetailViewModel = cocktailDetailViewModel
+//
+//                }
+//            }
+//        }
+//    }
+//
    
     @IBAction func homeIndexChanged(_ sender: Any) {
         switch homeSegmentedControl.selectedSegmentIndex {
@@ -60,9 +69,9 @@ extension CocktailListViewController: UITableViewDataSource {
         // if the segmented control == index 0 then return viewModel.standardCocktails.count
         // else if the segmented control == index1 then return viewModel.customCocktails.count
         if homeSegmentedControl.selectedSegmentIndex == 0 {
-            return viewModel.standardCocktails.count
+            return viewModel.standardDrinks.count
         } else if homeSegmentedControl.selectedSegmentIndex == 1 {
-            return viewModel.customCocktails.count
+//          return viewModel.customCocktails.count
         }
         // Im not sure if this is right
         return 0
@@ -72,9 +81,9 @@ extension CocktailListViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else {return UITableViewCell() }
         
        //depending on what segment the user is on I want to display the correct tableview list.
-       let cocktail = viewModel.standardCocktails[indexPath.row]
+       let drink = viewModel.standardDrinks[indexPath.row]
        
-       cell.updateViews(with: cocktail)
+       cell.updateViews(with: drink)
        return cell
     }
 } //  end of extension

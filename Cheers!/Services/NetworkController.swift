@@ -11,12 +11,10 @@ import UIKit
 
 class NetworkController {
     
-    private static let baseURLString = "www.thecocktaildb.com/api/json/v2/9973533"
-    private static let popularComponent = "popular.php" // This will change to the full list component once I hear back from the guys that manage the API.
+ //   private static let baseURLString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic"
+ //   private static let popularComponent = "filter.php?a=Alcoholic" // This will change to the full list component once I hear back from the guys that manage the API.
     
     static func fetchCocktailList(with url: URL, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
-        
-   
         
         URLSession.shared.dataTask(with: url) { cocktailListData, _, error in
             if let error = error {
@@ -37,7 +35,7 @@ class NetworkController {
         }.resume()
     }
     
-    static func fetchCocktail(with urlString: String, completion: @escaping (Result<Cocktail, NetworkError>) -> Void) {
+    static func fetchCocktail(with urlString: String, completion: @escaping (Result<CocktailDetail, NetworkError>) -> Void) {
         guard let cocktailURL = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: cocktailURL) { cocktailData, _, error in
@@ -50,7 +48,7 @@ class NetworkController {
                 return
             }
             do {
-                let cocktail = try JSONDecoder().decode(Cocktail.self, from: cocktailData)
+                let cocktail = try JSONDecoder().decode(CocktailDetail.self, from: cocktailData)
                 completion(.success(cocktail))
             } catch {
                 print("Encountered error when decoding the data:", error.localizedDescription)

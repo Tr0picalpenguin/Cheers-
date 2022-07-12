@@ -16,8 +16,8 @@ class CocktailListViewModel {
     
 
     // is this right?
-    var standardCocktails: [Cocktail] = []
-    var customCocktails: [Cocktail] = []
+    var standardDrinks: [Cocktail] = []
+
     private weak var delegate: CocktailListViewModelDelegate?
     
     init(delegate: CocktailListViewModelDelegate) {
@@ -25,13 +25,14 @@ class CocktailListViewModel {
     }
     
     // MARK: - CRUD
-   
+   // in the load data I need an if else statement for which segment on the segmented control I am on to call the appropriate function.
     func loadData() {
-        fetchApiCocktailList { result in
+        
+        fetchFullApiCocktailList { result in
             switch result {
-            case .success(let cocktail):
+            case .success(let drink):
                 DispatchQueue.main.async {
-                    self.standardCocktails = cocktail
+                    self.standardDrinks = drink
                     self.delegate?.cocktailsLoadedSuccessfully()
                 }
             case .failure(let error):
@@ -40,14 +41,30 @@ class CocktailListViewModel {
         }
     }
     
-    //  function that fetches the cocktail list and decodes from the API
-    func fetchApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
-        let mockURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
-        NetworkController.fetchCocktailList(with: mockURL!) { result in
+    //  function that fetches the popular cocktail list and decodes from the API
+    func fetchPopularApiCocktailList(completion: @escaping (Result<[CocktailDetail], NetworkError>) -> Void) {
+        let popularURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
+        NetworkController.fetchCocktailList(with: popularURL!) { result in
             switch result {
-            case.success(let cocktailDict):
+            case .success(let popularDict):
                 DispatchQueue.main.async {
-                    self.standardCocktails = cocktailDict.drinks
+                    self.standardDrinks = popularDict.drinks
+                    self.delegate?.cocktailsLoadedSuccessfully()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    //  function that fetches the full cocktail list and decodes from the API
+    func fetchFullApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
+        let fullListURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic")
+        NetworkController.fetchCocktailList(with: fullListURL!) { result in
+            switch result {
+            case.success(let fullDict):
+                DispatchQueue.main.async {
+                    self.standardDrinks = fullDict.drinks
                     self.delegate?.cocktailsLoadedSuccessfully()
                 }
             case .failure(let error):
