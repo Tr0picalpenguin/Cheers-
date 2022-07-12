@@ -15,7 +15,7 @@ struct TopLevelDictionary: Decodable {
     let drinks: [Cocktail]
 }
 
-struct Cocktail: Codable {
+struct Cocktail: Decodable {
     
     enum CodingKeys: String, CodingKey {
         //        static let collectionType = "cocktails"
@@ -24,7 +24,7 @@ struct Cocktail: Codable {
         case instruction = "strInstructions"
         case glass = "strGlass"
   //      case uuid = "uuid"
-        case imageURL = "strImageSource"
+        case imageURL = "strDrinkThumb"
         case ingredient1 = "strIngredient1"
         case ingredient2 = "strIngredient2"
         case ingredient3 = "strIngredient3"
@@ -64,7 +64,7 @@ struct Cocktail: Codable {
     var instruction: String
     var glass: String
  //   let uuid: String
-    var imageURL: URL?
+    var imageURL: String?
     var ingredient1: String?
     var ingredient2: String?
     var ingredient3: String?

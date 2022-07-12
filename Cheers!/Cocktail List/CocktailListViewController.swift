@@ -9,7 +9,7 @@ import UIKit
 
 class CocktailListViewController: UIViewController {
     
-    
+    var cocktailList: [Cocktail] = []
     var viewModel: CocktailListViewModel!
 
     @IBOutlet weak var homeSegmentedControl: UISegmentedControl!
@@ -31,7 +31,7 @@ class CocktailListViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        // will need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
-       
+        
         }
      
    
@@ -73,7 +73,8 @@ extension CocktailListViewController: UITableViewDataSource {
         
        //depending on what segment the user is on I want to display the correct tableview list.
        let cocktail = viewModel.standardCocktails[indexPath.row]
-       cell.cocktailNameLabel.text = cocktail.name
+       
+       cell.updateViews(with: cocktail)
        return cell
     }
 } //  end of extension

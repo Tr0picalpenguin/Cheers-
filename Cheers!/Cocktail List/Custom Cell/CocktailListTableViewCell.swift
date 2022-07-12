@@ -6,24 +6,40 @@
 //
 
 import UIKit
+import AVFoundation
+import SwiftUI
 
 class CocktailListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cocktailImageView: UIImageView!
     @IBOutlet weak var cocktailNameLabel: UILabel!
     
-    var cocktail: Cocktail? {
-        // didSet is called a property observer. didSet will observe the Cocktail property. So it is looking for when the Cocktail property "is set" or has a value. It is observing for when the property has been assigned. Ex. nametag.
-        didSet {
-            updateView()
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cocktailImageView.image = nil
+    }
+    
+   
+    func fetchImage(for cocktail: Cocktail) {
+        guard let imageString = cocktail.imageURL else { return }
+        NetworkController.fetchImage(with: imageString) { result in
+            switch result {
+            case.success(let cocktailImage):
+                DispatchQueue.main.async {
+                    self.cocktailImageView.image = cocktailImage
+                }
+            case .failure(let error):
+                print("Error", error.localizedDescription)
+            }
         }
     }
     
-    // I need to update the views on the cell.
-    func updateView() {
-        guard let cocktail = cocktail else { return }
+    func updateViews(with cocktail: Cocktail) {
         cocktailNameLabel.text = cocktail.name
-        // need to update the image in the cell but this image is coming from a network call
+        // need to call the fetch image function that was created above.
+        fetchImage(for: cocktail)
     }
 
-}
+    
+} // end of class
+
