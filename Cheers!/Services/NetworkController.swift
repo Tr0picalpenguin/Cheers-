@@ -11,8 +11,8 @@ import UIKit
 
 class NetworkController {
     
- //   private static let baseURLString = "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic"
- //   private static let popularComponent = "filter.php?a=Alcoholic" // This will change to the full list component once I hear back from the guys that manage the API.
+    private static let baseDetailURLString = "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php"
+    private static let cocktailIDKey = "i"
     
     static func fetchCocktailList(with url: URL, completion: @escaping (Result<TopLevelDictionary, NetworkError>) -> Void) {
         
@@ -35,10 +35,19 @@ class NetworkController {
         }.resume()
     }
     
-    static func fetchCocktail(with urlString: String, completion: @escaping (Result<CocktailDetail, NetworkError>) -> Void) {
-        guard let cocktailURL = URL(string: urlString) else { return }
+    static func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CocktailDetail, NetworkError>) -> Void) {
+        guard let cocktailDetailURL = URL(string: baseDetailURLString) else {
+            completion(.failure(.badURL))
+            return
+        }
+        var urlComponents = URLComponents(url: cocktailDetailURL, resolvingAgainstBaseURL: true)
+        let cocktailIdQuery = URLQueryItem(name: cocktailIDKey, value: cocktailID)
+        urlComponents?.queryItems = [cocktailIdQuery]
         
-        URLSession.shared.dataTask(with: cocktailURL) { cocktailData, _, error in
+        guard let finalDetailURL = urlComponents?.url else { return }
+        print(finalDetailURL)
+        
+        URLSession.shared.dataTask(with: finalDetailURL) { cocktailData, _, error in
             if let error = error {
                 print("Encountered error: \(error.localizedDescription)")
                 completion(.failure(.badURL))
@@ -48,7 +57,12 @@ class NetworkController {
                 return
             }
             do {
-                let cocktail = try JSONDecoder().decode(CocktailDetail.self, from: cocktailData)
+                let drinks = try JSONDecoder().decode(CoctailDetailTopLevelDictionary.self, from: cocktailData)
+                guard let cocktail = drinks.drinks.first else {
+                    completion(.failure(.couldNotUnwrap))
+                    return
+                }
+                
                 completion(.success(cocktail))
             } catch {
                 print("Encountered error when decoding the data:", error.localizedDescription)
@@ -56,6 +70,7 @@ class NetworkController {
             }
         }.resume()
     }
+
     
     static func fetchImage(with imageString: String, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
         guard let imageURL = URL(string: imageString) else {

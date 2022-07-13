@@ -51,7 +51,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="R44-kd-vcd">
                                 <rect key="frame" x="82" y="187" width="250" height="229"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usename..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Vp-Dk-Lzi">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Vp-Dk-Lzi">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="2Hw-4N-xIT"/>
@@ -76,7 +76,6 @@
                                         <buttonConfiguration key="configuration" style="filled" title="(Login)"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="msl-dx-Ayz"/>
-                                            <segue destination="so5-eh-7N9" kind="show" id="OH4-2G-VyQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWm-34-UeV">
@@ -110,8 +109,8 @@
                     <navigationItem key="navigationItem" id="t0Y-Ql-gF9"/>
                     <connections>
                         <outlet property="appNameLabel" destination="T3t-nV-5D2" id="7ai-eO-qSF"/>
+                        <outlet property="emailTextField" destination="0Vp-Dk-Lzi" id="22P-sQ-hdj"/>
                         <outlet property="passwordTextField" destination="Vph-h1-Uig" id="9b1-f1-cWE"/>
-                        <outlet property="usernameTextField" destination="0Vp-Dk-Lzi" id="22P-sQ-hdj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJA-qD-hQT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,7 +225,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="R6F-3a-krA"/>
-        <segue reference="OH4-2G-VyQ"/>
+        <segue reference="yeK-Un-VU5"/>
         <segue reference="mpa-MT-dKc"/>
     </inferredMetricsTieBreakers>
     <resources>

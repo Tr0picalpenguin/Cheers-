@@ -28,14 +28,14 @@ class CocktailDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateViews()
+       
     }
    
     // I need to display the details of the cocktail AND figure out why the image gets a BAD_ACCESS error
     func updateViews() {
         guard let cocktail = cocktailDetailViewModel.cocktail else { return }
         if let imageURL = cocktail.imageURL {
-//            self.cocktailImageView.fetchImage(using: imageURL)
+            self.cocktailImageView.fetchImage(using: imageURL)
         }
         self.cocktailNameLabel.text = cocktail.name.capitalized
         self.glassTypeLabel.text = cocktail.glass
@@ -58,7 +58,7 @@ class CocktailDetailViewController: UIViewController {
 
 extension CocktailDetailViewController: CocktailDetailViewModeldelegate {
     func cocktailLoadedSuccessfully() {
-        
+        updateViews()
     }
 }
 

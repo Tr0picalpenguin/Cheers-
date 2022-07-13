@@ -16,7 +16,8 @@ class CocktailListViewModel {
     
 
     // is this right?
-    var standardDrinks: [Cocktail] = []
+    var standardCocktails: [Cocktail] = []
+    var standardCocktailDetail: [CocktailDetail] = []
 
     private weak var delegate: CocktailListViewModelDelegate?
     
@@ -32,7 +33,7 @@ class CocktailListViewModel {
             switch result {
             case .success(let drink):
                 DispatchQueue.main.async {
-                    self.standardDrinks = drink
+                    self.standardCocktails = drink
                     self.delegate?.cocktailsLoadedSuccessfully()
                 }
             case .failure(let error):
@@ -48,7 +49,7 @@ class CocktailListViewModel {
             switch result {
             case .success(let popularDict):
                 DispatchQueue.main.async {
-                    self.standardDrinks = popularDict.drinks
+                    self.standardCocktails = popularDict.drinks
                     self.delegate?.cocktailsLoadedSuccessfully()
                 }
             case .failure(let error):
@@ -64,7 +65,7 @@ class CocktailListViewModel {
             switch result {
             case.success(let fullDict):
                 DispatchQueue.main.async {
-                    self.standardDrinks = fullDict.drinks
+                    self.standardCocktails = fullDict.drinks
                     self.delegate?.cocktailsLoadedSuccessfully()
                 }
             case .failure(let error):

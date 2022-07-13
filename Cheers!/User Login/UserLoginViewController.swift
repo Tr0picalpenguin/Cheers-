@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SwiftUI
 
 class UserLoginViewController: UIViewController {
 
     @IBOutlet weak var appNameLabel: UILabel!
     
-    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
@@ -31,6 +33,30 @@ class UserLoginViewController: UIViewController {
     }
     */
     @IBAction func loginButtonTapped(_ sender: Any) {
+        if let email = emailTextField.text,
+           let password = passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                switch result {
+                case .none:
+                    let alertController = UIAlertController(title: "Invalid Login", message: "Please check email and password", preferredStyle: .alert)
+                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                    alertController.addAction(confirmAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                case .some(let userDetails):
+                    print("Cheers!", userDetails.user.email!)
+                    
+                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarHome") as? UITabBarController else { return }
+                    tabBarController.modalPresentationStyle = .overFullScreen
+                    self.emailTextField.text = ""
+                    self.passwordTextField.text = ""
+                    self.emailTextField.resignFirstResponder()
+                    self.passwordTextField.resignFirstResponder()
+                    self.present(tabBarController, animated: true)
+                }
+            }
+        }
     }
     @IBAction func signInWithAppleButtonTapped(_ sender: Any) {
     }

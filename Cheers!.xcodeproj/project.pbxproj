@@ -12,7 +12,7 @@
 		EDB0BE57286CD5BD005EC7E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE55286CD5BD005EC7E9 /* Main.storyboard */; };
 		EDB0BE59286CD5BF005EC7E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE58286CD5BF005EC7E9 /* Assets.xcassets */; };
 		EDB0BE5C286CD5BF005EC7E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE5A286CD5BF005EC7E9 /* LaunchScreen.storyboard */; };
-		EDB0BE66286E160A005EC7E9 /* CocktailDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE65286E160A005EC7E9 /* CocktailDetail.swift */; };
+		EDB0BE66286E160A005EC7E9 /* FullCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */; };
 		EDB0BE68286E1742005EC7E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE67286E1742005EC7E9 /* User.swift */; };
 		EDB0BE6C287498F9005EC7E9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE6A287498F9005EC7E9 /* Home.storyboard */; };
 		EDB0BE6F28749968005EC7E9 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE6D28749968005EC7E9 /* Create.storyboard */; };
@@ -44,6 +44,7 @@
 		EDB0BEDC287D0AE4005EC7E9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEDB287D0AE4005EC7E9 /* FirebaseStorage */; };
 		EDB0BEDE287D1205005EC7E9 /* CustomCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */; };
 		EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */; };
+		EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +55,7 @@
 		EDB0BE58286CD5BF005EC7E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDB0BE5B286CD5BF005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDB0BE5D286CD5BF005EC7E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDB0BE65286E160A005EC7E9 /* CocktailDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDetail.swift; sourceTree = "<group>"; };
+		EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCocktail.swift; sourceTree = "<group>"; };
 		EDB0BE67286E1742005EC7E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EDB0BE6B287498F9005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Cheers!/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		EDB0BE6E28749968005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Cheers!/Storyboards/Base.lproj/Create.storyboard"; sourceTree = "<group>"; };
@@ -80,6 +81,7 @@
 		EDB0BED6287C8F52005EC7E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCocktail.swift; sourceTree = "<group>"; };
 		EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailImageView.swift; sourceTree = "<group>"; };
+		EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +149,7 @@
 		EDB0BE64286E15F2005EC7E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EDB0BE65286E160A005EC7E9 /* CocktailDetail.swift */,
+				EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */,
 				EDB0BE67286E1742005EC7E9 /* User.swift */,
 				EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */,
 			);
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB0BE5A286CD5BF005EC7E9 /* LaunchScreen.storyboard */,
+				EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */,
 				EDB0BE55286CD5BD005EC7E9 /* Main.storyboard */,
 				EDB0BE6A287498F9005EC7E9 /* Home.storyboard */,
 				EDB0BE6D28749968005EC7E9 /* Create.storyboard */,
@@ -329,6 +332,7 @@
 			files = (
 				EDB0BE6F28749968005EC7E9 /* Create.storyboard in Resources */,
 				EDB0BE5C286CD5BF005EC7E9 /* LaunchScreen.storyboard in Resources */,
+				EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */,
 				EDB0BED7287C8F52005EC7E9 /* GoogleService-Info.plist in Resources */,
 				EDB0BE7128749995005EC7E9 /* Favorites.storyboard in Resources */,
 				EDB0BE59286CD5BF005EC7E9 /* Assets.xcassets in Resources */,
@@ -365,7 +369,7 @@
 				EDB0BED3287B8703005EC7E9 /* NetworkError.swift in Sources */,
 				EDB0BEC828778F97005EC7E9 /* CreateUserViewController.swift in Sources */,
 				EDB0BE7D2874AFEB005EC7E9 /* CocktailDetailViewController.swift in Sources */,
-				EDB0BE66286E160A005EC7E9 /* CocktailDetail.swift in Sources */,
+				EDB0BE66286E160A005EC7E9 /* FullCocktail.swift in Sources */,
 				EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */,
 				EDB0BE782874AF51005EC7E9 /* CocktailDetailViewModel.swift in Sources */,
 			);
