@@ -9,6 +9,8 @@ import Foundation
 
 class CreateUser {
     
+    private var service: FirebaseSyncable
+    
     func createUser(with username: String, password: String, email: String, profilePicture: URL?) {
         
         //mock data

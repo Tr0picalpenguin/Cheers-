@@ -56,5 +56,6 @@ extension UserLoginViewController: UserLoginViewModeldelegate {
         let alertController = UIAlertController(title: "Invalid Login", message: "Please check email and password", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(confirmAction)
+        present(alertController, animated: true)
     }
 }

@@ -16,10 +16,10 @@ protocol UserLoginViewModeldelegate: AnyObject {
 class UserLoginViewModel {
     
     private weak var delegate: UserLoginViewModeldelegate?
-    
+    private var service: FirebaseSyncable
     
     func loginAuthentication(with email: String, password: String) {
-       
+       //TODO: - abstract firebase code to FirebaseService
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             switch result {
             case .none:

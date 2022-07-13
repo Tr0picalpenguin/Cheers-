@@ -14,7 +14,7 @@ class CreateCocktailViewModel {
     
     
     // MARK: - CRUD
-    func createCocktail(with name:String, description: String, ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String,measurement13: String,measurement14: String,measurement15: String, glass: String, uuid: String = UUID().uuidString, imageURL: String = "") {
+    func createCocktail(with cocktailName: String, glass: String, instruction: String, uuid: String = UUID().uuidString, ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String,measurement13: String,measurement14: String,measurement15: String) {
         
         
         
