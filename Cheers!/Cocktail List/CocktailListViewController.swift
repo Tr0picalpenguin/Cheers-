@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CocktailListViewController: UIViewController {
     
@@ -62,7 +63,15 @@ class CocktailListViewController: UIViewController {
         }
     }
     
-
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signoutError as NSError {
+            print("Error logging out!", signoutError)
+        }
+    }
+    
     
 }// End of class
 

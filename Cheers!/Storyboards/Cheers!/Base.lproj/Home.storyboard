@@ -103,6 +103,16 @@
                                     </tabBarItem>
                                 </items>
                             </tabBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zag-sM-zBs">
+                                <rect key="frame" x="326" y="38" width="70" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="uiR-dP-4dC" eventType="touchUpInside" id="Ase-Xh-L1R"/>
+                                    <action selector="logoutButtonTapped:" destination="cUm-YF-nz9" eventType="touchUpInside" id="UPz-qp-kl9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wr0-Oe-yJT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -133,6 +143,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZc-ek-ZhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cUm-YF-nz9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="821.73913043478262" y="872.54464285714278"/>
         </scene>
