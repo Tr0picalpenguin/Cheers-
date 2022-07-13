@@ -121,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB0BED6287C8F52005EC7E9 /* GoogleService-Info.plist */,
+				EDB0BEE4287F3719005EC7E9 /* Navigation */,
 				EDB0BEC92877A5D2005EC7E9 /* Favorites */,
 				EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */,
 				EDB0BE792874AF94005EC7E9 /* Cocktail Detail */,
@@ -193,7 +194,6 @@
 		EDB0BE792874AF94005EC7E9 /* Cocktail Detail */ = {
 			isa = PBXGroup;
 			children = (
-				EDB0BEDF287D2C53005EC7E9 /* Custom Views */,
 				EDB0BE772874AF51005EC7E9 /* CocktailDetailViewModel.swift */,
 				EDB0BE7C2874AFEB005EC7E9 /* CocktailDetailViewController.swift */,
 			);
@@ -206,6 +206,7 @@
 				EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */,
 				EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */,
 				EDB0BE862874C4F1005EC7E9 /* Custom Cell */,
+				EDB0BEDF287D2C53005EC7E9 /* Custom Views */,
 			);
 			path = "Create Cocktail";
 			sourceTree = "<group>";
@@ -259,6 +260,13 @@
 				EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		EDB0BEE4287F3719005EC7E9 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

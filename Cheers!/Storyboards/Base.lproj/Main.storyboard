@@ -11,7 +11,7 @@
         <!--User Login View Controller-->
         <scene sceneID="DV6-6Z-L0t">
             <objects>
-                <viewController id="SIG-sJ-XoY" customClass="UserLoginViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="SIG-sJ-XoY" customClass="UserLoginViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x2u-Gi-02W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

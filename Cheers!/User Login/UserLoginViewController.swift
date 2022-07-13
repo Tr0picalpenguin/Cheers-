@@ -22,6 +22,7 @@ class UserLoginViewController: UIViewController {
         
     }
     
+    let viewModel: UserLoginViewModel = UserLoginViewModel()
 
     /*
     // MARK: - Navigation
@@ -35,29 +36,11 @@ class UserLoginViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: Any) {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
-            Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                switch result {
-                case .none:
-                    let alertController = UIAlertController(title: "Invalid Login", message: "Please check email and password", preferredStyle: .alert)
-                    let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-                    alertController.addAction(confirmAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    
-                case .some(let userDetails):
-                    print("Cheers!", userDetails.user.email!)
-                    
-                    let storyboard = UIStoryboard(name: "TabController", bundle: nil)
-                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
-       //             tabBarController.modalPresentationStyle = .overFullScreen
-                    
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
- //                   self.present(tabBarController, animated: true)
-                }
-            }
+            viewModel.loginAuthentication(with: email, password: password)
         }
     }
     
-// TODO: - 
+// TODO: -
     @IBAction func signInWithAppleButtonTapped(_ sender: Any) {
     }
     @IBAction func createAccountButtonTapped(_ sender: Any) {
@@ -65,4 +48,12 @@ class UserLoginViewController: UIViewController {
     @IBAction func continueButtonTapped(_ sender: Any) {
     }
     
+}
+
+extension UserLoginViewController: UserLoginViewModeldelegate {
+    func presentAlertController() {
+        let alertController = UIAlertController(title: "Invalid Login", message: "Please check email and password", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+    }
 }

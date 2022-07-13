@@ -29,7 +29,7 @@ class CocktailListViewModel {
    // in the load data I need an if else statement for which segment on the segmented control I am on to call the appropriate function.
     func loadData() {
         
-        fetchFullApiCocktailList { result in
+        fetchPopularApiCocktailList { result in
             switch result {
             case .success(let drink):
                 DispatchQueue.main.async {
@@ -43,7 +43,7 @@ class CocktailListViewModel {
     }
     
     //  function that fetches the popular cocktail list and decodes from the API
-    func fetchPopularApiCocktailList(completion: @escaping (Result<[CocktailDetail], NetworkError>) -> Void) {
+    func fetchPopularApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
         let popularURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
         NetworkController.fetchCocktailList(with: popularURL!) { result in
             switch result {

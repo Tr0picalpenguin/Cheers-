@@ -20,8 +20,8 @@ import FirebaseAuth
 //    // register app delegate for Firebase setup
 //    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
 //    content_copy
-//    
-//    
+//
+//
 //    var body: some Scene {
 //        WindowGroup {
 //            NavigationView {
