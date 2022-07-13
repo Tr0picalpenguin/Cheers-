@@ -11,7 +11,7 @@
         <!--Cocktail List View Controller-->
         <scene sceneID="eAp-Ur-Nf6">
             <objects>
-                <viewController storyboardIdentifier="Home" id="uiR-dP-4dC" customClass="CocktailListViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uiR-dP-4dC" customClass="CocktailListViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SQp-U7-hnW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,9 +54,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-fp-RQF">
-                                                    <rect key="frame" x="200.5" y="66.5" width="185.5" height="33.5"/>
+                                                    <rect key="frame" x="251" y="76" width="135" height="24"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -146,8 +146,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dtc-cd-4A8">
                                 <rect key="frame" x="67.5" y="372" width="279.5" height="185"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kas-0i-4wU">
-                                        <rect key="frame" x="81" y="0.0" width="117.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="(cocktail name)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kas-0i-4wU">
+                                        <rect key="frame" x="8" y="0.0" width="263.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -168,7 +168,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="rnA-lB-TlJ" firstAttribute="top" secondItem="MV1-Q6-vkb" secondAttribute="bottom" constant="8" id="cPi-tx-zwi"/>
+                                    <constraint firstItem="Kas-0i-4wU" firstAttribute="leading" secondItem="dtc-cd-4A8" secondAttribute="leading" constant="8" id="jib-TT-ySg"/>
                                     <constraint firstItem="rnA-lB-TlJ" firstAttribute="leading" secondItem="dtc-cd-4A8" secondAttribute="leading" id="pza-pZ-1yt"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kas-0i-4wU" secondAttribute="trailing" constant="8" id="qQF-MR-nGl"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(# of likes)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrM-Zv-FnZ">

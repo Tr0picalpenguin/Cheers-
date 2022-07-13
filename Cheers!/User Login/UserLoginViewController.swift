@@ -46,18 +46,18 @@ class UserLoginViewController: UIViewController {
                 case .some(let userDetails):
                     print("Cheers!", userDetails.user.email!)
                     
-                    let storyboard = UIStoryboard(name: "Home", bundle: nil)
-                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarHome") as? UITabBarController else { return }
-                    tabBarController.modalPresentationStyle = .overFullScreen
-                    self.emailTextField.text = ""
-                    self.passwordTextField.text = ""
-                    self.emailTextField.resignFirstResponder()
-                    self.passwordTextField.resignFirstResponder()
-                    self.present(tabBarController, animated: true)
+                    let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
+       //             tabBarController.modalPresentationStyle = .overFullScreen
+                    
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
+ //                   self.present(tabBarController, animated: true)
                 }
             }
         }
     }
+    
+// TODO: - 
     @IBAction func signInWithAppleButtonTapped(_ sender: Any) {
     }
     @IBAction func createAccountButtonTapped(_ sender: Any) {

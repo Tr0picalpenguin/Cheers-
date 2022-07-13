@@ -9,7 +9,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="BO3-DH-3fh">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarHoma" id="dMG-ix-P1g" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarName" id="dMG-ix-P1g" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ot5-dD-hpT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -48,7 +48,7 @@
         <!--Home-->
         <scene sceneID="VqC-0h-kXP">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Home" storyboardName="Home" referencedIdentifier="Home" id="IKP-cd-Cay" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="TabBarHome" storyboardName="Home" referencedIdentifier="Home" id="IKP-cd-Cay" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" selectedImage="house" id="e58-6s-pqp" userLabel="Home"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgF-rt-vgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
