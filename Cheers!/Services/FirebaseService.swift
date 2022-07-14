@@ -13,7 +13,7 @@ import FirebaseAuth
 // Need to add FirebaseStorage
 
 protocol FirebaseSyncable {
-    func saveCocktail(_ cocktail: CustomCocktail)
+    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
     func deleteCocktail(cocktail: CustomCocktail)
     func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping() -> Void)
@@ -30,9 +30,12 @@ struct FirebaseService: FirebaseSyncable {
     let reference = Firestore.firestore()
     let storage = Storage.storage().reference()
     
-    func saveCocktail(_ cocktail: CustomCocktail) {
-        
-    }
+    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage) {
+        saveImage(image, to: cocktail) {
+            reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid)
+                .setData(cocktail.cocktailData)
+                }
+            }
     
     func loadCocktails(completion: @escaping (Result<[CustomCocktail], FirebaseError>) -> Void) {
         
@@ -43,7 +46,24 @@ struct FirebaseService: FirebaseSyncable {
     }
 
     func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping () -> Void) {
-        <#code#>
+        guard let imageData = image.pngData() else { return }
+        storage.child("images").child(cocktail.uuid).putData(imageData, metadata: nil) { _, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion()
+                return
+            }
+            self.storage.child("images").child(cocktail.uuid).downloadURL { url, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    completion()
+                    return
+                }
+                guard let url = url else { return }
+                cocktail.imageURL = url
+                completion()
+            }
+        }
     }
 
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void) {

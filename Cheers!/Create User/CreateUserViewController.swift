@@ -42,14 +42,14 @@ class CreateUserViewController: UIViewController {
             return
         }
         if passwordTextField.text?.isEmpty == true {
-            let alertController = UIAlertController(title: "Password field is empty.", message: "Please enter password", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Password field is empty!", message: "Please enter password", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController.addAction(confirmAction)
             self.present(alertController, animated: true, completion: nil)
             return
         }
         if confirmPasswordTextField.text?.isEmpty == true {
-            let alertController = UIAlertController(title: "Confirm password is empty.", message: "Please confirm password.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Confirm password is empty!", message: "Please confirm password.", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController.addAction(confirmAction)
             self.present(alertController, animated: true, completion: nil)
@@ -62,8 +62,12 @@ class CreateUserViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
             return
         }
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let confirmPassword = confirmPasswordTextField.text else { return }
+        viewModel.createUser(with: email, password: password, confirmPassword: confirmPassword)
     }
-    // return to login button returns to the right screen but adds a "back button" in the top left. I want this to return to the initial login screen and not give an option to hit "back" to move to the create user screen.
+    
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
     }
     

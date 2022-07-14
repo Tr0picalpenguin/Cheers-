@@ -16,6 +16,7 @@ class CustomCocktail: Codable {
             static let instruction = "instruction"
             static let uuid = "uuid"
             static let collectionType = "cocktails"
+            static let imageURL = "imageURL"
             static let ingredient1 = "ingredient1"
             static let ingredient2 = "ingredient2"
             static let ingredient3 = "ingredient3"
@@ -54,6 +55,7 @@ class CustomCocktail: Codable {
     var instruction: String
     var uuid: String
     var collectionType: String
+    var imageURL: URL?
     var ingredient1: String?
     var ingredient2: String?
     var ingredient3: String?
@@ -93,6 +95,7 @@ class CustomCocktail: Codable {
              "instruction": self.instruction,
              "uuid": self.uuid,
              "collectionType": self.collectionType,
+             "imageURL": self.imageURL,
              "ingredient1": self.ingredient1,
              "ingredient2": self.ingredient2,
              "ingredient3": self.ingredient3,
@@ -126,13 +129,14 @@ class CustomCocktail: Codable {
         }
         
         // MARK: - Initializers
-    init(cocktailName: String, glass:String, instruction: String, collectionType: String, uuid: String = UUID().uuidString, ingredient1: String?, ingredient2: String?, ingredient3: String?, ingredient4: String?, ingredient5: String?, ingredient6: String?, ingredient7: String?, ingredient8: String?, ingredient9: String?, ingredient10: String?, ingredient11: String?, ingredient12: String?, ingredient13: String?, ingredient14: String?, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String?, measurement7: String?, measurement8: String?, measurement9: String?, measurement10: String?, measurement11: String?, measurement12: String?, measurement13: String?, measurement14: String?, measurement15: String?) {
+    init(cocktailName: String, glass:String, instruction: String, collectionType: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredient1: String?, ingredient2: String?, ingredient3: String?, ingredient4: String?, ingredient5: String?, ingredient6: String?, ingredient7: String?, ingredient8: String?, ingredient9: String?, ingredient10: String?, ingredient11: String?, ingredient12: String?, ingredient13: String?, ingredient14: String?, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String?, measurement7: String?, measurement8: String?, measurement9: String?, measurement10: String?, measurement11: String?, measurement12: String?, measurement13: String?, measurement14: String?, measurement15: String?) {
             
             self.cocktailName = cocktailName
             self.instruction = instruction
             self.glass = glass
             self.uuid = uuid
             self.collectionType = collectionType
+            self.imageURL = URL(string: imageURL)
             self.ingredient1 = ingredient1
             self.ingredient2 = ingredient2
             self.ingredient3 = ingredient3
@@ -174,6 +178,7 @@ extension CustomCocktail {
               let glass = dictionary[CocktailKeys.glass] as? String,
               let collectionType = dictionary[CocktailKeys.collectionType] as? String,
               let uuid = dictionary[CocktailKeys.uuid] as? String,
+              let imageURL = dictionary[CocktailKeys.imageURL] as? String,
               let ingredient1 = dictionary[CocktailKeys.ingredient1] as? String,
               let ingredient2 = dictionary[CocktailKeys.ingredient2] as? String,
               let ingredient3 = dictionary[CocktailKeys.ingredient3] as? String,
@@ -210,6 +215,7 @@ extension CustomCocktail {
                   instruction: instruction,
                   collectionType: collectionType,
                   uuid: uuid,
+                  imageURL: imageURL,
                   ingredient1: ingredient1,
                   ingredient2: ingredient2,
                   ingredient3: ingredient3,

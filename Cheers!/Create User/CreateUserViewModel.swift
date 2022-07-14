@@ -22,7 +22,7 @@ class CreateUserViewModel {
         self.delegate = delegate
     }
    
-    func createUser(with email: String, password: String) {
+    func createUser(with email: String, password: String, confirmPassword: String) {
         service?.createUser(with: email, password: password) { result in
             switch result {
             case .success:
