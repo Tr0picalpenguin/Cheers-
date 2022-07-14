@@ -64,7 +64,7 @@ class CocktailListViewController: UIViewController {
     }
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
-       
+       // TODO: - Write this
     }
     
     

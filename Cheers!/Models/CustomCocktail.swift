@@ -10,7 +10,7 @@ import Foundation
 class CustomCocktail: Codable {
     
         
-        enum TeamKeys {
+        enum CocktailKeys {
             static let cocktailName = "name"
             static let glass = "glass"
             static let instruction = "instruction"
@@ -126,7 +126,7 @@ class CustomCocktail: Codable {
         }
         
         // MARK: - Initializers
-    init(cocktailName: String, glass:String, instruction: String, collectionType: String, uuid: String = UUID().uuidString, ingredient1: String, ingredient2: String, ingredient3: String, ingredient4: String, ingredient5: String, ingredient6: String, ingredient7: String, ingredient8: String, ingredient9: String, ingredient10: String, ingredient11: String, ingredient12: String, ingredient13: String, ingredient14: String, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String, measurement7: String, measurement8: String, measurement9: String, measurement10: String, measurement11: String, measurement12: String, measurement13: String, measurement14: String, measurement15: String) {
+    init(cocktailName: String, glass:String, instruction: String, collectionType: String, uuid: String = UUID().uuidString, ingredient1: String?, ingredient2: String?, ingredient3: String?, ingredient4: String?, ingredient5: String?, ingredient6: String?, ingredient7: String?, ingredient8: String?, ingredient9: String?, ingredient10: String?, ingredient11: String?, ingredient12: String?, ingredient13: String?, ingredient14: String?, ingredient15: String, measurement1: String, measurement2: String, measurement3: String, measurement4: String, measurement5: String, measurement6: String?, measurement7: String?, measurement8: String?, measurement9: String?, measurement10: String?, measurement11: String?, measurement12: String?, measurement13: String?, measurement14: String?, measurement15: String?) {
             
             self.cocktailName = cocktailName
             self.instruction = instruction
@@ -169,41 +169,41 @@ class CustomCocktail: Codable {
 extension CustomCocktail {
 
     convenience init?(dictionary: [String: Any]) {
-        guard let cocktailName = dictionary[TeamKeys.cocktailName] as? String,
-              let instruction = dictionary[TeamKeys.instruction] as? String,
-              let glass = dictionary[TeamKeys.glass] as? String,
-              let collectionType = dictionary[TeamKeys.collectionType] as? String,
-              let uuid = dictionary[TeamKeys.uuid] as? String,
-              let ingredient1 = dictionary[TeamKeys.ingredient1] as? String,
-              let ingredient2 = dictionary[TeamKeys.ingredient2] as? String,
-              let ingredient3 = dictionary[TeamKeys.ingredient3] as? String,
-              let ingredient4 = dictionary[TeamKeys.ingredient4] as? String,
-              let ingredient5 = dictionary[TeamKeys.ingredient5] as? String,
-              let ingredient6 = dictionary[TeamKeys.ingredient6] as? String,
-              let ingredient7 = dictionary[TeamKeys.ingredient7] as? String,
-              let ingredient8 = dictionary[TeamKeys.ingredient8] as? String,
-              let ingredient9 = dictionary[TeamKeys.ingredient9] as? String,
-              let ingredient10 = dictionary[TeamKeys.ingredient10] as? String,
-              let ingredient11 = dictionary[TeamKeys.ingredient11] as? String,
-              let ingredient12 = dictionary[TeamKeys.ingredient12] as? String,
-              let ingredient13 = dictionary[TeamKeys.ingredient13] as? String,
-              let ingredient14 = dictionary[TeamKeys.ingredient14] as? String,
-              let ingredient15 = dictionary[TeamKeys.ingredient15] as? String,
-              let measurement1 = dictionary[TeamKeys.measurement1] as? String,
-              let measurement2 = dictionary[TeamKeys.measurement2] as? String,
-              let measurement3 = dictionary[TeamKeys.measurement3] as? String,
-              let measurement4 = dictionary[TeamKeys.measurement4] as? String,
-              let measurement5 = dictionary[TeamKeys.measurement5] as? String,
-              let measurement6 = dictionary[TeamKeys.measurement6] as? String,
-              let measurement7 = dictionary[TeamKeys.measurement7] as? String,
-              let measurement8 = dictionary[TeamKeys.measurement8] as? String,
-              let measurement9 = dictionary[TeamKeys.measurement9] as? String,
-              let measurement10 = dictionary[TeamKeys.measurement10] as? String,
-              let measurement11 = dictionary[TeamKeys.measurement11] as? String,
-              let measurement12 = dictionary[TeamKeys.measurement12] as? String,
-              let measurement13 = dictionary[TeamKeys.measurement13] as? String,
-              let measurement14 = dictionary[TeamKeys.measurement14] as? String,
-              let measurement15 = dictionary[TeamKeys.measurement15] as? String else { return nil }
+        guard let cocktailName = dictionary[CocktailKeys.cocktailName] as? String,
+              let instruction = dictionary[CocktailKeys.instruction] as? String,
+              let glass = dictionary[CocktailKeys.glass] as? String,
+              let collectionType = dictionary[CocktailKeys.collectionType] as? String,
+              let uuid = dictionary[CocktailKeys.uuid] as? String,
+              let ingredient1 = dictionary[CocktailKeys.ingredient1] as? String,
+              let ingredient2 = dictionary[CocktailKeys.ingredient2] as? String,
+              let ingredient3 = dictionary[CocktailKeys.ingredient3] as? String,
+              let ingredient4 = dictionary[CocktailKeys.ingredient4] as? String,
+              let ingredient5 = dictionary[CocktailKeys.ingredient5] as? String,
+              let ingredient6 = dictionary[CocktailKeys.ingredient6] as? String,
+              let ingredient7 = dictionary[CocktailKeys.ingredient7] as? String,
+              let ingredient8 = dictionary[CocktailKeys.ingredient8] as? String,
+              let ingredient9 = dictionary[CocktailKeys.ingredient9] as? String,
+              let ingredient10 = dictionary[CocktailKeys.ingredient10] as? String,
+              let ingredient11 = dictionary[CocktailKeys.ingredient11] as? String,
+              let ingredient12 = dictionary[CocktailKeys.ingredient12] as? String,
+              let ingredient13 = dictionary[CocktailKeys.ingredient13] as? String,
+              let ingredient14 = dictionary[CocktailKeys.ingredient14] as? String,
+              let ingredient15 = dictionary[CocktailKeys.ingredient15] as? String,
+              let measurement1 = dictionary[CocktailKeys.measurement1] as? String,
+              let measurement2 = dictionary[CocktailKeys.measurement2] as? String,
+              let measurement3 = dictionary[CocktailKeys.measurement3] as? String,
+              let measurement4 = dictionary[CocktailKeys.measurement4] as? String,
+              let measurement5 = dictionary[CocktailKeys.measurement5] as? String,
+              let measurement6 = dictionary[CocktailKeys.measurement6] as? String,
+              let measurement7 = dictionary[CocktailKeys.measurement7] as? String,
+              let measurement8 = dictionary[CocktailKeys.measurement8] as? String,
+              let measurement9 = dictionary[CocktailKeys.measurement9] as? String,
+              let measurement10 = dictionary[CocktailKeys.measurement10] as? String,
+              let measurement11 = dictionary[CocktailKeys.measurement11] as? String,
+              let measurement12 = dictionary[CocktailKeys.measurement12] as? String,
+              let measurement13 = dictionary[CocktailKeys.measurement13] as? String,
+              let measurement14 = dictionary[CocktailKeys.measurement14] as? String,
+              let measurement15 = dictionary[CocktailKeys.measurement15] as? String else { return nil }
         
         self.init(cocktailName: cocktailName,
                   glass: glass,

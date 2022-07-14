@@ -134,7 +134,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aop-kQ-cNL">
                                 <rect key="frame" x="82" y="146" width="250" height="316"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-Tf-aJi">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-Tf-aJi" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="ZaM-TR-Cx3"/>
@@ -186,8 +186,8 @@
                     <navigationItem key="navigationItem" id="82z-0L-a8Y"/>
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="kZR-sP-tqz" id="2Kd-ev-hfO"/>
+                        <outlet property="emailTextField" destination="fwf-Tf-aJi" id="UmR-bB-b2K"/>
                         <outlet property="passwordTextField" destination="kZR-sP-tqz" id="0T1-Dg-MVm"/>
-                        <outlet property="usernameTextField" destination="fwf-Tf-aJi" id="fjc-DB-ift"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvO-v6-OYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -224,8 +224,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="R6F-3a-krA"/>
-        <segue reference="yeK-Un-VU5"/>
+        <segue reference="D2l-tW-YOe"/>
         <segue reference="mpa-MT-dKc"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -13,11 +13,11 @@ struct User {
         static let username = "username"
         static let password = "password"
         static let email = "email"
-        static let profilePicture = "profilePicture"
+        static let uuid = "uuid"
     }
     // MARK: - Properties
     let username: String
     let password: String
     let email: String
-    let profilePicture: URL?
+    let uuid: String
 }

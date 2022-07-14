@@ -145,7 +145,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZc-ek-ZhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="cUm-YF-nz9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="821.73913043478262" y="872.54464285714278"/>
+            <point key="canvasLocation" x="835" y="873"/>
         </scene>
         <!--Cocktail Detail View Controller-->
         <scene sceneID="6fu-7D-wq9">
@@ -227,6 +227,16 @@
                                     <constraint firstAttribute="height" constant="172" id="OQu-Zm-35C"/>
                                     <constraint firstAttribute="width" constant="338" id="hin-PM-4IF"/>
                                 </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="hjd-fd-zCB">
+                                        <rect key="frame" x="0.0" y="44.5" width="338" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hjd-fd-zCB" id="BZs-92-1XG">
+                                            <rect key="frame" x="0.0" y="0.0" width="338" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2n2-Ow-tJB"/>

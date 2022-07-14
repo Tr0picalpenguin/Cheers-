@@ -10,14 +10,17 @@ import UIKit
 class CreateUserViewController: UIViewController {
 
     
-    @IBOutlet weak var usernameTextField: UITextField!
+
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    
+    var viewModel: CreateUserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        viewModel = CreateUserViewModel(delegate: self)
     }
     
 
@@ -31,6 +34,34 @@ class CreateUserViewController: UIViewController {
     }
     */
     @IBAction func createAccountButtonTapped(_ sender: Any) {
+        if emailTextField.text?.isEmpty == true {
+            let alertController = UIAlertController(title: "No email found!", message: "Please enter a valid email.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if passwordTextField.text?.isEmpty == true {
+            let alertController = UIAlertController(title: "Password field is empty.", message: "Please enter password", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if confirmPasswordTextField.text?.isEmpty == true {
+            let alertController = UIAlertController(title: "Confirm password is empty.", message: "Please confirm password.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if passwordTextField.text != confirmPasswordTextField.text {
+            let alertController = UIAlertController(title: "Passwords do not match!", message: "Please check password.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
     }
     // return to login button returns to the right screen but adds a "back button" in the top left. I want this to return to the initial login screen and not give an option to hit "back" to move to the create user screen.
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
@@ -38,3 +69,19 @@ class CreateUserViewController: UIViewController {
     
 }
 
+extension CreateUserViewController: CreateUserViewModelDelegate {
+    func presentAlertController(error: Error) {
+        let alertController = UIAlertController(title: "Error", message: "(error.localizedDescription)", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Close", style: .cancel))
+                        present(alertController, animated: true)
+    }
+    
+    func userSignedIn() {
+        let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
+    }
+    
+    
+    
+}
