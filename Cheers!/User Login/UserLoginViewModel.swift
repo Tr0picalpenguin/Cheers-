@@ -16,7 +16,13 @@ protocol UserLoginViewModeldelegate: AnyObject {
 class UserLoginViewModel {
     
     private weak var delegate: UserLoginViewModeldelegate?
-    private var service: FirebaseSyncable
+    var user: User?
+    private let service: FirebaseSyncable
+    
+    init(user: User? = nil, firebaseService: FirebaseSyncable = FirebaseService()) {
+        self.user = user
+        self.service = firebaseService
+    }
     
     func loginAuthentication(with email: String, password: String) {
        //TODO: - abstract firebase code to FirebaseService
