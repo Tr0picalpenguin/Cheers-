@@ -38,11 +38,22 @@ struct FirebaseService: FirebaseSyncable {
             }
     
     func loadCocktails(completion: @escaping (Result<[CustomCocktail], FirebaseError>) -> Void) {
-        
+        reference.collection(CustomCocktail.CocktailKeys.collectionType).getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(.fireBaseError(error)))
+            }
+            guard let data = snapshot?.documents else {
+                completion(.failure(.noDataFound))
+                return
+            }
+            let customCocktailsArray = data.compactMap({ $0.data() })
+            let cocktails = customCocktailsArray.compactMap({ CustomCocktail(dictionary: $0)})
+            completion(.success(cocktails))
+        }
     }
     
     func deleteCocktail(cocktail: CustomCocktail) {
-        
+        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()
     }
 
     func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping () -> Void) {
@@ -67,7 +78,18 @@ struct FirebaseService: FirebaseSyncable {
     }
 
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void) {
-        <#code#>
+        storage.child("images").child(cocktail.uuid).getData(maxSize: 1024 * 1024) { result in
+            switch result {
+            case .success(let data):
+                guard let image = UIImage(data: data) else {
+                    completion(.failure(.failedToUnwrapData))
+                    return
+                }
+                completion(.success(image))
+            case .failure(let error):
+                completion(.failure(.fireBaseError(error)))
+            }
+        }
     }
     
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
