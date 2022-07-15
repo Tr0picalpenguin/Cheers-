@@ -17,12 +17,14 @@ class CocktailListViewModel {
 //    private let service: FirebaseSyncable?
     // is this right?
     var standardCocktails: [Cocktail] = []
-    var standardCocktailDetail: [CocktailDetail] = []
+    var customCocktails: [CustomCocktail] = []
 
     private weak var delegate: CocktailListViewModelDelegate?
+    private var service: FirebaseSyncable
     
-    init(delegate: CocktailListViewModelDelegate) {
+    init(delegate: CocktailListViewModelDelegate, firebaseService: FirebaseSyncable = FirebaseService()) {
         self.delegate = delegate
+        self.service = firebaseService
     }
     
     // MARK: - CRUD
@@ -42,13 +44,7 @@ class CocktailListViewModel {
         }
     }
     func logout() {
-        // abstract firebase code to firebase service
-//        let firebaseAuth = Auth.auth()
-//        do {
-//            try firebaseAuth.signOut()
-//        } catch let signoutError as NSError {
-//            print("Error logging out!", signoutError)
-//        }
+        service.logoutUser()
     }
     //  function that fetches the popular cocktail list and decodes from the API
     func fetchPopularApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
@@ -84,7 +80,15 @@ class CocktailListViewModel {
     
     //function that updates the views from Firebase storage
     func fetchCustomCocktailList() {
-        
+        service.loadCocktails { result in
+            switch result {
+            case .success(let customCocktails):
+                self.customCocktails = customCocktails
+                self.delegate?.cocktailsLoadedSuccessfully()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 }

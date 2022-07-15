@@ -43,6 +43,8 @@ class UserLoginViewController: UIViewController {
    
     
     @IBAction func signInWithAppleButtonTapped(_ sender: Any) {
+        // dont know where this goes yet but this is the auth handler for the sign in with apple
+//    https://cheers-df5e5.firebaseapp.com/__/auth/handler
     }
     @IBAction func createAccountButtonTapped(_ sender: Any) {
     }

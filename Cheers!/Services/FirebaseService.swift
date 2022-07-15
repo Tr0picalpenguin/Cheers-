@@ -21,6 +21,7 @@ protocol FirebaseSyncable {
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func logoutUser()
+    func signInWithApple(token: String, nonce: String)
 }
 
 struct FirebaseService: FirebaseSyncable {
@@ -107,14 +108,46 @@ struct FirebaseService: FirebaseSyncable {
     }
     
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
-        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            switch authResult {
+            case .some:
+                UserDefaults.standard.bool(forKey: email)
+                completion(.success(true))
+            case .none:
+                if let error = error {
+                    completion(.failure(.fireBaseError(error)))
+                }
+            }
+        }
 
     }
     
     func logoutUser() {
-        
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
     }
     
-    
+    func signInWithApple(token: String, nonce: String) {
+        // Initialize a Firebase credential.
+        let credential = OAuthProvider.credential(withProviderID: "apple.com",
+                                                  idToken: token,
+                                                  rawNonce: nonce)
+        // Sign in with Firebase.
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+          if let error = error {
+            // Error. If error.code == .MissingOrInvalidNonce, make sure
+            // you're sending the SHA256-hashed nonce as a hex string with
+            // your request to Apple.
+            print(error.localizedDescription)
+            return
+          }
+          // User is signed in to Firebase with Apple.
+          // ...
+        }
+    }
     
 } // end of struct

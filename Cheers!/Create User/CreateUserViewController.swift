@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class CreateUserViewController: UIViewController {
 
@@ -15,12 +16,16 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
+    @IBOutlet weak var signInWithAppleButtonTapped: ASAuthorizationAppleIDButton!
+    
     var viewModel: CreateUserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         viewModel = CreateUserViewModel(delegate: self)
+        
+        
     }
     
 
@@ -71,7 +76,7 @@ class CreateUserViewController: UIViewController {
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
     }
     
-}
+}// end of class
 
 extension CreateUserViewController: CreateUserViewModelDelegate {
     func presentAlertController(error: Error) {
@@ -87,5 +92,36 @@ extension CreateUserViewController: CreateUserViewModelDelegate {
     }
     
     
+    
+}
+
+extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            guard let nonce = viewModel.currentNonce else {
+                fatalError("Invalid state: A login callback was received, but no login request was sent.")
+              }
+              guard let appleIDToken = appleIDCredential.identityToken else {
+                print("Unable to fetch identity token")
+                return
+              }
+              guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
+                print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
+                return
+              }
+            viewModel.signInWithApple(token: idTokenString, nonce: nonce)
+            }
+          }
+
+          func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+            // Handle error.
+            print("Sign in with Apple errored: \(error)")
+          }
+
+        
     
 }
