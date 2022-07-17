@@ -30,24 +30,15 @@ class CocktailListViewModel {
     // MARK: - CRUD
    
     func loadData() {
-        
-        fetchPopularApiCocktailList { result in
-            switch result {
-            case .success(let drink):
-                DispatchQueue.main.async {
-                    self.standardCocktails = drink
-                    self.delegate?.cocktailsLoadedSuccessfully()
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        fetchPopularApiCocktailList()
     }
+    
     func logout() {
         service.logoutUser()
     }
+    
     //  function that fetches the popular cocktail list and decodes from the API
-    func fetchPopularApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
+    func fetchPopularApiCocktailList() {
         let popularURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/popular.php")
         NetworkController.fetchCocktailList(with: popularURL!) { result in
             switch result {
@@ -63,7 +54,7 @@ class CocktailListViewModel {
     }
     
     //  function that fetches the full cocktail list and decodes from the API
-    func fetchFullApiCocktailList(completion: @escaping (Result<[Cocktail], NetworkError>) -> Void) {
+    func fetchFullApiCocktailList() {
         let fullListURL = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?a=Alcoholic")
         NetworkController.fetchCocktailList(with: fullListURL!) { result in
             switch result {

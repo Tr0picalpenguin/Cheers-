@@ -16,7 +16,8 @@ class CreateUserViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     
-    @IBOutlet weak var signInWithAppleButtonTapped: ASAuthorizationAppleIDButton!
+    @IBOutlet weak var appleLoginStackView: UIStackView!
+    
     
     var viewModel: CreateUserViewModel!
     
@@ -24,7 +25,7 @@ class CreateUserViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel = CreateUserViewModel(delegate: self)
-        
+        setupAppleLoginButton()
         
     }
     
@@ -74,8 +75,38 @@ class CreateUserViewController: UIViewController {
     }
     
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
+        
     }
     
+    func setupAppleLoginButton() {
+        let authorizationButton = ASAuthorizationAppleIDButton()
+        authorizationButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
+        self.appleLoginStackView.addArrangedSubview(authorizationButton)
+    }
+    
+    func performExistingAccountSetupFlows() {
+        // Prepare requests for both Apple ID and password providers.
+        let requests = [ASAuthorizationAppleIDProvider().createRequest(),
+                        ASAuthorizationPasswordProvider().createRequest()]
+        
+        // Create an authorization controller with the given requests.
+        let authorizationController = ASAuthorizationController(authorizationRequests: requests)
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    @objc
+    func handleAuthorizationAppleIDButtonPress() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
 }// end of class
 
 extension CreateUserViewController: CreateUserViewModelDelegate {
@@ -90,9 +121,6 @@ extension CreateUserViewController: CreateUserViewModelDelegate {
                 guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
-    
-    
-    
 }
 
 extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
@@ -121,7 +149,4 @@ extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthori
             // Handle error.
             print("Sign in with Apple errored: \(error)")
           }
-
-        
-    
 }

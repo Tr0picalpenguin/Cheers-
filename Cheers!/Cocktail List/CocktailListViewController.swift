@@ -50,14 +50,13 @@ class CocktailListViewController: UIViewController {
         switch homeSegmentedControl.selectedSegmentIndex {
         case 0:
             homeSegmentedControl.titleForSegment(at: 0) // this will be deleted.
-            // if the user has selected this index I want to load the popular cocktail data from the API.
-            
+            viewModel.fetchPopularApiCocktailList()
         case 1:
             homeSegmentedControl.titleForSegment(at: 1) // this will be deleted.
-            // if the user has selected this index then I want to load the full list of cocktails from the Api.
+            viewModel.fetchFullApiCocktailList()
         case 2:
             homeSegmentedControl.titleForSegment(at: 2)
-            // if the user has selected this index then I want to populate the custom cocktails from Firestore
+            viewModel.fetchCustomCocktailList()
         default:
             break
         }
@@ -75,19 +74,19 @@ extension CocktailListViewController: UITableViewDataSource {
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if homeSegmentedControl.selectedSegmentIndex == 0 {
+        switch homeSegmentedControl.selectedSegmentIndex {
+        case 2:
+            return viewModel.customCocktails.count
+        default:
             return viewModel.standardCocktails.count
-        } else if homeSegmentedControl.selectedSegmentIndex == 1 {
-//          return viewModel.customCocktails.count
         }
-        // Im not sure if this is right
-        return 0
     }
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else {return UITableViewCell() }
         
        //depending on what segment the user is on I want to display the correct tableview list.
+      
        let drink = viewModel.standardCocktails[indexPath.row]
        
        cell.updateViews(with: drink)

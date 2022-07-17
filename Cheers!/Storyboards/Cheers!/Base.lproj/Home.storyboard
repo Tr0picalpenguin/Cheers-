@@ -3,13 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cocktail List View Controller-->
+        <!--Home-->
         <scene sceneID="eAp-Ur-Nf6">
             <objects>
                 <viewController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uiR-dP-4dC" customClass="CocktailListViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKv-05-UJy">
-                                <rect key="frame" x="165.5" y="38" width="83.5" height="76"/>
+                                <rect key="frame" x="165" y="38" width="84" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-mH-RLF">
-                                <rect key="frame" x="105.5" y="116" width="203" height="31"/>
+                                <rect key="frame" x="105.5" y="67" width="203" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0mD-uD-0Jf"/>
                                 </constraints>
@@ -38,12 +37,15 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lef-Yf-mRW">
-                                <rect key="frame" x="8" y="154" width="398" height="34"/>
+                                <rect key="frame" x="107" y="105" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jSc-Ua-0GZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-pO-kba">
-                                <rect key="frame" x="0.0" y="192" width="414" height="629"/>
+                                <rect key="frame" x="0.0" y="143" width="414" height="678"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cocktailCell" rowHeight="123" id="Yt7-6B-Ypc" customClass="CocktailListTableViewCell" customModule="Cheers_" customModuleProvider="target">
@@ -85,27 +87,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOt-Zo-6qB">
-                                <rect key="frame" x="0.0" y="829" width="414" height="35"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="t4j-aq-rTF"/>
-                                </constraints>
-                                <items>
-                                    <tabBarItem title="Home" id="HVe-6I-iyc">
-                                        <imageReference key="image" image="house" catalog="system" symbolScale="small"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Create" id="YgP-36-EMJ">
-                                        <imageReference key="image" image="plus" catalog="system" symbolScale="small"/>
-                                    </tabBarItem>
-                                    <tabBarItem title="Favorites" id="o8u-tO-Ken">
-                                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="small"/>
-                                    </tabBarItem>
-                                </items>
-                            </tabBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zag-sM-zBs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zag-sM-zBs">
                                 <rect key="frame" x="326" y="38" width="70" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="x6x-4A-jJG"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout"/>
                                 <connections>
@@ -122,20 +108,20 @@
                             <constraint firstItem="BmF-pO-kba" firstAttribute="leading" secondItem="wr0-Oe-yJT" secondAttribute="leading" id="JeB-2I-Mhh"/>
                             <constraint firstItem="wr0-Oe-yJT" firstAttribute="bottom" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="716" id="Lxd-2F-WbL"/>
                             <constraint firstItem="fKv-05-UJy" firstAttribute="top" secondItem="SQp-U7-hnW" secondAttribute="top" constant="38" id="M8r-j5-DBe"/>
-                            <constraint firstItem="LOt-Zo-6qB" firstAttribute="leading" secondItem="BmF-pO-kba" secondAttribute="leading" id="QTU-kV-u5R"/>
-                            <constraint firstItem="Lef-Yf-mRW" firstAttribute="leading" secondItem="wr0-Oe-yJT" secondAttribute="leading" constant="8" id="ScM-Cf-YHZ"/>
                             <constraint firstItem="gj5-mH-RLF" firstAttribute="centerX" secondItem="SQp-U7-hnW" secondAttribute="centerX" id="Tho-FB-6d5"/>
-                            <constraint firstItem="LOt-Zo-6qB" firstAttribute="top" secondItem="BmF-pO-kba" secondAttribute="bottom" constant="8" id="Xn8-Em-hMV"/>
                             <constraint firstItem="BmF-pO-kba" firstAttribute="top" secondItem="Lef-Yf-mRW" secondAttribute="bottom" constant="4" id="bGh-zf-iLJ"/>
                             <constraint firstItem="fKv-05-UJy" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="doe-nQ-L3j"/>
-                            <constraint firstItem="LOt-Zo-6qB" firstAttribute="bottom" secondItem="wr0-Oe-yJT" secondAttribute="bottom" constant="2" id="jLa-Qv-CaE"/>
-                            <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="Lef-Yf-mRW" secondAttribute="trailing" constant="8" id="nf6-MP-OVC"/>
-                            <constraint firstItem="LOt-Zo-6qB" firstAttribute="trailing" secondItem="BmF-pO-kba" secondAttribute="trailing" id="nfF-bX-efj"/>
+                            <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="Zag-sM-zBs" secondAttribute="trailing" constant="18" id="eLe-ad-LtV"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="BmF-pO-kba" secondAttribute="bottom" constant="-8" id="jHs-4O-BOL"/>
+                            <constraint firstItem="Zag-sM-zBs" firstAttribute="leading" secondItem="fKv-05-UJy" secondAttribute="trailing" constant="77" id="s3C-qe-GpB"/>
+                            <constraint firstItem="Zag-sM-zBs" firstAttribute="top" secondItem="fKv-05-UJy" secondAttribute="top" id="szb-hz-SLX"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="top" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="8" id="tdq-mm-QZD"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="vCh-SX-Djd"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="JCb-MX-TPv"/>
                     <navigationItem key="navigationItem" id="FON-lm-izm"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cocktailListTableView" destination="BmF-pO-kba" id="kGE-oe-dgz"/>
                         <outlet property="homeSegmentedControl" destination="gj5-mH-RLF" id="ifY-x5-wsJ"/>
@@ -210,10 +196,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vR-aA-4iN">
-                                <rect key="frame" x="112" y="795" width="250" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="zSZ-G7-Tsz"/>
-                                </constraints>
+                                <rect key="frame" x="112" y="795" width="129" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add to Favorites"/>
                                 <connections>
@@ -251,6 +234,7 @@
                             <constraint firstAttribute="bottom" secondItem="dtc-cd-4A8" secondAttribute="bottom" constant="285" id="ELV-5U-efQ"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="55" id="GIY-lB-D8j"/>
                             <constraint firstItem="dtc-cd-4A8" firstAttribute="centerX" secondItem="2n2-Ow-tJB" secondAttribute="centerX" id="H5F-aq-7cE"/>
+                            <constraint firstItem="8cP-rJ-eeU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WrM-Zv-FnZ" secondAttribute="trailing" constant="8" symbolic="YES" id="IfW-6f-fCw"/>
                             <constraint firstItem="8cP-rJ-eeU" firstAttribute="bottom" secondItem="WrM-Zv-FnZ" secondAttribute="bottom" id="Jsg-tJ-3rh"/>
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" secondItem="xDP-Os-jNk" secondAttribute="trailing" constant="35" id="SUP-d5-dk3"/>
                             <constraint firstItem="8cP-rJ-eeU" firstAttribute="centerY" secondItem="WrM-Zv-FnZ" secondAttribute="centerY" id="WWY-Wv-Li8"/>
@@ -258,6 +242,7 @@
                             <constraint firstItem="1vR-aA-4iN" firstAttribute="top" secondItem="8cP-rJ-eeU" secondAttribute="bottom" constant="8" id="c2E-qw-Muj"/>
                             <constraint firstItem="8cP-rJ-eeU" firstAttribute="top" secondItem="WrM-Zv-FnZ" secondAttribute="top" id="eZ6-Uo-dlx"/>
                             <constraint firstItem="dtc-cd-4A8" firstAttribute="top" secondItem="vlO-HG-dsY" secondAttribute="bottom" constant="8" symbolic="YES" id="fdj-sQ-sDE"/>
+                            <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1vR-aA-4iN" secondAttribute="trailing" symbolic="YES" id="gE7-FY-PkC"/>
                             <constraint firstAttribute="bottom" secondItem="xDP-Os-jNk" secondAttribute="bottom" constant="138" id="lse-vB-n9Q"/>
                             <constraint firstItem="WrM-Zv-FnZ" firstAttribute="centerY" secondItem="8cP-rJ-eeU" secondAttribute="centerY" id="mG6-eu-cwJ"/>
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="bottom" secondItem="1vR-aA-4iN" secondAttribute="bottom" constant="16" id="of6-gm-1mO"/>
@@ -281,9 +266,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house" catalog="system" width="128" height="106"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

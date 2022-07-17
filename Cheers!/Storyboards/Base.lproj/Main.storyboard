@@ -28,7 +28,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCK-mw-CD0">
                                         <rect key="frame" x="13" y="0.0" width="200" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="xRx-iP-9lf"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="xRx-iP-9lf"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="(Create New Account)"/>
@@ -48,13 +48,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="R44-kd-vcd">
-                                <rect key="frame" x="82" y="187" width="250" height="229"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="R44-kd-vcd">
+                                <rect key="frame" x="82" y="145" width="250" height="165"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Vp-Dk-Lzi">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="2Hw-4N-xIT"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="2Hw-4N-xIT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -62,7 +62,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vph-h1-Uig">
                                         <rect key="frame" x="0.0" y="67" width="250" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="W2d-qw-827"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="W2d-qw-827"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -70,25 +70,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGW-gJ-SsH">
                                         <rect key="frame" x="0.0" y="134" width="250" height="31"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="zcz-j6-UyQ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="zcz-j6-UyQ"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="(Login)"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="msl-dx-Ayz"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWm-34-UeV" customClass="ASAuthorizaionAppleIdButton">
-                                        <rect key="frame" x="0.0" y="198" width="250" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="B8t-wn-XJ7"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="(Sign in with Apple)">
-                                            <color key="baseBackgroundColor" systemColor="labelColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="signInWithAppleButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="qwz-bA-s56"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -131,8 +118,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aop-kQ-cNL">
-                                <rect key="frame" x="82" y="146" width="250" height="316"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aop-kQ-cNL">
+                                <rect key="frame" x="82" y="146" width="250" height="554"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-Tf-aJi" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
@@ -161,8 +148,11 @@
                                             <segue destination="so5-eh-7N9" kind="show" id="D2l-tW-YOe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-M9-dDj">
-                                        <rect key="frame" x="0.0" y="285" width="250" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-zB-zg9" userLabel="AppleLoginStackView">
+                                        <rect key="frame" x="0.0" y="285" width="250" height="200"/>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-M9-dDj">
+                                        <rect key="frame" x="0.0" y="523" width="250" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Return to login"/>
                                         <connections>
@@ -172,29 +162,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLl-V2-pLo" customClass="ASAuthorizationAppleIDButton">
-                                <rect key="frame" x="174" y="545" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p43-RV-o74"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9v2-Ud-VAN" firstAttribute="leading" secondItem="p43-RV-o74" secondAttribute="leading" constant="20" id="1Yr-xW-TAj"/>
                             <constraint firstItem="Aop-kQ-cNL" firstAttribute="centerX" secondItem="p43-RV-o74" secondAttribute="centerX" id="Due-Vw-gpK"/>
-                            <constraint firstItem="Aop-kQ-cNL" firstAttribute="top" secondItem="9v2-Ud-VAN" secondAttribute="bottom" constant="60" id="Dv2-L7-C4x"/>
+                            <constraint firstItem="Aop-kQ-cNL" firstAttribute="top" secondItem="9v2-Ud-VAN" secondAttribute="bottom" constant="40" id="Dv2-L7-C4x"/>
                             <constraint firstItem="p43-RV-o74" firstAttribute="trailing" secondItem="9v2-Ud-VAN" secondAttribute="trailing" constant="20" id="hGp-Cd-QU6"/>
                             <constraint firstItem="9v2-Ud-VAN" firstAttribute="top" secondItem="p43-RV-o74" secondAttribute="top" constant="8" id="mQo-fz-TvG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="82z-0L-a8Y"/>
                     <connections>
+                        <outlet property="appleLoginStackView" destination="4sQ-zB-zg9" id="En0-Oe-nmX"/>
                         <outlet property="confirmPasswordTextField" destination="kZR-sP-tqz" id="2Kd-ev-hfO"/>
                         <outlet property="emailTextField" destination="fwf-Tf-aJi" id="UmR-bB-b2K"/>
                         <outlet property="passwordTextField" destination="kZR-sP-tqz" id="0T1-Dg-MVm"/>
-                        <outlet property="signInWithAppleButtonTapped" destination="wLl-V2-pLo" id="Sbo-RC-7oH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvO-v6-OYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -235,9 +219,6 @@
         <segue reference="mpa-MT-dKc"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
