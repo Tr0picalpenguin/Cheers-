@@ -17,13 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKv-05-UJy">
-                                <rect key="frame" x="165" y="38" width="84" height="27"/>
+                                <rect key="frame" x="165" y="40" width="84" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gj5-mH-RLF">
-                                <rect key="frame" x="105.5" y="67" width="203" height="31"/>
+                                <rect key="frame" x="105.5" y="80.5" width="203" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="0mD-uD-0Jf"/>
                                 </constraints>
@@ -37,15 +37,15 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lef-Yf-mRW">
-                                <rect key="frame" x="107" y="105" width="200" height="34"/>
+                                <rect key="frame" x="107" y="118.5" width="200" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="jSc-Ua-0GZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="jSc-Ua-0GZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-pO-kba">
-                                <rect key="frame" x="0.0" y="143" width="414" height="678"/>
+                                <rect key="frame" x="0.0" y="156.5" width="414" height="664.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cocktailCell" rowHeight="123" id="Yt7-6B-Ypc" customClass="CocktailListTableViewCell" customModule="Cheers_" customModuleProvider="target">
@@ -88,10 +88,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zag-sM-zBs">
-                                <rect key="frame" x="326" y="38" width="70" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="x6x-4A-jJG"/>
-                                </constraints>
+                                <rect key="frame" x="326" y="40" width="70" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout"/>
                                 <connections>
@@ -106,17 +103,16 @@
                             <constraint firstItem="gj5-mH-RLF" firstAttribute="top" secondItem="fKv-05-UJy" secondAttribute="bottom" constant="2" id="1TW-sU-QtG"/>
                             <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="BmF-pO-kba" secondAttribute="trailing" id="8uI-OC-6BT"/>
                             <constraint firstItem="BmF-pO-kba" firstAttribute="leading" secondItem="wr0-Oe-yJT" secondAttribute="leading" id="JeB-2I-Mhh"/>
-                            <constraint firstItem="wr0-Oe-yJT" firstAttribute="bottom" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="716" id="Lxd-2F-WbL"/>
-                            <constraint firstItem="fKv-05-UJy" firstAttribute="top" secondItem="SQp-U7-hnW" secondAttribute="top" constant="38" id="M8r-j5-DBe"/>
+                            <constraint firstItem="fKv-05-UJy" firstAttribute="top" secondItem="SQp-U7-hnW" secondAttribute="top" constant="40" id="M8r-j5-DBe"/>
                             <constraint firstItem="gj5-mH-RLF" firstAttribute="centerX" secondItem="SQp-U7-hnW" secondAttribute="centerX" id="Tho-FB-6d5"/>
                             <constraint firstItem="BmF-pO-kba" firstAttribute="top" secondItem="Lef-Yf-mRW" secondAttribute="bottom" constant="4" id="bGh-zf-iLJ"/>
                             <constraint firstItem="fKv-05-UJy" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="doe-nQ-L3j"/>
                             <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="Zag-sM-zBs" secondAttribute="trailing" constant="18" id="eLe-ad-LtV"/>
+                            <constraint firstItem="Zag-sM-zBs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fKv-05-UJy" secondAttribute="trailing" constant="8" symbolic="YES" id="hLX-ts-YY6"/>
                             <constraint firstAttribute="bottomMargin" secondItem="BmF-pO-kba" secondAttribute="bottom" constant="-8" id="jHs-4O-BOL"/>
-                            <constraint firstItem="Zag-sM-zBs" firstAttribute="leading" secondItem="fKv-05-UJy" secondAttribute="trailing" constant="77" id="s3C-qe-GpB"/>
-                            <constraint firstItem="Zag-sM-zBs" firstAttribute="top" secondItem="fKv-05-UJy" secondAttribute="top" id="szb-hz-SLX"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="top" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="8" id="tdq-mm-QZD"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="vCh-SX-Djd"/>
+                            <constraint firstItem="Zag-sM-zBs" firstAttribute="top" secondItem="SQp-U7-hnW" secondAttribute="top" constant="40" id="zbv-rN-aAd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="JCb-MX-TPv"/>

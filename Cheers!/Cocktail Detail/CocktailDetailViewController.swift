@@ -34,6 +34,13 @@ class CocktailDetailViewController: UIViewController {
         super.viewWillAppear(animated)
        
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let scrollview = UIScrollView(frame: view.bounds)
+        view.addSubview(scrollview)
+    }
    
     
     func updateViews() {
@@ -53,7 +60,12 @@ class CocktailDetailViewController: UIViewController {
     
 
     
+    
+    
     @IBAction func likeButtonTapped(_ sender: Any) {
+        
+        
+        
     }
     @IBAction func favoritesButtonTapped(_ sender: Any) {
     }

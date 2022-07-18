@@ -117,7 +117,7 @@ extension CreateUserViewController: CreateUserViewModelDelegate {
     }
     
     func userSignedIn() {
-        let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
+        let storyboard = UIStoryboard(name: "TabController", bundle: nil)
                 guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
