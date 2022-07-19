@@ -11,7 +11,7 @@
         <!--Favorites-->
         <scene sceneID="kA0-5d-vwJ">
             <objects>
-                <viewController storyboardIdentifier="Favorites" id="vHn-I6-knQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Favorites" id="vHn-I6-knQ" customClass="FavoritesViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yW0-61-g36">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,15 +23,15 @@
                                     <segment title="My Creations"/>
                                 </segments>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rdQ-o5-uhU">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rdQ-o5-uhU">
                                 <rect key="frame" x="20" y="138" width="374" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="s93-tk-C16">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritesCell" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cheers_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s93-tk-C16" id="95a-OQ-vK5">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s93-tk-C16" id="95a-OQ-vK5" customClass="FavoritesTableViewCell" customModule="Cheers_" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -43,6 +43,8 @@
                         <constraints>
                             <constraint firstItem="rdQ-o5-uhU" firstAttribute="top" secondItem="eUj-J6-snA" secondAttribute="bottom" constant="55" id="Gil-1R-5Bl"/>
                             <constraint firstItem="eUj-J6-snA" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="20" id="KOj-yb-zQl"/>
+                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="trailing" secondItem="eUj-J6-snA" secondAttribute="trailing" id="Lft-ai-lvI"/>
+                            <constraint firstItem="8iR-rn-wWG" firstAttribute="bottom" secondItem="rdQ-o5-uhU" secondAttribute="bottom" constant="60" id="MF1-Eu-9sd"/>
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="eUj-J6-snA" secondAttribute="trailing" constant="20" id="bl2-gY-I4H"/>
                             <constraint firstItem="eUj-J6-snA" firstAttribute="top" secondItem="8iR-rn-wWG" secondAttribute="top" constant="8" id="llK-Dh-B83"/>
                             <constraint firstItem="rdQ-o5-uhU" firstAttribute="leading" secondItem="eUj-J6-snA" secondAttribute="leading" id="utg-KL-yRs"/>

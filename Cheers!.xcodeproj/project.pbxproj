@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED14B3DA2885D12A00D7A5C3 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */; };
 		EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */; };
 		EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE51286CD5BD005EC7E9 /* SceneDelegate.swift */; };
 		EDB0BE57286CD5BD005EC7E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE55286CD5BD005EC7E9 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		ED3CF1D028835D3800333E9A /* Cheers!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheers!.entitlements"; sourceTree = "<group>"; };
 		EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheers!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED14B3D82885D0FA00D7A5C3 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
 		EDB0BE43286CD5BD005EC7E9 = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +262,7 @@
 			children = (
 				EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */,
 				EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */,
+				ED14B3D82885D0FA00D7A5C3 /* Custom Cell */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -358,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED14B3DA2885D12A00D7A5C3 /* FavoritesTableViewCell.swift in Sources */,
 				EDB0BED5287B8BD2005EC7E9 /* NetworkController.swift in Sources */,
 				EDB0BECF2878F4BB005EC7E9 /* FirebaseService.swift in Sources */,
 				EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */,

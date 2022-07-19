@@ -34,6 +34,20 @@ class UserLoginViewController: UIViewController {
     }
     */
     @IBAction func loginButtonTapped(_ sender: Any) {
+        if emailTextField.text?.isEmpty == true {
+            let alertController = UIAlertController(title: "No email found!", message: "Please enter a valid email.", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        if passwordTextField.text?.isEmpty == true {
+            let alertController = UIAlertController(title: "Password field is empty!", message: "Please enter password", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
         if let email = emailTextField.text,
            let password = passwordTextField.text {
             viewModel.loginAuthentication(with: email, password: password)
@@ -51,10 +65,17 @@ class UserLoginViewController: UIViewController {
 }
 
 extension UserLoginViewController: UserLoginViewModeldelegate {
-    func presentAlertController() {
+    
+    func presentAlertController(error: Error) {
         let alertController = UIAlertController(title: "Invalid Login", message: "Please check email and password", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(confirmAction)
         present(alertController, animated: true)
+    }
+    
+    func userLoggedIn() {
+        let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
 }

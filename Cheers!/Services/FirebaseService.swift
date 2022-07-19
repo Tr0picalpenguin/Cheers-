@@ -131,6 +131,8 @@ struct FirebaseService: FirebaseSyncable {
         }
     }
     
+    
+    // TODO: - add a closure. result type with bool
     func signInWithApple(token: String, nonce: String) {
         // Initialize a Firebase credential.
         let credential = OAuthProvider.credential(withProviderID: "apple.com",
@@ -145,7 +147,7 @@ struct FirebaseService: FirebaseSyncable {
             print(error.localizedDescription)
             return
           }
-          // User is signed in to Firebase with Apple.
+          print("Made it this far.")
           // ...
         }
     }

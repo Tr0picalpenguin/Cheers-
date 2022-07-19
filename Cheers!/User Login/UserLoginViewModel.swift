@@ -10,7 +10,8 @@ import FirebaseAuth
 
 
 protocol UserLoginViewModeldelegate: AnyObject {
-    func presentAlertController()
+    func presentAlertController(error: Error)
+    func userLoggedIn()
 }
 
 class UserLoginViewModel {
@@ -25,7 +26,19 @@ class UserLoginViewModel {
     }
     
     func loginAuthentication(with email: String, password: String) {
-        
+        service.loginUser(with: email, password: password) { result in
+            switch result {
+            case .success(true):
+                self.delegate?.userLoggedIn()
+            case .success(false):
+                let error = Error.self
+                self.delegate?.presentAlertController(error: error as! Error )
+            case .failure(let error):
+                self.delegate?.presentAlertController(error: error)
+                    
+                }
+            }
+        }
 //       //TODO: - abstract firebase code to FirebaseService
 //        Auth.auth().signIn(withEmail: email, password: password) { result, error in
 //            switch result {
@@ -44,7 +57,11 @@ class UserLoginViewModel {
 //
 //            }
 //        }
-    }
-}
+//
+    
+} // end of class
+
+
+
 
 

@@ -31,7 +31,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="xRx-iP-9lf"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="(Create New Account)"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Create New Account"/>
                                         <connections>
                                             <action selector="createAccountButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="ZaL-jH-JOL"/>
                                             <segue destination="uk4-me-ZWY" kind="show" id="R6F-3a-krA"/>
@@ -73,7 +73,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="zcz-j6-UyQ"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="(Login)"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                         <connections>
                                             <action selector="loginButtonTapped:" destination="SIG-sJ-XoY" eventType="touchUpInside" id="msl-dx-Ayz"/>
                                         </connections>
@@ -113,34 +113,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v2-Ud-VAN">
-                                <rect key="frame" x="20" y="52" width="374" height="36"/>
+                                <rect key="frame" x="20" y="52" width="374" height="216"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aop-kQ-cNL">
-                                <rect key="frame" x="82" y="146" width="250" height="554"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="Aop-kQ-cNL">
+                                <rect key="frame" x="82" y="308" width="250" height="394"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-Tf-aJi" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="ZaM-TR-Cx3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="ZaM-TR-Cx3"/>
+                                            <constraint firstAttribute="height" constant="34" id="dqx-4L-HUf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bLW-f8-SpQ">
                                         <rect key="frame" x="0.0" y="72" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="uh2-Rj-IeV"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZR-sP-tqz">
                                         <rect key="frame" x="0.0" y="144" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="W6Q-fS-JPW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqc-C8-3Ac">
-                                        <rect key="frame" x="0.0" y="216" width="250" height="31"/>
+                                        <rect key="frame" x="0.0" y="216" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="b0G-P0-89x"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Create Account"/>
                                         <connections>
@@ -148,11 +158,17 @@
                                             <segue destination="so5-eh-7N9" kind="show" id="D2l-tW-YOe"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-zB-zg9" userLabel="AppleLoginStackView">
-                                        <rect key="frame" x="0.0" y="285" width="250" height="200"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-zB-zg9" userLabel="AppleLoginStackView">
+                                        <rect key="frame" x="0.0" y="288" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="RVe-1c-XxI"/>
+                                        </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-M9-dDj">
-                                        <rect key="frame" x="0.0" y="523" width="250" height="31"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFo-M9-dDj">
+                                        <rect key="frame" x="0.0" y="360" width="250" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="8ey-ne-M8e"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Return to login"/>
                                         <connections>
@@ -167,6 +183,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9v2-Ud-VAN" firstAttribute="leading" secondItem="p43-RV-o74" secondAttribute="leading" constant="20" id="1Yr-xW-TAj"/>
+                            <constraint firstItem="p43-RV-o74" firstAttribute="bottom" secondItem="Aop-kQ-cNL" secondAttribute="bottom" constant="140" id="7BZ-KS-odT"/>
                             <constraint firstItem="Aop-kQ-cNL" firstAttribute="centerX" secondItem="p43-RV-o74" secondAttribute="centerX" id="Due-Vw-gpK"/>
                             <constraint firstItem="Aop-kQ-cNL" firstAttribute="top" secondItem="9v2-Ud-VAN" secondAttribute="bottom" constant="40" id="Dv2-L7-C4x"/>
                             <constraint firstItem="p43-RV-o74" firstAttribute="trailing" secondItem="9v2-Ud-VAN" secondAttribute="trailing" constant="20" id="hGp-Cd-QU6"/>
@@ -178,7 +195,7 @@
                         <outlet property="appleLoginStackView" destination="4sQ-zB-zg9" id="En0-Oe-nmX"/>
                         <outlet property="confirmPasswordTextField" destination="kZR-sP-tqz" id="2Kd-ev-hfO"/>
                         <outlet property="emailTextField" destination="fwf-Tf-aJi" id="UmR-bB-b2K"/>
-                        <outlet property="passwordTextField" destination="kZR-sP-tqz" id="0T1-Dg-MVm"/>
+                        <outlet property="passwordTextField" destination="bLW-f8-SpQ" id="gnI-0v-sKK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZvO-v6-OYh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
