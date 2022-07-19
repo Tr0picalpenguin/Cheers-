@@ -16,13 +16,17 @@ class UserLoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    var viewModel: UserLoginViewModel!
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        viewModel = UserLoginViewModel(delegate: self)
     }
+   
     
-    let viewModel: UserLoginViewModel = UserLoginViewModel()
 
     /*
     // MARK: - Navigation
@@ -51,6 +55,7 @@ class UserLoginViewController: UIViewController {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
             viewModel.loginAuthentication(with: email, password: password)
+            
         }
     }
     
@@ -75,7 +80,7 @@ extension UserLoginViewController: UserLoginViewModeldelegate {
     
     func userLoggedIn() {
         let storyboard = UIStoryboard(name: "TabController", bundle: nil)
-                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
+                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
 }

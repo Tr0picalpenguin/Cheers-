@@ -25,7 +25,6 @@
 		EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */; };
 		EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */; };
 		EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */; };
-		EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */; };
 		EDB0BEB628760389005EC7E9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB528760389005EC7E9 /* FirebaseAnalytics */; };
 		EDB0BEB828760389005EC7E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB728760389005EC7E9 /* FirebaseAuth */; };
 		EDB0BEBA28760389005EC7E9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB928760389005EC7E9 /* FirebaseFirestore */; };
@@ -70,7 +69,6 @@
 		EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCocktailViewModel.swift; sourceTree = "<group>"; };
 		EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCocktailViewController.swift; sourceTree = "<group>"; };
 		EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListTableViewCell.swift; sourceTree = "<group>"; };
-		EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientTableViewCell.swift; sourceTree = "<group>"; };
 		EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewModel.swift; sourceTree = "<group>"; };
 		EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
@@ -217,7 +215,6 @@
 			children = (
 				EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */,
 				EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */,
-				EDB0BE862874C4F1005EC7E9 /* Custom Cell */,
 				EDB0BEDF287D2C53005EC7E9 /* Custom Views */,
 			);
 			path = "Create Cocktail";
@@ -227,14 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */,
-			);
-			path = "Custom Cell";
-			sourceTree = "<group>";
-		};
-		EDB0BE862874C4F1005EC7E9 /* Custom Cell */ = {
-			isa = PBXGroup;
-			children = (
-				EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -379,7 +368,6 @@
 				EDB0BE68286E1742005EC7E9 /* User.swift in Sources */,
 				EDB0BE762874AF42005EC7E9 /* CocktailListViewModel.swift in Sources */,
 				EDB0BEDE287D1205005EC7E9 /* CustomCocktail.swift in Sources */,
-				EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */,
 				EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */,
 				EDB0BECB2877A5F9005EC7E9 /* FavoritesViewModel.swift in Sources */,
 				EDB0BED12878F722005EC7E9 /* FirebaseError.swift in Sources */,

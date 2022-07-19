@@ -35,6 +35,9 @@ class CocktailListViewModel {
     
     func logout() {
         service.logoutUser()
+        // need to verify this
+        UserDefaults.standard.removeObject(forKey: "email")
+      
     }
     
     //  function that fetches the popular cocktail list and decodes from the API

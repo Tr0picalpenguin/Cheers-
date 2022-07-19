@@ -142,6 +142,7 @@ extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthori
                 print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 return
               }
+            // Need to set the user defaults
             viewModel.signInWithApple(token: idTokenString, nonce: nonce)
             }
           }

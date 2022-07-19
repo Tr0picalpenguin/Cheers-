@@ -97,7 +97,7 @@ struct FirebaseService: FirebaseSyncable {
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             switch authResult {
             case .some(let authResult):
-                UserDefaults.standard.set(authResult.user.uid, forKey: "uuid")
+                UserDefaults.standard.set(authResult.user.email, forKey: "email")
                 completion(.success(true))
             case .none:
                 if let error = error {
@@ -125,6 +125,7 @@ struct FirebaseService: FirebaseSyncable {
     func logoutUser() {
         let firebaseAuth = Auth.auth()
         do {
+            // explore if firebaseAuth.signOut has a closure.
           try firebaseAuth.signOut()
         } catch let signOutError as NSError {
           print("Error signing out: %@", signOutError)
@@ -147,8 +148,10 @@ struct FirebaseService: FirebaseSyncable {
             print(error.localizedDescription)
             return
           }
-          print("Made it this far.")
-          // ...
+            let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
+         
         }
     }
     

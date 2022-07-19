@@ -16,13 +16,11 @@ class CocktailDetailViewModel {
     private weak var delegate: CocktailDetailViewModeldelegate?
     
     var cocktail: CocktailDetail?
-   
     
     init(delegate: CocktailDetailViewModeldelegate) {
         self.delegate = delegate
     }
     
-   // can I create a fetchCocktailDetail function that calls the fetchCocktailDetail from the NewtworkController, then call this function in the prepare for segue?
     func fetchCocktailDetail(with cocktailID: String) {
        
         NetworkController.fetchCocktailDetail(with: cocktailID) { result in
@@ -36,7 +34,5 @@ class CocktailDetailViewModel {
                 print(error)
             }
         }
-
     }
-    
 }// end of class

@@ -27,8 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             //launch the login view
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "LoginView") as? UITabBarController else { return }
-            window?.rootViewController = tabBarController
+             let loginView = storyboard.instantiateViewController(withIdentifier: "LoginView")
+            window?.rootViewController = loginView
         }
     }
     

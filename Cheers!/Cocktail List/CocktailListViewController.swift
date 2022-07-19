@@ -63,8 +63,12 @@ class CocktailListViewController: UIViewController {
         }
     }
     
+    // need to discover if they have signed in using sign in with apple or firebase.
     @IBAction func logoutButtonTapped(_ sender: Any) {
         viewModel.logout()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginView")
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: loginViewController)
     }
     
     
