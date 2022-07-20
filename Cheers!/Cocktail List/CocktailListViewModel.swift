@@ -35,7 +35,6 @@ class CocktailListViewModel {
     
     func logout() {
         service.logoutUser()
-        // need to verify this
         UserDefaults.standard.removeObject(forKey: "email")
       
     }

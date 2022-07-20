@@ -45,19 +45,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-//MARK: - Add the following code to the apps main entry point.
 
-//struct YourApp: App {
-//    // register app delegate for Firebase setup
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//    content_copy
-//
-//
-//    var body: some Scene {
-//        WindowGroup {
-//            NavigationView {
-//                ContentView()
-//            }
-//        }
-//    }
-//}

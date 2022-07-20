@@ -14,6 +14,7 @@ class CocktailListViewController: UIViewController {
     var viewModel: CocktailListViewModel!
 
     @IBOutlet weak var homeSegmentedControl: UISegmentedControl!
+     
     @IBOutlet weak var cocktailListTableView: UITableView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -46,7 +47,6 @@ class CocktailListViewController: UIViewController {
         }
     }
 
-   
     @IBAction func homeIndexChanged(_ sender: Any) {
         switch homeSegmentedControl.selectedSegmentIndex {
         case 0:
@@ -104,3 +104,5 @@ extension CocktailListViewController: CocktailListViewModelDelegate {
         tableView.reloadData()
     }
 } //  end of extension
+
+

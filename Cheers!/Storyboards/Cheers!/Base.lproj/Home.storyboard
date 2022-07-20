@@ -45,7 +45,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-pO-kba">
-                                <rect key="frame" x="0.0" y="160" width="414" height="661"/>
+                                <rect key="frame" x="0.0" y="160" width="414" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cocktailCell" rowHeight="123" id="Yt7-6B-Ypc" customClass="CocktailListTableViewCell" customModule="Cheers_" customModuleProvider="target">
@@ -62,9 +62,9 @@
                                                         <constraint firstAttribute="width" secondItem="Qbm-7p-9Bj" secondAttribute="height" multiplier="1:1" id="zLM-oX-5Ea"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-fp-RQF">
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJm-fp-RQF">
                                                     <rect key="frame" x="251" y="76" width="135" height="24"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,7 +109,7 @@
                             <constraint firstItem="fKv-05-UJy" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="doe-nQ-L3j"/>
                             <constraint firstItem="wr0-Oe-yJT" firstAttribute="trailing" secondItem="Zag-sM-zBs" secondAttribute="trailing" constant="18" id="eLe-ad-LtV"/>
                             <constraint firstItem="Zag-sM-zBs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fKv-05-UJy" secondAttribute="trailing" constant="8" symbolic="YES" id="hLX-ts-YY6"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="BmF-pO-kba" secondAttribute="bottom" constant="-8" id="jHs-4O-BOL"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="BmF-pO-kba" secondAttribute="bottom" constant="12" id="jHs-4O-BOL"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="top" secondItem="gj5-mH-RLF" secondAttribute="bottom" constant="8" id="tdq-mm-QZD"/>
                             <constraint firstItem="Lef-Yf-mRW" firstAttribute="centerX" secondItem="wr0-Oe-yJT" secondAttribute="centerX" id="vCh-SX-Djd"/>
                             <constraint firstItem="Zag-sM-zBs" firstAttribute="top" secondItem="SQp-U7-hnW" secondAttribute="top" constant="40" id="zbv-rN-aAd"/>
@@ -192,7 +192,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vR-aA-4iN">
-                                <rect key="frame" x="112" y="795" width="129" height="31"/>
+                                <rect key="frame" x="142.5" y="795" width="129" height="27"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add to Favorites"/>
                                 <connections>
@@ -223,9 +223,9 @@
                         <constraints>
                             <constraint firstItem="1vR-aA-4iN" firstAttribute="top" secondItem="WrM-Zv-FnZ" secondAttribute="bottom" constant="8" id="2uM-9x-UNa"/>
                             <constraint firstItem="8cP-rJ-eeU" firstAttribute="top" secondItem="xDP-Os-jNk" secondAttribute="bottom" constant="52" id="3GB-5L-fGn"/>
-                            <constraint firstItem="1vR-aA-4iN" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="112" id="3iL-VY-NKW"/>
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" secondItem="8cP-rJ-eeU" secondAttribute="trailing" constant="43" id="5jM-VM-lON"/>
                             <constraint firstItem="xDP-Os-jNk" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="41" id="6uc-MH-Q67"/>
+                            <constraint firstItem="1vR-aA-4iN" firstAttribute="centerX" secondItem="2n2-Ow-tJB" secondAttribute="centerX" id="7GW-2t-Qw4"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="top" secondItem="2n2-Ow-tJB" secondAttribute="top" constant="20" id="B6Q-6G-6Mu"/>
                             <constraint firstAttribute="bottom" secondItem="dtc-cd-4A8" secondAttribute="bottom" constant="285" id="ELV-5U-efQ"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="55" id="GIY-lB-D8j"/>
@@ -241,7 +241,7 @@
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1vR-aA-4iN" secondAttribute="trailing" symbolic="YES" id="gE7-FY-PkC"/>
                             <constraint firstAttribute="bottom" secondItem="xDP-Os-jNk" secondAttribute="bottom" constant="138" id="lse-vB-n9Q"/>
                             <constraint firstItem="WrM-Zv-FnZ" firstAttribute="centerY" secondItem="8cP-rJ-eeU" secondAttribute="centerY" id="mG6-eu-cwJ"/>
-                            <constraint firstItem="2n2-Ow-tJB" firstAttribute="bottom" secondItem="1vR-aA-4iN" secondAttribute="bottom" constant="16" id="of6-gm-1mO"/>
+                            <constraint firstItem="2n2-Ow-tJB" firstAttribute="bottom" secondItem="1vR-aA-4iN" secondAttribute="bottom" constant="20" id="of6-gm-1mO"/>
                             <constraint firstItem="1vR-aA-4iN" firstAttribute="top" secondItem="8cP-rJ-eeU" secondAttribute="bottom" constant="8" id="ueE-k3-VdV"/>
                             <constraint firstItem="xDP-Os-jNk" firstAttribute="leading" secondItem="WrM-Zv-FnZ" secondAttribute="leading" id="yK3-3y-Bef"/>
                         </constraints>
@@ -268,6 +268,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

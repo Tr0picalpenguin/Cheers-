@@ -54,7 +54,6 @@ class CustomCocktail: Codable {
     var glass: String?
     var instruction: String
     var uuid: String
-    var collectionType: String
     var imageURL: URL?
     var ingredient1: String?
     var ingredient2: String?
@@ -94,7 +93,6 @@ class CustomCocktail: Codable {
              "glass": self.glass,
              "instruction": self.instruction,
              "uuid": self.uuid,
-             "collectionType": self.collectionType,
              "imageURL": self.imageURL,
              "ingredient1": self.ingredient1,
              "ingredient2": self.ingredient2,
@@ -135,7 +133,6 @@ class CustomCocktail: Codable {
             self.instruction = instruction
             self.glass = glass
             self.uuid = uuid
-            self.collectionType = collectionType
             self.imageURL = URL(string: imageURL)
             self.ingredient1 = ingredient1
             self.ingredient2 = ingredient2
@@ -176,8 +173,8 @@ extension CustomCocktail {
         guard let cocktailName = dictionary[CocktailKeys.cocktailName] as? String,
               let instruction = dictionary[CocktailKeys.instruction] as? String,
               let glass = dictionary[CocktailKeys.glass] as? String,
-              let collectionType = dictionary[CocktailKeys.collectionType] as? String,
               let uuid = dictionary[CocktailKeys.uuid] as? String,
+              let collectionType = dictionary[CocktailKeys.collectionType] as? String,
               let imageURL = dictionary[CocktailKeys.imageURL] as? String,
               let ingredient1 = dictionary[CocktailKeys.ingredient1] as? String,
               let ingredient2 = dictionary[CocktailKeys.ingredient2] as? String,
@@ -210,6 +207,7 @@ extension CustomCocktail {
               let measurement14 = dictionary[CocktailKeys.measurement14] as? String,
               let measurement15 = dictionary[CocktailKeys.measurement15] as? String else { return nil }
         
+       
         self.init(cocktailName: cocktailName,
                   glass: glass,
                   instruction: instruction,
@@ -248,8 +246,6 @@ extension CustomCocktail {
                   measurement15: measurement15)
     }
 }
-   
-                                        
 
     extension CustomCocktail: Equatable {
         static func == (lhs: CustomCocktail, rhs: CustomCocktail) -> Bool {

@@ -149,7 +149,7 @@ struct FirebaseService: FirebaseSyncable {
             return
           }
             let storyboard = UIStoryboard(name: "TabController", bundle: nil)
-                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
+                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
          
         }
