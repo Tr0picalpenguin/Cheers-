@@ -14,8 +14,7 @@ protocol CocktailListViewModelDelegate: AnyObject {
 
 class CocktailListViewModel {
     
-//    private let service: FirebaseSyncable?
-    // is this right?
+
     var standardCocktails: [Cocktail] = []
     var customCocktails: [CustomCocktail] = []
 

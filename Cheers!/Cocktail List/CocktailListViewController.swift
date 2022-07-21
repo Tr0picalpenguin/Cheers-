@@ -88,7 +88,7 @@ extension CocktailListViewController: UITableViewDataSource {
     }
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else {return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else { return UITableViewCell() }
         
        //depending on what segment the user is on I want to display the correct tableview list.
       

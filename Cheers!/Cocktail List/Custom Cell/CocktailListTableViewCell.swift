@@ -40,7 +40,6 @@ class CocktailListTableViewCell: UITableViewCell {
     
     func updateViews(with cocktail: Cocktail) {
         cocktailNameLabel.text = cocktail.name
-        // need to call the fetch image function that was created above.
         fetchImage(for: cocktail)
     }
 } // end of class

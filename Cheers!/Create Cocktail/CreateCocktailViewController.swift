@@ -13,14 +13,18 @@ class CreateCocktailViewController: UIViewController {
     @IBOutlet weak var glassTypeTextField: UITextField!
     @IBOutlet weak var instructionsTextView: UITextView!
     
-// I need to figure out how to do the outlets for the custom cells
+
     @IBOutlet weak var cocktailImageView: UIImageView!
+    
+    var viewModel: CreateCocktailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupImageView()
         // Do any additional setup after loading the view.
     }
+ 
+    
     
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredeient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
@@ -42,7 +46,11 @@ class CreateCocktailViewController: UIViewController {
             let ingredientField = fields[0]
             let measurementField = fields[1]
             guard let ingredient = ingredientField.text, !ingredient.isEmpty,
-                  let measurement = measurementField.text, !measurement.isEmpty else { return }
+                  let measurement = measurementField.text, !measurement.isEmpty else {
+                print("Invalid entries")
+                return
+                
+            }
         }))
         present(alert, animated: true)
     }
@@ -53,7 +61,30 @@ class CreateCocktailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+       
+        
     }
     
-   
+    @objc func imageViewTapped() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true)
+    }
+    private func setupImageView() {
+        cocktailImageView.contentMode = .scaleAspectFit
+        cocktailImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
+        cocktailImageView.addGestureRecognizer(tapGesture)
+    }
+
+}
+
+extension CreateCocktailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        cocktailImageView.image = image
+    }
 }

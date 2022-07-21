@@ -8,16 +8,42 @@
 import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var favoritesImageView: UIImageView!
+    @IBOutlet weak var favoritesNameLabel: UILabel!
+    
+    
+    var cocktailImage: UIImage?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        favoritesImageView.image = nil
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+   
+    func fetchImage(for cocktail: Cocktail) {
+        guard let imageString = cocktail.imageURL else { return }
+        NetworkController.fetchImage(with: imageString) { result in
+            switch result {
+            case.success(let cocktailImage):
+                DispatchQueue.main.async {
+                    self.favoritesImageView.image = cocktailImage
+                    self.cocktailImage = cocktailImage
+                }
+            case .failure(let error):
+                print("Error", error.localizedDescription)
+            }
+        }
     }
+    
+    
+    func updateViews(with cocktail: Cocktail) {
+        favoritesNameLabel.text = cocktail.name
+        // need to call the fetch image function that was created above.
+        fetchImage(for: cocktail)
+    }
+} // end of class
 
-}
+
+
+

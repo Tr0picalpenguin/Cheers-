@@ -7,12 +7,39 @@
 
 import Foundation
 
-class Favorites {
+protocol FavoritesViewModeldelegate: AnyObject {
+    func cocktailLoadedSuccessfully()
+}
+
+class FavoritesViewModel {
     
-    // need something to recieve cocktails
+    var favoriteCocktail: CocktailDetail?
+    var customCocktail: CustomCocktail?
+    
+   
+    private weak var delegate: FavoritesViewModeldelegate?
+    private var service: FirebaseSyncable
+    
+    init(delegate: FavoritesViewModeldelegate, firebaseService: FirebaseSyncable = FirebaseService()) {
+        self.delegate = delegate
+        self.service = firebaseService
+    }
     
     
-    // need to resolve the segmented control for the favorites and the custom cocktails created by the user. 
+    func fetchfavorites(with cocktailID: String) {
+        NetworkController.fetchCocktailDetail(with: cocktailID) { result in
+            switch result {
+            case .success(let cocktail):
+                DispatchQueue.main.async {
+                    self.favoriteCocktail = cocktail
+                    self.delegate?.cocktailLoadedSuccessfully()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        
+        }
+    }
     
     
 }

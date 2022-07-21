@@ -27,7 +27,6 @@ protocol FirebaseSyncable {
 struct FirebaseService: FirebaseSyncable {
     
     
-    
     let reference = Firestore.firestore()
     let storage = Storage.storage().reference()
     

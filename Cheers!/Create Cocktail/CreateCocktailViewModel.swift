@@ -27,14 +27,53 @@ class CreateCocktailViewModel {
         cocktail.glass = glass
         cocktail.instruction = instruction
         cocktail.uuid = uuid
-        
-        
-
+        cocktail.ingredient1 = ingredient1
+        cocktail.ingredient2 = ingredient2
+        cocktail.ingredient3 = ingredient3
+        cocktail.ingredient4 = ingredient4
+        cocktail.ingredient5 = ingredient5
+        cocktail.ingredient6 = ingredient6
+        cocktail.ingredient7 = ingredient7
+        cocktail.ingredient8 = ingredient8
+        cocktail.ingredient9 = ingredient9
+        cocktail.ingredient10 = ingredient10
+        cocktail.ingredient11 = ingredient11
+        cocktail.ingredient12 = ingredient12
+        cocktail.ingredient13 = ingredient13
+        cocktail.ingredient14 = ingredient14
+        cocktail.ingredient15 = ingredient15
+        cocktail.measurement1 = measurement1
+        cocktail.measurement2 = measurement2
+        cocktail.measurement3 = measurement3
+        cocktail.measurement4 = measurement4
+        cocktail.measurement5 = measurement5
+        cocktail.measurement6 = measurement6
+        cocktail.measurement7 = measurement7
+        cocktail.measurement8 = measurement8
+        cocktail.measurement9 = measurement9
+        cocktail.measurement10 = measurement10
+        cocktail.measurement11 = measurement11
+        cocktail.measurement12 = measurement12
+        cocktail.measurement13 = measurement13
+        cocktail.measurement14 = measurement14
+        cocktail.measurement15 = measurement15
        
+        service.saveCocktail(self.cocktail!, with: image)
         
-   //     let cocktail = Cocktail(dinkID: uuid1, name: name1, instruction: instruction1, glass: glass1, uuid: uuid1, imageURL: image1, ingredient1: ingredient1, ingredient2: ingredient2, ingredient3: "", ingredient4: "", ingredient5: "", ingredient6: "", ingredient7: "", ingredient8: "", ingredient9: "", ingredient10: "", ingredient11: "", ingredient12: "", ingredient13: "", ingredient14: "", ingredient15: "", measurement1: measurement1, measurement2: measurement2, measurement3: "", measurement4: "", measurement5: "", measurement6: "", measurement7: "", measurement8: "", measurement9: "", measurement10: "", measurement11: "", measurement12: "", measurement13: "", measurement14: "", measurement15: "")
-        
-        // add cocktail to a network service which will be the SOT for the custom cocktails.
+    }
+    
+    func getImage(completion: @escaping (UIImage?) -> Void) {
+        guard let cocktail = cocktail else { return }
+        service.fetchImage(from: cocktail) { result in
+            switch result {
+            case .success(let image):
+                completion(image)
+            case .failure(let error):
+                print(error)
+                completion(nil)
+            }
+        }
+
     }
 }
 

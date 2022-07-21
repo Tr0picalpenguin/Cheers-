@@ -35,6 +35,7 @@ class NetworkController {
         }.resume()
     }
     
+    
     static func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CocktailDetail, NetworkError>) -> Void) {
         guard let cocktailDetailURL = URL(string: baseDetailURLString) else {
             completion(.failure(.badURL))
