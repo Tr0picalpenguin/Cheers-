@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-J6-snA">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-J6-snA" userLabel="Favorites Segmented Control">
                                 <rect key="frame" x="20" y="52" width="374" height="32"/>
                                 <segments>
                                     <segment title="Favorites"/>
@@ -80,7 +80,6 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="tMX-e2-WEl"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="favoreitesSegmentedControl" destination="eUj-J6-snA" id="OOT-fd-4TB"/>
                         <outlet property="favoritesSegmentedControl" destination="eUj-J6-snA" id="RfE-jT-Y6C"/>
                     </connections>
                 </viewController>

@@ -71,6 +71,7 @@ class CocktailDetailViewController: UIViewController {
         self.cocktailNameLabel.text = cocktail.name.capitalized
         self.glassTypeLabel.text = cocktail.glass
         self.intstructionsTextView.text = cocktail.instruction
+        
         self.firstIngredientLabel.text = cocktail.ingredient1
         self.firstMeasurementLabel.text = cocktail.measurement1
         

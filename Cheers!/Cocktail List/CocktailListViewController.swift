@@ -8,13 +8,17 @@
 import UIKit
 import FirebaseAuth
 
-class CocktailListViewController: UIViewController {
+class CocktailListViewController: UIViewController, UITextFieldDelegate {
     
     
     var viewModel: CocktailListViewModel!
+    var cocktailList: [Cocktail] = []
+    var topLevelDictionary: TopLevelDictionary?
 
     @IBOutlet weak var homeSegmentedControl: UISegmentedControl!
      
+    @IBOutlet weak var cocktailSearchBar: UITextField!
+    
     @IBOutlet weak var cocktailListTableView: UITableView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -24,11 +28,10 @@ class CocktailListViewController: UIViewController {
         viewModel = CocktailListViewModel(delegate: self)
         viewModel.loadData()
         tableView.dataSource = self
+        cocktailSearchBar.delegate = self
+        
     }
     
-   
-  
-   
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,7 +44,6 @@ class CocktailListViewController: UIViewController {
                     let cocktailDetailViewModel = CocktailDetailViewModel(delegate: destination)
                     cocktailDetailViewModel.fetchCocktailDetail(with: cocktail.cocktailID)
                     destination.cocktailDetailViewModel = cocktailDetailViewModel
-
                 }
             }
         }
@@ -70,8 +72,6 @@ class CocktailListViewController: UIViewController {
          let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginView")
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: loginViewController)
     }
-    
-    
 }// End of class
 
 extension CocktailListViewController: UITableViewDataSource {
@@ -105,4 +105,20 @@ extension CocktailListViewController: CocktailListViewModelDelegate {
     }
 } //  end of extension
 
-
+extension CocktailListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?s=\(searchText)") else { return }
+        NetworkController.fetchCocktailList(with: url) { [weak self] result in
+            switch result {
+            case .success(let topLevelDictionary):
+                self?.cocktailList = topLevelDictionary.drinks
+                self?.topLevelDictionary = topLevelDictionary
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("There was an error!", error.errorDescription!)
+            }
+        }
+    }
+}
