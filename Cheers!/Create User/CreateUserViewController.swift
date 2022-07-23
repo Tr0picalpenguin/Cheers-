@@ -27,6 +27,9 @@ class CreateUserViewController: UIViewController {
         viewModel = CreateUserViewModel(delegate: self)
         setupAppleLoginButton()
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+        
     }
     
 

@@ -17,11 +17,15 @@ class CreateCocktailViewController: UIViewController {
     @IBOutlet weak var cocktailImageView: UIImageView!
     
     var viewModel: CreateCocktailViewModel!
+    var cocktail: CustomCocktail?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImageView()
-        // Do any additional setup after loading the view.
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
     }
  
     
@@ -62,7 +66,6 @@ class CreateCocktailViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
        
-        
     }
     
     @objc func imageViewTapped() {

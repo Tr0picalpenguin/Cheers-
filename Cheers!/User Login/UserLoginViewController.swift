@@ -24,6 +24,9 @@ class UserLoginViewController: UIViewController {
         super.viewDidLoad()
 
         viewModel = UserLoginViewModel(delegate: self)
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
     }
    
     
@@ -84,3 +87,5 @@ extension UserLoginViewController: UserLoginViewModeldelegate {
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
 }
+
+

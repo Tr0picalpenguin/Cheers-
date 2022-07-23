@@ -18,8 +18,6 @@ class CocktailDetailViewModel {
     var cocktail: CocktailDetail?
     
     
-
-    
     init(delegate: CocktailDetailViewModeldelegate) {
         self.delegate = delegate
         

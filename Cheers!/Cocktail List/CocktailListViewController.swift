@@ -30,6 +30,9 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
         tableView.dataSource = self
         cocktailSearchBar.delegate = self
         
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        view.addGestureRecognizer(tap)
+        
     }
     
     // MARK: - Navigation
