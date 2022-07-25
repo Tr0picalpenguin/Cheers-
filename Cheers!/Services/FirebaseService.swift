@@ -110,7 +110,7 @@ struct FirebaseService: FirebaseSyncable {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             switch authResult {
             case .some:
-                UserDefaults.standard.bool(forKey: email)
+                UserDefaults.standard.set(authResult?.user.email, forKey: "email")
                 completion(.success(true))
             case .none:
                 if let error = error {
@@ -127,7 +127,7 @@ struct FirebaseService: FirebaseSyncable {
             // explore if firebaseAuth.signOut has a closure.
           try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+          print("Error signing out.", signOutError)
         }
     }
     

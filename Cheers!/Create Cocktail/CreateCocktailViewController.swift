@@ -13,7 +13,8 @@ class CreateCocktailViewController: UIViewController {
     @IBOutlet weak var glassTypeTextField: UITextField!
     @IBOutlet weak var instructionsTextView: UITextView!
     
-
+  
+    
     @IBOutlet weak var cocktailImageView: UIImageView!
     
     var viewModel: CreateCocktailViewModel!
@@ -59,9 +60,9 @@ class CreateCocktailViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
        showAlert()
+        
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {

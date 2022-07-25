@@ -17,6 +17,7 @@ class CocktailListViewModel {
 
     var standardCocktails: [Cocktail] = []
     var customCocktails: [CustomCocktail] = []
+    
 
     private weak var delegate: CocktailListViewModelDelegate?
     private var service: FirebaseSyncable
@@ -35,7 +36,6 @@ class CocktailListViewModel {
     func logout() {
         service.logoutUser()
         UserDefaults.standard.removeObject(forKey: "email")
-      
     }
     
     //  function that fetches the popular cocktail list and decodes from the API
@@ -69,7 +69,18 @@ class CocktailListViewModel {
             }
         }
     }
-    
+    func searchCocktail(with searchTerm: String) {
+        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=\(searchTerm)") else { return }
+        NetworkController.fetchCocktailList(with: url) { [weak self] result in
+            switch result {
+            case .success(let topLevelDictionary):
+                self?.standardCocktails = topLevelDictionary.drinks
+                self?.delegate?.cocktailsLoadedSuccessfully()
+            case .failure(let error):
+                print("There was an error!", error.errorDescription)
+            }
+        }
+    }
     //function that updates the views from Firebase storage
     func fetchCustomCocktailList() {
         service.loadCocktails { result in

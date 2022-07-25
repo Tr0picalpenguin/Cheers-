@@ -17,7 +17,8 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var homeSegmentedControl: UISegmentedControl!
      
-    @IBOutlet weak var cocktailSearchBar: UITextField!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     @IBOutlet weak var cocktailListTableView: UITableView!
     
@@ -28,9 +29,11 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
         viewModel = CocktailListViewModel(delegate: self)
         viewModel.loadData()
         tableView.dataSource = self
-        cocktailSearchBar.delegate = self
+       
+        searchBar.delegate = self
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
     }
@@ -96,7 +99,7 @@ extension CocktailListViewController: UITableViewDataSource {
        //depending on what segment the user is on I want to display the correct tableview list.
       
        let drink = viewModel.standardCocktails[indexPath.row]
-       
+       // update the updateViews function to "configureWith" then pass in whatever cocktail list is currently indexed on the segmented control ... ie "standardCocktail" or "customCocktail"
        cell.updateViews(with: drink)
        return cell
     }
@@ -104,24 +107,14 @@ extension CocktailListViewController: UITableViewDataSource {
 
 extension CocktailListViewController: CocktailListViewModelDelegate {
     func cocktailsLoadedSuccessfully() {
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 } //  end of extension
 
 extension CocktailListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let url = URL(string: "https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?s=\(searchText)") else { return }
-        NetworkController.fetchCocktailList(with: url) { [weak self] result in
-            switch result {
-            case .success(let topLevelDictionary):
-                self?.cocktailList = topLevelDictionary.drinks
-                self?.topLevelDictionary = topLevelDictionary
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print("There was an error!", error.errorDescription!)
-            }
-        }
+        viewModel.searchCocktail(with: searchText)
     }
 }

@@ -14,7 +14,7 @@ class CocktailDetailViewController: UIViewController {
     @IBOutlet weak var cocktailNameLabel: UILabel!
     @IBOutlet weak var glassTypeLabel: UILabel!
     @IBOutlet weak var intstructionsTextView: UITextView!
-    @IBOutlet weak var likesLabel: UILabel!
+ 
     
     @IBOutlet weak var ingredientTableView: UITableView!
     
@@ -46,7 +46,7 @@ class CocktailDetailViewController: UIViewController {
     }
     
 //    var defaultLikes: Int = 0
-//    
+//
 //    @IBAction func likeButtonTapped(_ sender: Any) {
 //        let currentLikes = defaultLikes + 1
 //        let likes: String = "\(currentLikes) Likes"
