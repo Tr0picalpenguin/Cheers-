@@ -58,10 +58,10 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
     @IBAction func homeIndexChanged(_ sender: Any) {
         switch homeSegmentedControl.selectedSegmentIndex {
         case 0:
-            homeSegmentedControl.titleForSegment(at: 0) // this will be deleted.
+            homeSegmentedControl.titleForSegment(at: 0) 
             viewModel.fetchPopularApiCocktailList()
         case 1:
-            homeSegmentedControl.titleForSegment(at: 1) // this will be deleted.
+            homeSegmentedControl.titleForSegment(at: 1)
             viewModel.fetchFullApiCocktailList()
         case 2:
             homeSegmentedControl.titleForSegment(at: 2)

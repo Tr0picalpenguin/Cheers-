@@ -46,6 +46,7 @@
 		EDB0BEDE287D1205005EC7E9 /* CustomCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */; };
 		EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */; };
 		EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */; };
+		EDB82BC328A7302900CF974C /* CustomIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB82BC228A7302900CF974C /* CustomIngredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCocktail.swift; sourceTree = "<group>"; };
 		EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailImageView.swift; sourceTree = "<group>"; };
 		EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabController.storyboard; sourceTree = "<group>"; };
+		EDB82BC228A7302900CF974C /* CustomIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIngredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,6 @@
 		ED14B3DC288858DA00D7A5C3 /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
-				ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -172,6 +173,7 @@
 				EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */,
 				EDB0BE67286E1742005EC7E9 /* User.swift */,
 				EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */,
+				EDB82BC228A7302900CF974C /* CustomIngredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,7 +217,7 @@
 			children = (
 				EDB0BE772874AF51005EC7E9 /* CocktailDetailViewModel.swift */,
 				EDB0BE7C2874AFEB005EC7E9 /* CocktailDetailViewController.swift */,
-				ED14B3DC288858DA00D7A5C3 /* Custom Cell */,
+				EDB0BEDF287D2C53005EC7E9 /* Custom Views */,
 			);
 			path = "Cocktail Detail";
 			sourceTree = "<group>";
@@ -225,7 +227,7 @@
 			children = (
 				EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */,
 				EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */,
-				EDB0BEDF287D2C53005EC7E9 /* Custom Views */,
+				ED14B3DC288858DA00D7A5C3 /* Custom Cell */,
 			);
 			path = "Create Cocktail";
 			sourceTree = "<group>";
@@ -269,6 +271,7 @@
 		EDB0BEDF287D2C53005EC7E9 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */,
 				EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */,
 			);
 			path = "Custom Views";
@@ -368,6 +371,7 @@
 				EDB0BE7B2874AFD4005EC7E9 /* CocktailListViewController.swift in Sources */,
 				EDB0BEC628778F89005EC7E9 /* CreateUserViewModel.swift in Sources */,
 				EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */,
+				EDB82BC328A7302900CF974C /* CustomIngredient.swift in Sources */,
 				EDB0BE68286E1742005EC7E9 /* User.swift in Sources */,
 				EDB0BE762874AF42005EC7E9 /* CocktailListViewModel.swift in Sources */,
 				EDB0BEDE287D1205005EC7E9 /* CustomCocktail.swift in Sources */,
@@ -562,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cheers-";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cocktail-Creations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -591,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cheers-";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cocktail-Creations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

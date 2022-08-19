@@ -8,9 +8,13 @@
 import Foundation
 import UIKit
 
+protocol CreateCocktailViewModelDelegate {
+    func cocktailCreatedSuccessfully()
+}
 class CreateCocktailViewModel {
     
     var cocktail: CustomCocktail?
+    weak var delegate: CreateUserViewModelDelegate?
     private let service: FirebaseSyncable
     
     init(cocktail: CustomCocktail? = nil, firebaseService: FirebaseSyncable = FirebaseService()) {
@@ -20,14 +24,15 @@ class CreateCocktailViewModel {
     
     
     // MARK: - CRUD
-    func createCocktail(with cocktailName: String, glass: String, instruction: String, collectionType: String, uuid: String = UUID().uuidString, image: UIImage) {
+    func createCocktail(with cocktailName: String, glass: String, instruction: String, image: UIImage, ingredients: [CustomIngredient] = []) {
        
         guard let cocktail = cocktail else { return }
         cocktail.cocktailName = cocktailName
         cocktail.glass = glass
         cocktail.instruction = instruction
-        cocktail.uuid = uuid
-       
+        cocktail.ingredients = ingredients
+        
+        self.cocktail = CustomCocktail(cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients)
         service.saveCocktail(self.cocktail!, with: image)
         
     }

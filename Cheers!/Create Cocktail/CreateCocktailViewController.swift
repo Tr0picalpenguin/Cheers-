@@ -19,7 +19,7 @@ class CreateCocktailViewController: UIViewController {
     
     var viewModel: CreateCocktailViewModel!
     var cocktail: CustomCocktail?
-    
+    var ingredients: [CustomIngredient]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,15 @@ class CreateCocktailViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let alertController = UIAlertController(title: "Create your own cocktail feature coming soon!", message: "Click ok and get back to enjoying a full database of curated cocktail. Cheers!", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true, completion: nil)
+        return
+    }
  
-    
-    
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredeient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
         
@@ -42,7 +48,6 @@ class CreateCocktailViewController: UIViewController {
         alert.addTextField { field in
             field.placeholder = "Measurement..."
             field.returnKeyType = .continue
-            
         }
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -54,11 +59,11 @@ class CreateCocktailViewController: UIViewController {
                   let measurement = measurementField.text, !measurement.isEmpty else {
                 print("Invalid entries")
                 return
-                
             }
         }))
         present(alert, animated: true)
     }
+    
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
        showAlert()
@@ -66,7 +71,13 @@ class CreateCocktailViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-       
+        guard let cocktailName = cocktailNameTextField.text?.capitalized,
+              let glass = glassTypeTextField.text?.capitalized,
+              let instructions = instructionsTextView.text,
+ //             let ingredients = ingredients,
+              let cocktailImage = cocktailImageView.image else { return }
+        
+        viewModel.createCocktail(with: cocktailName, glass: glass, instruction: instructions, image: cocktailImage)
     }
     
     @objc func imageViewTapped() {
@@ -82,7 +93,6 @@ class CreateCocktailViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         cocktailImageView.addGestureRecognizer(tapGesture)
     }
-
 }
 
 extension CreateCocktailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

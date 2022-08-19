@@ -9,41 +9,6 @@ import Foundation
 
 class CustomCocktail {
     
-//    enum CocktailKeys {
-//            static let cocktailName = "name"
-//            static let glass = "glass"
-//            static let instruction = "instruction"
-//            static let uuid = "uuid"
-//            static let collectionType = "cocktails"
-//            static let imageURL = "imageURL"
-//    }
-//
-//    let uuid: UUID
-//    var cocktailName: String
-//    var glass: String?
-//    var instruction: String
-//    var ingredients: [MeasuredIngredient]
-//    var imageURL: URL?
-//
-//    // MARK: - Dictionary representation
-//    var cocktailData: [String : AnyHashable] {
-//        ["cocktailName": self.cocktailName,
-//         "glass": self.glass,
-//         "instruction": self.instruction,
-// //        "ingredients": self.ingredients,
-//         "imageURL": self.imageURL]
-//    }
-//
-//    init(uuid: UUID = UUID(), cocktailName: String, glass: String?, instruction: String, ingredients: [MeasuredIngredient] = [], imageURL: String = "") {
-//
-//        self.uuid = uuid
-//        self.cocktailName = cocktailName
-//        self.glass = glass
-//        self.instruction = instruction
-//        self.ingredients = ingredients
-//
-//    }
-//}
         enum CocktailKeys {
             static let cocktailName = "name"
             static let glass = "glass"
@@ -51,6 +16,7 @@ class CustomCocktail {
             static let uuid = "uuid"
             static let collectionType = "cocktails"
             static let imageURL = "imageURL"
+            static let ingredients = "ingredients"
            
 
         }
@@ -64,16 +30,17 @@ class CustomCocktail {
     
 
         // Dictionary representation
-        var cocktailData: [String: AnyHashable] {
+        var cocktailData: [String: Any] {
             ["cocktailName": self.cocktailName,
-             "glass": self.glass,
+             "glass": self.glass as Any,
              "instruction": self.instruction,
              "uuid": self.uuid,
-             "imageURL": self.imageURL]
+             "imageURL": self.imageURL as Any,
+             CocktailKeys.ingredients: self.ingredients.map {$0.ingredientData}]
         }
 
         // MARK: - Initializers
-    init(cocktailName: String, glass:String, instruction: String, collectionType: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredients: [CustomIngredient] = []) {
+    init(cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredients: [CustomIngredient]) {
 
             self.cocktailName = cocktailName
             self.instruction = instruction
@@ -81,33 +48,27 @@ class CustomCocktail {
             self.uuid = uuid
             self.imageURL = URL(string: imageURL)
             self.ingredients = ingredients
-            
-        
         }
 } // end of class
 
-struct CustomIngredient {
-    var ingredient: String
-    var measurement: String
-}
 
 extension CustomCocktail {
 
-    convenience init?(dictionary: [String: Any]) {
+    convenience init?(from dictionary: [String: Any]) {
         guard let cocktailName = dictionary[CocktailKeys.cocktailName] as? String,
               let instruction = dictionary[CocktailKeys.instruction] as? String,
               let glass = dictionary[CocktailKeys.glass] as? String,
               let uuid = dictionary[CocktailKeys.uuid] as? String,
-              let collectionType = dictionary[CocktailKeys.collectionType] as? String,
+              let ingredientsArray = dictionary[CocktailKeys.ingredients] as? [[String : Any]],
               let imageURL = dictionary[CocktailKeys.imageURL] as? String else { return nil }
-
-
+        let ingredients = ingredientsArray.compactMap({CustomIngredient(from: $0)})
+        
         self.init(cocktailName: cocktailName,
                   glass: glass,
                   instruction: instruction,
-                  collectionType: collectionType,
                   uuid: uuid,
-                  imageURL: imageURL)
+                  imageURL: imageURL,
+                  ingredients: ingredients)
     }
 }
 

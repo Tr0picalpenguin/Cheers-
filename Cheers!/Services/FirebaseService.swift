@@ -10,7 +10,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseStorage
 import FirebaseAuth
-// Need to add FirebaseStorage
+
 
 protocol FirebaseSyncable {
     func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
@@ -47,7 +47,7 @@ struct FirebaseService: FirebaseSyncable {
                 return
             }
             let customCocktailsArray = data.compactMap({ $0.data() })
-            let cocktails = customCocktailsArray.compactMap({ CustomCocktail(dictionary: $0)})
+            let cocktails = customCocktailsArray.compactMap({ CustomCocktail(from: $0)})
             completion(.success(cocktails))
         }
     }

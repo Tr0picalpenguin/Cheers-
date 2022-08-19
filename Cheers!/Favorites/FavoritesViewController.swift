@@ -18,7 +18,13 @@ class FavoritesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let alertController = UIAlertController(title: "My Creation feature coming soon!", message: "Click ok and get back to enjoying a full database of curated cocktail. Cheers!", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true, completion: nil)
+        return
+    }
 
     /*
     // MARK: - Navigation

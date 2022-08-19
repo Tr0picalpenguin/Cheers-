@@ -75,6 +75,7 @@ class CreateUserViewController: UIViewController {
               let password = passwordTextField.text,
               let confirmPassword = confirmPasswordTextField.text else { return }
         viewModel.createUser(with: email, password: password, confirmPassword: confirmPassword)
+        
     }
     
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
@@ -122,7 +123,7 @@ extension CreateUserViewController: CreateUserViewModelDelegate {
     
     func userSignedIn() {
         let storyboard = UIStoryboard(name: "TabController", bundle: nil)
-                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "Home") as? UITabBarController else { return }
+                guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
                 (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
 }
@@ -154,4 +155,5 @@ extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthori
             // Handle error.
             print("Sign in with Apple errored: \(error)")
           }
+    
 }

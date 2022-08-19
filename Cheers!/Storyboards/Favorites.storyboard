@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
+        <!--My Creations-->
         <scene sceneID="kA0-5d-vwJ">
             <objects>
                 <viewController storyboardIdentifier="Favorites" id="vHn-I6-knQ" customClass="FavoritesViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,22 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eUj-J6-snA" userLabel="Favorites Segmented Control">
-                                <rect key="frame" x="20" y="52" width="374" height="32"/>
-                                <segments>
-                                    <segment title="Favorites"/>
-                                    <segment title="My Creations"/>
-                                </segments>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rdQ-o5-uhU">
-                                <rect key="frame" x="20" y="138" width="374" height="615"/>
+                                <rect key="frame" x="12" y="94.5" width="390" height="658.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritesCell" rowHeight="118" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cheers_" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="374" height="118"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="390" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s93-tk-C16" id="95a-OQ-vK5" customClass="FavoritesTableViewCell" customModule="Cheers_" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxN-2y-XRj">
@@ -42,7 +35,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzV-rF-BKk">
-                                                    <rect key="frame" x="227" y="71" width="135" height="24"/>
+                                                    <rect key="frame" x="243" y="71" width="135" height="24"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -64,24 +57,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Creations:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjo-G2-tX7">
+                                <rect key="frame" x="20" y="56" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8iR-rn-wWG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="top" secondItem="eUj-J6-snA" secondAttribute="bottom" constant="55" id="Gil-1R-5Bl"/>
-                            <constraint firstItem="eUj-J6-snA" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="20" id="KOj-yb-zQl"/>
-                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="trailing" secondItem="eUj-J6-snA" secondAttribute="trailing" id="Lft-ai-lvI"/>
+                            <constraint firstItem="Xjo-G2-tX7" firstAttribute="top" secondItem="8iR-rn-wWG" secondAttribute="top" constant="12" id="DN9-hG-exA"/>
+                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="12" id="KU1-5h-AUC"/>
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="bottom" secondItem="rdQ-o5-uhU" secondAttribute="bottom" constant="60" id="MF1-Eu-9sd"/>
-                            <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="eUj-J6-snA" secondAttribute="trailing" constant="20" id="bl2-gY-I4H"/>
-                            <constraint firstItem="eUj-J6-snA" firstAttribute="top" secondItem="8iR-rn-wWG" secondAttribute="top" constant="8" id="llK-Dh-B83"/>
-                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="leading" secondItem="eUj-J6-snA" secondAttribute="leading" id="utg-KL-yRs"/>
+                            <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="rdQ-o5-uhU" secondAttribute="trailing" constant="12" id="Rqq-iA-zVe"/>
+                            <constraint firstItem="Xjo-G2-tX7" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="20" id="Xzt-Mb-UIz"/>
+                            <constraint firstItem="Xjo-G2-tX7" firstAttribute="centerX" secondItem="8iR-rn-wWG" secondAttribute="centerX" id="nCX-td-IEw"/>
+                            <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="Xjo-G2-tX7" secondAttribute="trailing" constant="20" id="nuS-p9-c2c"/>
+                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="top" secondItem="Xjo-G2-tX7" secondAttribute="bottom" constant="12" id="rqt-Gd-hT1"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="tMX-e2-WEl"/>
+                    <tabBarItem key="tabBarItem" title="My Creations" image="star.fill" catalog="system" id="tMX-e2-WEl"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="favoritesSegmentedControl" destination="eUj-J6-snA" id="RfE-jT-Y6C"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53S-mp-I3d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
