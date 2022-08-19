@@ -175,14 +175,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Kas-0i-4wU" secondAttribute="trailing" constant="8" id="qQF-MR-nGl"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vR-aA-4iN">
-                                <rect key="frame" x="142.5" y="791" width="129" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add to Favorites"/>
-                                <connections>
-                                    <action selector="favoritesButtonTapped:" destination="llK-C9-lWU" eventType="touchUpInside" id="Bfl-aW-cWk"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Zbo-pu-Xdt">
                                 <rect key="frame" x="8" y="559" width="398" height="201.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -232,7 +224,6 @@
                         <viewLayoutGuide key="safeArea" id="2n2-Ow-tJB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1vR-aA-4iN" firstAttribute="centerX" secondItem="2n2-Ow-tJB" secondAttribute="centerX" id="7GW-2t-Qw4"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="top" secondItem="2n2-Ow-tJB" secondAttribute="top" constant="20" id="B6Q-6G-6Mu"/>
                             <constraint firstAttribute="bottom" secondItem="dtc-cd-4A8" secondAttribute="bottom" constant="285" id="ELV-5U-efQ"/>
                             <constraint firstItem="vlO-HG-dsY" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="55" id="GIY-lB-D8j"/>
@@ -242,9 +233,6 @@
                             <constraint firstItem="Zbo-pu-Xdt" firstAttribute="leading" secondItem="2n2-Ow-tJB" secondAttribute="leading" constant="8" id="ZD7-uW-Dat"/>
                             <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" secondItem="Zbo-pu-Xdt" secondAttribute="trailing" constant="8" id="aWD-SK-ep6"/>
                             <constraint firstItem="dtc-cd-4A8" firstAttribute="top" secondItem="vlO-HG-dsY" secondAttribute="bottom" constant="8" symbolic="YES" id="fdj-sQ-sDE"/>
-                            <constraint firstItem="2n2-Ow-tJB" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1vR-aA-4iN" secondAttribute="trailing" symbolic="YES" id="gE7-FY-PkC"/>
-                            <constraint firstItem="2n2-Ow-tJB" firstAttribute="bottom" secondItem="1vR-aA-4iN" secondAttribute="bottom" constant="20" id="of6-gm-1mO"/>
-                            <constraint firstItem="1vR-aA-4iN" firstAttribute="top" secondItem="Zbo-pu-Xdt" secondAttribute="bottom" constant="30.5" id="y4F-h4-7Ru"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AT0-J4-B4X"/>
