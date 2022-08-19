@@ -1,24 +1,23 @@
 //
-//  CocktailListTableViewCell.swift
+//  FavoritesTableViewCell.swift
 //  Cheers!
 //
-//  Created by Scott Cox on 7/5/22.
+//  Created by Scott Cox on 7/18/22.
 //
 
 import UIKit
-import AVFoundation
-import SwiftUI
 
-class CocktailListTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var cocktailImageView: UIImageView!
-    @IBOutlet weak var cocktailNameLabel: UILabel!
+class FavoritesTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var favoritesImageView: UIImageView!
+    @IBOutlet weak var favoritesNameLabel: UILabel!
+    
     
     var cocktailImage: UIImage?
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        cocktailImageView.image = nil
+        favoritesImageView.image = nil
     }
     
    
@@ -28,7 +27,7 @@ class CocktailListTableViewCell: UITableViewCell {
             switch result {
             case.success(let cocktailImage):
                 DispatchQueue.main.async {
-                    self.cocktailImageView.image = cocktailImage
+                    self.favoritesImageView.image = cocktailImage
                     self.cocktailImage = cocktailImage
                 }
             case .failure(let error):
@@ -39,8 +38,11 @@ class CocktailListTableViewCell: UITableViewCell {
     
     
     func updateViews(with cocktail: Cocktail) {
-        cocktailNameLabel.text = cocktail.name
+        favoritesNameLabel.text = cocktail.name
         fetchImage(for: cocktail)
     }
 } // end of class
+
+
+
 

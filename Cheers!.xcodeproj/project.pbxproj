@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED14B3DA2885D12A00D7A5C3 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */; };
+		ED14B3DE2888590400D7A5C3 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */; };
 		EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */; };
 		EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE51286CD5BD005EC7E9 /* SceneDelegate.swift */; };
 		EDB0BE57286CD5BD005EC7E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE55286CD5BD005EC7E9 /* Main.storyboard */; };
 		EDB0BE59286CD5BF005EC7E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE58286CD5BF005EC7E9 /* Assets.xcassets */; };
 		EDB0BE5C286CD5BF005EC7E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE5A286CD5BF005EC7E9 /* LaunchScreen.storyboard */; };
-		EDB0BE66286E160A005EC7E9 /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE65286E160A005EC7E9 /* Cocktail.swift */; };
+		EDB0BE66286E160A005EC7E9 /* FullCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */; };
 		EDB0BE68286E1742005EC7E9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE67286E1742005EC7E9 /* User.swift */; };
 		EDB0BE6C287498F9005EC7E9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE6A287498F9005EC7E9 /* Home.storyboard */; };
 		EDB0BE6F28749968005EC7E9 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BE6D28749968005EC7E9 /* Create.storyboard */; };
@@ -24,10 +26,33 @@
 		EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */; };
 		EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */; };
 		EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */; };
-		EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */; };
+		EDB0BEB628760389005EC7E9 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB528760389005EC7E9 /* FirebaseAnalytics */; };
+		EDB0BEB828760389005EC7E9 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB728760389005EC7E9 /* FirebaseAuth */; };
+		EDB0BEBA28760389005EC7E9 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEB928760389005EC7E9 /* FirebaseFirestore */; };
+		EDB0BEBC28760389005EC7E9 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEBB28760389005EC7E9 /* FirebaseFirestoreCombine-Community */; };
+		EDB0BEBE28760389005EC7E9 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEBD28760389005EC7E9 /* FirebaseFirestoreSwift */; };
+		EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */; };
+		EDB0BEC328778F62005EC7E9 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */; };
+		EDB0BEC628778F89005EC7E9 /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */; };
+		EDB0BEC828778F97005EC7E9 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEC728778F97005EC7E9 /* CreateUserViewController.swift */; };
+		EDB0BECB2877A5F9005EC7E9 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */; };
+		EDB0BECD2877A66C005EC7E9 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */; };
+		EDB0BECF2878F4BB005EC7E9 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BECE2878F4BB005EC7E9 /* FirebaseService.swift */; };
+		EDB0BED12878F722005EC7E9 /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BED02878F722005EC7E9 /* FirebaseError.swift */; };
+		EDB0BED3287B8703005EC7E9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BED2287B8703005EC7E9 /* NetworkError.swift */; };
+		EDB0BED5287B8BD2005EC7E9 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BED4287B8BD2005EC7E9 /* NetworkController.swift */; };
+		EDB0BED7287C8F52005EC7E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BED6287C8F52005EC7E9 /* GoogleService-Info.plist */; };
+		EDB0BEDC287D0AE4005EC7E9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = EDB0BEDB287D0AE4005EC7E9 /* FirebaseStorage */; };
+		EDB0BEDE287D1205005EC7E9 /* CustomCocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */; };
+		EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */; };
+		EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */; };
+		EDB82BC328A7302900CF974C /* CustomIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB82BC228A7302900CF974C /* CustomIngredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
+		ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		ED3CF1D028835D3800333E9A /* Cheers!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheers!.entitlements"; sourceTree = "<group>"; };
 		EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheers!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB0BE51286CD5BD005EC7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +60,7 @@
 		EDB0BE58286CD5BF005EC7E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDB0BE5B286CD5BF005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDB0BE5D286CD5BF005EC7E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDB0BE65286E160A005EC7E9 /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
+		EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullCocktail.swift; sourceTree = "<group>"; };
 		EDB0BE67286E1742005EC7E9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EDB0BE6B287498F9005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Cheers!/Base.lproj/Home.storyboard"; sourceTree = "<group>"; };
 		EDB0BE6E28749968005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Cheers!/Storyboards/Base.lproj/Create.storyboard"; sourceTree = "<group>"; };
@@ -47,7 +72,21 @@
 		EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCocktailViewModel.swift; sourceTree = "<group>"; };
 		EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCocktailViewController.swift; sourceTree = "<group>"; };
 		EDB0BE842874C3DF005EC7E9 /* CocktailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailListTableViewCell.swift; sourceTree = "<group>"; };
-		EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientTableViewCell.swift; sourceTree = "<group>"; };
+		EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewModel.swift; sourceTree = "<group>"; };
+		EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
+		EDB0BEC728778F97005EC7E9 /* CreateUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
+		EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		EDB0BECE2878F4BB005EC7E9 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		EDB0BED02878F722005EC7E9 /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
+		EDB0BED2287B8703005EC7E9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		EDB0BED4287B8BD2005EC7E9 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		EDB0BED6287C8F52005EC7E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCocktail.swift; sourceTree = "<group>"; };
+		EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailImageView.swift; sourceTree = "<group>"; };
+		EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabController.storyboard; sourceTree = "<group>"; };
+		EDB82BC228A7302900CF974C /* CustomIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIngredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +94,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB0BEBE28760389005EC7E9 /* FirebaseFirestoreSwift in Frameworks */,
+				EDB0BEB628760389005EC7E9 /* FirebaseAnalytics in Frameworks */,
+				EDB0BEBC28760389005EC7E9 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				EDB0BEB828760389005EC7E9 /* FirebaseAuth in Frameworks */,
+				EDB0BEBA28760389005EC7E9 /* FirebaseFirestore in Frameworks */,
+				EDB0BEDC287D0AE4005EC7E9 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED14B3D82885D0FA00D7A5C3 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */,
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		ED14B3DC288858DA00D7A5C3 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
 		EDB0BE43286CD5BD005EC7E9 = {
 			isa = PBXGroup;
 			children = (
@@ -80,11 +140,16 @@
 		EDB0BE4E286CD5BD005EC7E9 /* Cheers! */ = {
 			isa = PBXGroup;
 			children = (
+				ED3CF1D028835D3800333E9A /* Cheers!.entitlements */,
+				EDB0BED6287C8F52005EC7E9 /* GoogleService-Info.plist */,
+				EDB0BEC92877A5D2005EC7E9 /* Favorites */,
 				EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */,
 				EDB0BE792874AF94005EC7E9 /* Cocktail Detail */,
 				EDB0BE742874AF25005EC7E9 /* Cocktail List */,
-				EDB0BE732874AC83005EC7E9 /* Services */,
+				EDB0BEC428778F6C005EC7E9 /* Create User */,
+				EDB0BEBF28778F18005EC7E9 /* User Login */,
 				EDB0BE64286E15F2005EC7E9 /* Models */,
+				EDB0BE732874AC83005EC7E9 /* Services */,
 				EDB0BE63286CD5C5005EC7E9 /* Resources */,
 				EDB0BE6928747FF8005EC7E9 /* Storyboards */,
 			);
@@ -105,8 +170,10 @@
 		EDB0BE64286E15F2005EC7E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EDB0BE65286E160A005EC7E9 /* Cocktail.swift */,
+				EDB0BE65286E160A005EC7E9 /* FullCocktail.swift */,
 				EDB0BE67286E1742005EC7E9 /* User.swift */,
+				EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */,
+				EDB82BC228A7302900CF974C /* CustomIngredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -115,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				EDB0BE5A286CD5BF005EC7E9 /* LaunchScreen.storyboard */,
+				EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */,
 				EDB0BE55286CD5BD005EC7E9 /* Main.storyboard */,
 				EDB0BE6A287498F9005EC7E9 /* Home.storyboard */,
 				EDB0BE6D28749968005EC7E9 /* Create.storyboard */,
@@ -126,6 +194,10 @@
 		EDB0BE732874AC83005EC7E9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				EDB0BECE2878F4BB005EC7E9 /* FirebaseService.swift */,
+				EDB0BED02878F722005EC7E9 /* FirebaseError.swift */,
+				EDB0BED2287B8703005EC7E9 /* NetworkError.swift */,
+				EDB0BED4287B8BD2005EC7E9 /* NetworkController.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -145,6 +217,7 @@
 			children = (
 				EDB0BE772874AF51005EC7E9 /* CocktailDetailViewModel.swift */,
 				EDB0BE7C2874AFEB005EC7E9 /* CocktailDetailViewController.swift */,
+				EDB0BEDF287D2C53005EC7E9 /* Custom Views */,
 			);
 			path = "Cocktail Detail";
 			sourceTree = "<group>";
@@ -154,7 +227,7 @@
 			children = (
 				EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */,
 				EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */,
-				EDB0BE862874C4F1005EC7E9 /* Custom Cell */,
+				ED14B3DC288858DA00D7A5C3 /* Custom Cell */,
 			);
 			path = "Create Cocktail";
 			sourceTree = "<group>";
@@ -167,12 +240,41 @@
 			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
-		EDB0BE862874C4F1005EC7E9 /* Custom Cell */ = {
+		EDB0BEBF28778F18005EC7E9 /* User Login */ = {
 			isa = PBXGroup;
 			children = (
-				EDB0BE872874C517005EC7E9 /* AddIngredientTableViewCell.swift */,
+				EDB0BEC028778F4B005EC7E9 /* UserLoginViewModel.swift */,
+				EDB0BEC228778F62005EC7E9 /* UserLoginViewController.swift */,
 			);
-			path = "Custom Cell";
+			path = "User Login";
+			sourceTree = "<group>";
+		};
+		EDB0BEC428778F6C005EC7E9 /* Create User */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BEC528778F89005EC7E9 /* CreateUserViewModel.swift */,
+				EDB0BEC728778F97005EC7E9 /* CreateUserViewController.swift */,
+			);
+			path = "Create User";
+			sourceTree = "<group>";
+		};
+		EDB0BEC92877A5D2005EC7E9 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */,
+				EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */,
+				ED14B3D82885D0FA00D7A5C3 /* Custom Cell */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		EDB0BEDF287D2C53005EC7E9 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */,
+				EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +293,14 @@
 			dependencies = (
 			);
 			name = "Cheers!";
+			packageProductDependencies = (
+				EDB0BEB528760389005EC7E9 /* FirebaseAnalytics */,
+				EDB0BEB728760389005EC7E9 /* FirebaseAuth */,
+				EDB0BEB928760389005EC7E9 /* FirebaseFirestore */,
+				EDB0BEBB28760389005EC7E9 /* FirebaseFirestoreCombine-Community */,
+				EDB0BEBD28760389005EC7E9 /* FirebaseFirestoreSwift */,
+				EDB0BEDB287D0AE4005EC7E9 /* FirebaseStorage */,
+			);
 			productName = "Cheers!";
 			productReference = EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */;
 			productType = "com.apple.product-type.application";
@@ -219,6 +329,9 @@
 				Base,
 			);
 			mainGroup = EDB0BE43286CD5BD005EC7E9;
+			packageReferences = (
+				EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = EDB0BE4D286CD5BD005EC7E9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +348,8 @@
 			files = (
 				EDB0BE6F28749968005EC7E9 /* Create.storyboard in Resources */,
 				EDB0BE5C286CD5BF005EC7E9 /* LaunchScreen.storyboard in Resources */,
+				EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */,
+				EDB0BED7287C8F52005EC7E9 /* GoogleService-Info.plist in Resources */,
 				EDB0BE7128749995005EC7E9 /* Favorites.storyboard in Resources */,
 				EDB0BE59286CD5BF005EC7E9 /* Assets.xcassets in Resources */,
 				EDB0BE57286CD5BD005EC7E9 /* Main.storyboard in Resources */,
@@ -249,16 +364,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED14B3DA2885D12A00D7A5C3 /* FavoritesTableViewCell.swift in Sources */,
+				EDB0BED5287B8BD2005EC7E9 /* NetworkController.swift in Sources */,
+				EDB0BECF2878F4BB005EC7E9 /* FirebaseService.swift in Sources */,
+				EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */,
 				EDB0BE7B2874AFD4005EC7E9 /* CocktailListViewController.swift in Sources */,
+				EDB0BEC628778F89005EC7E9 /* CreateUserViewModel.swift in Sources */,
 				EDB0BE852874C3DF005EC7E9 /* CocktailListTableViewCell.swift in Sources */,
+				EDB82BC328A7302900CF974C /* CustomIngredient.swift in Sources */,
 				EDB0BE68286E1742005EC7E9 /* User.swift in Sources */,
 				EDB0BE762874AF42005EC7E9 /* CocktailListViewModel.swift in Sources */,
-				EDB0BE882874C517005EC7E9 /* AddIngredientTableViewCell.swift in Sources */,
+				EDB0BEDE287D1205005EC7E9 /* CustomCocktail.swift in Sources */,
+				EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */,
+				EDB0BECB2877A5F9005EC7E9 /* FavoritesViewModel.swift in Sources */,
+				EDB0BED12878F722005EC7E9 /* FirebaseError.swift in Sources */,
 				EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */,
+				EDB0BEC328778F62005EC7E9 /* UserLoginViewController.swift in Sources */,
+				EDB0BECD2877A66C005EC7E9 /* FavoritesViewController.swift in Sources */,
 				EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */,
 				EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */,
+				EDB0BED3287B8703005EC7E9 /* NetworkError.swift in Sources */,
+				EDB0BEC828778F97005EC7E9 /* CreateUserViewController.swift in Sources */,
+				ED14B3DE2888590400D7A5C3 /* IngredientTableViewCell.swift in Sources */,
 				EDB0BE7D2874AFEB005EC7E9 /* CocktailDetailViewController.swift in Sources */,
-				EDB0BE66286E160A005EC7E9 /* Cocktail.swift in Sources */,
+				EDB0BE66286E160A005EC7E9 /* FullCocktail.swift in Sources */,
 				EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */,
 				EDB0BE782874AF51005EC7E9 /* CocktailDetailViewModel.swift in Sources */,
 			);
@@ -421,8 +550,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Cheers!/Cheers!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W2576L6Y5L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cheers!/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -435,7 +566,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cheers-";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cocktail-Creations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -448,8 +579,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Cheers!/Cheers!.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W2576L6Y5L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cheers!/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -462,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cheers-";
+				PRODUCT_BUNDLE_IDENTIFIER = "Tr0picalpenguin.Cocktail-Creations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -492,6 +625,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDB0BEB528760389005EC7E9 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		EDB0BEB728760389005EC7E9 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		EDB0BEB928760389005EC7E9 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		EDB0BEBB28760389005EC7E9 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		EDB0BEBD28760389005EC7E9 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		EDB0BEDB287D0AE4005EC7E9 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDB0BEB428760389005EC7E9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EDB0BE44286CD5BD005EC7E9 /* Project object */;
 }
