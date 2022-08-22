@@ -79,7 +79,10 @@ class CreateUserViewController: UIViewController {
     }
     
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let preGameViewController =
+        storyboard.instantiateViewController(withIdentifier: "LoginView")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: preGameViewController )
     }
     
     func setupAppleLoginButton() {
@@ -103,20 +106,20 @@ class CreateUserViewController: UIViewController {
     @objc
     func handleAuthorizationAppleIDButtonPress() {
         viewModel.startSignInWithAppleFlow(delegate: self, presentationProvider: self)
-//        let appleIDProvider = ASAuthorizationAppleIDProvider()
-//        let request = appleIDProvider.createRequest()
-//        request.requestedScopes = [.fullName, .email]
-//        
-//        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-//        authorizationController.delegate = self
-//        authorizationController.presentationContextProvider = self
-//        authorizationController.performRequests()
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
 }// end of class
 
 extension CreateUserViewController: CreateUserViewModelDelegate {
     func presentAlertController(error: Error) {
-        let alertController = UIAlertController(title: "Error", message: "(error.localizedDescription)", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "Error creating your account. Try again later.", preferredStyle: .alert)
                         alertController.addAction(UIAlertAction(title: "Close", style: .cancel))
                         present(alertController, animated: true)
     }

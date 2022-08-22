@@ -77,7 +77,7 @@ class CocktailListViewModel {
                 self?.standardCocktails = topLevelDictionary.drinks
                 self?.delegate?.cocktailsLoadedSuccessfully()
             case .failure(let error):
-                print("There was an error!", error.errorDescription)
+                print("There was an error!", error.localizedDescription)
             }
         }
     }
