@@ -53,7 +53,7 @@
 		ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		ED3CF1D028835D3800333E9A /* Cheers!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheers!.entitlements"; sourceTree = "<group>"; };
-		EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheers!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDB0BE4C286CD5BD005EC7E9 /* Cocktail Creations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail Creations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB0BE51286CD5BD005EC7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EDB0BE56286CD5BD005EC7E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		EDB0BE4D286CD5BD005EC7E9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */,
+				EDB0BE4C286CD5BD005EC7E9 /* Cocktail Creations.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,9 +280,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EDB0BE4B286CD5BD005EC7E9 /* Cheers! */ = {
+		EDB0BE4B286CD5BD005EC7E9 /* Cocktail Creations */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EDB0BE60286CD5BF005EC7E9 /* Build configuration list for PBXNativeTarget "Cheers!" */;
+			buildConfigurationList = EDB0BE60286CD5BF005EC7E9 /* Build configuration list for PBXNativeTarget "Cocktail Creations" */;
 			buildPhases = (
 				EDB0BE48286CD5BD005EC7E9 /* Sources */,
 				EDB0BE49286CD5BD005EC7E9 /* Frameworks */,
@@ -292,7 +292,7 @@
 			);
 			dependencies = (
 			);
-			name = "Cheers!";
+			name = "Cocktail Creations";
 			packageProductDependencies = (
 				EDB0BEB528760389005EC7E9 /* FirebaseAnalytics */,
 				EDB0BEB728760389005EC7E9 /* FirebaseAuth */,
@@ -302,7 +302,7 @@
 				EDB0BEDB287D0AE4005EC7E9 /* FirebaseStorage */,
 			);
 			productName = "Cheers!";
-			productReference = EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */;
+			productReference = EDB0BE4C286CD5BD005EC7E9 /* Cocktail Creations.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -320,7 +320,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EDB0BE47286CD5BD005EC7E9 /* Build configuration list for PBXProject "Cheers!" */;
+			buildConfigurationList = EDB0BE47286CD5BD005EC7E9 /* Build configuration list for PBXProject "Cocktail Creations" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -336,7 +336,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EDB0BE4B286CD5BD005EC7E9 /* Cheers! */,
+				EDB0BE4B286CD5BD005EC7E9 /* Cocktail Creations */,
 			);
 		};
 /* End PBXProject section */
@@ -606,7 +606,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EDB0BE47286CD5BD005EC7E9 /* Build configuration list for PBXProject "Cheers!" */ = {
+		EDB0BE47286CD5BD005EC7E9 /* Build configuration list for PBXProject "Cocktail Creations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDB0BE5E286CD5BF005EC7E9 /* Debug */,
@@ -615,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EDB0BE60286CD5BF005EC7E9 /* Build configuration list for PBXNativeTarget "Cheers!" */ = {
+		EDB0BE60286CD5BF005EC7E9 /* Build configuration list for PBXNativeTarget "Cocktail Creations" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EDB0BE61286CD5BF005EC7E9 /* Debug */,
