@@ -14,6 +14,7 @@ class CreateCocktailViewController: UIViewController {
     @IBOutlet weak var instructionsTextView: UITextView!
     
   
+    @IBOutlet weak var ingredientsTableView: UITableView!
     
     @IBOutlet weak var cocktailImageView: UIImageView!
     
