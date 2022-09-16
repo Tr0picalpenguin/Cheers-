@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED02275528CFB283004E6663 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED02275428CFB283004E6663 /* Settings.storyboard */; };
+		ED02275728CFB3AD004E6663 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02275628CFB3AD004E6663 /* SettingsViewController.swift */; };
+		ED02275928CFB3EC004E6663 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED02275828CFB3EC004E6663 /* SettingsViewModel.swift */; };
 		ED14B3DA2885D12A00D7A5C3 /* FavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */; };
 		ED14B3DE2888590400D7A5C3 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */; };
 		EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED02275428CFB283004E6663 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		ED02275628CFB3AD004E6663 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		ED02275828CFB3EC004E6663 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
 		ED3CF1D028835D3800333E9A /* Cheers!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheers!.entitlements"; sourceTree = "<group>"; };
@@ -106,6 +112,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED02275328CFB262004E6663 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ED02275428CFB283004E6663 /* Settings.storyboard */,
+				ED02275628CFB3AD004E6663 /* SettingsViewController.swift */,
+				ED02275828CFB3EC004E6663 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		ED14B3D82885D0FA00D7A5C3 /* Custom Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +162,7 @@
 				EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */,
 				EDB0BE792874AF94005EC7E9 /* Cocktail Detail */,
 				EDB0BE742874AF25005EC7E9 /* Cocktail List */,
+				ED02275328CFB262004E6663 /* Settings */,
 				EDB0BEC428778F6C005EC7E9 /* Create User */,
 				EDB0BEBF28778F18005EC7E9 /* User Login */,
 				EDB0BE64286E15F2005EC7E9 /* Models */,
@@ -352,6 +369,7 @@
 				EDB0BED7287C8F52005EC7E9 /* GoogleService-Info.plist in Resources */,
 				EDB0BE7128749995005EC7E9 /* Favorites.storyboard in Resources */,
 				EDB0BE59286CD5BF005EC7E9 /* Assets.xcassets in Resources */,
+				ED02275528CFB283004E6663 /* Settings.storyboard in Resources */,
 				EDB0BE57286CD5BD005EC7E9 /* Main.storyboard in Resources */,
 				EDB0BE6C287498F9005EC7E9 /* Home.storyboard in Resources */,
 			);
@@ -390,6 +408,8 @@
 				EDB0BE66286E160A005EC7E9 /* FullCocktail.swift in Sources */,
 				EDB0BE822874C111005EC7E9 /* CreateCocktailViewController.swift in Sources */,
 				EDB0BE782874AF51005EC7E9 /* CocktailDetailViewModel.swift in Sources */,
+				ED02275728CFB3AD004E6663 /* SettingsViewController.swift in Sources */,
+				ED02275928CFB3EC004E6663 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

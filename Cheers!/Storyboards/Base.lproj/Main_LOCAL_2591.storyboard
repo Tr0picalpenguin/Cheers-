@@ -164,6 +164,7 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Create Account"/>
                                         <connections>
                                             <action selector="createAccountButtonTapped:" destination="uk4-me-ZWY" eventType="touchUpInside" id="9gs-Rf-Ul4"/>
+                                            <segue destination="so5-eh-7N9" kind="show" id="D2l-tW-YOe"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-zB-zg9" userLabel="AppleLoginStackView">

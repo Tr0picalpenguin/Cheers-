@@ -240,8 +240,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+<<<<<<< ours
         <segue reference="R6F-3a-krA"/>
         <segue reference="yeK-Un-VU5"/>
+=======
+>>>>>>> theirs
         <segue reference="mpa-MT-dKc"/>
     </inferredMetricsTieBreakers>
     <resources>
