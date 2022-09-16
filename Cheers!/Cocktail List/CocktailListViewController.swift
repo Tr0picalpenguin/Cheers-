@@ -72,7 +72,8 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
     }
     
     // need to discover if they have signed in using sign in with apple or firebase.
-    @IBAction func logoutButtonTapped(_ sender: Any) {
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
         viewModel.logout()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
          let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginView")
@@ -98,9 +99,11 @@ extension CocktailListViewController: UITableViewDataSource {
         
        //depending on what segment the user is on I want to display the correct tableview list.
       
-       let drink = viewModel.standardCocktails[indexPath.row]
-       // update the updateViews function to "configureWith" then pass in whatever cocktail list is currently indexed on the segmented control ... ie "standardCocktail" or "customCocktail"
-       cell.updateViews(with: drink)
+       let standard = viewModel.standardCocktails[indexPath.row]
+//       let custom = viewModel.customCocktails[indexPath.row]
+      
+       // update the updateViews function to "configureWith" then pass in whatever cocktail list is currently indexed on the segmented control ... ie "standardCocktail" or "customCocktail" ....... Then use a switch statement to call the cocktail type.
+       cell.updateViews(with: standard)
        return cell
     }
 } //  end of extension

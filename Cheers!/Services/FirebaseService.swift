@@ -134,16 +134,15 @@ struct FirebaseService: FirebaseSyncable {
     
     // TODO: - add a closure. result type with bool
     func signInWithApple(token: String, nonce: String) {
-        // Initialize a Firebase credential.
-        let credential = OAuthProvider.credential(withProviderID: "apple.com",
-                                                  idToken: token,
-                                                  rawNonce: nonce)
-        // Sign in with Firebase.
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-          if let error = error {
-            
-            print(error.localizedDescription)
-            return
+        let credentials = OAuthProvider.credential(withProviderID: "apple.com", idToken: token, rawNonce: nonce)
+        Auth.auth().signIn(with: credentials) { authResult, error in
+            let ID = authResult?.user.uid
+            let email = authResult?.user.email
+            UserDefaults.standard.set(ID, forKey: "userID")
+            UserDefaults.standard.set(email, forKey: "email")
+            if let error = error {
+                print(error.localizedDescription)
+                return
           }
             let storyboard = UIStoryboard(name: "TabController", bundle: nil)
                     guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
