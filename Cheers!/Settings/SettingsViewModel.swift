@@ -18,6 +18,7 @@ class SettingsViewModel {
     
     func logout() {
         service.logoutUser()
+        UserDefaults.standard.removeObject(forKey: "email")
     }
     
     func deleteUser() {

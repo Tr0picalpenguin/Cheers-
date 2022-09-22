@@ -24,7 +24,7 @@ class CreateCocktailViewModel {
     
     
     // MARK: - CRUD
-    func createCocktail(with cocktailName: String, glass: String, instruction: String, image: UIImage, ingredients: [CustomIngredient] = []) {
+    func createCocktail(with cocktailName: String, numberOfLikes: Int = 0, glass: String, instruction: String, image: UIImage, ingredients: [CustomIngredient] = []) {
        
         guard let cocktail = cocktail else { return }
         cocktail.cocktailName = cocktailName
@@ -32,7 +32,7 @@ class CreateCocktailViewModel {
         cocktail.instruction = instruction
         cocktail.ingredients = ingredients
         
-        self.cocktail = CustomCocktail(cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients)
+        self.cocktail = CustomCocktail(numberOfLikes: numberOfLikes, cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients)
         service.saveCocktail(self.cocktail!, with: image)
         
     }

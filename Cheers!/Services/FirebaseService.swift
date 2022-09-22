@@ -21,6 +21,7 @@ protocol FirebaseSyncable {
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func logoutUser()
+    func deleteUser(with userId: String)
     func signInWithApple(token: String, nonce: String)
 }
 
@@ -131,6 +132,19 @@ struct FirebaseService: FirebaseSyncable {
         }
     }
     
+    func deleteUser(with userID: String) {
+        let user = Auth.auth().currentUser
+
+        user?.delete { error in
+          if let error = error {
+              print(error.localizedDescription)
+          } else {
+              
+            // Account deleted.
+          }
+        }
+        
+    }
     
     // TODO: - add a closure. result type with bool
     func signInWithApple(token: String, nonce: String) {
