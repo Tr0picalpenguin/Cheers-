@@ -110,8 +110,11 @@ struct FirebaseService: FirebaseSyncable {
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             switch authResult {
-            case .some:
-                UserDefaults.standard.set(authResult?.user.email, forKey: "email")
+            case .some(let result):
+                let id = result.user.uid
+                let email = result.user.email
+                UserDefaults.standard.set(id, forKey: "userID")
+                UserDefaults.standard.set(email, forKey: "email")
                 completion(.success(true))
             case .none:
                 if let error = error {
