@@ -156,6 +156,7 @@ extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthori
 }
 extension CreateUserViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        resignFirstResponder()
+        textField.resignFirstResponder()
+        return true
     }
 }
