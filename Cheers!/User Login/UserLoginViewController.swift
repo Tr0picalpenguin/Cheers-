@@ -62,8 +62,6 @@ class UserLoginViewController: UIViewController {
         }
     }
     
-   
-    
  
     @IBAction func createAccountButtonTapped(_ sender: Any) {
     }
