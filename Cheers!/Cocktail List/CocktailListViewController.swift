@@ -78,6 +78,7 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
         let myAlert = storyboard.instantiateViewController(withIdentifier: "SettingsView")
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        myAlert.viewModel = 
         self.present(myAlert, animated: true, completion: nil)
     }
 }// End of class

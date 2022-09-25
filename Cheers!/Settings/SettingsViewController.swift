@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    var viewModel: SettingsViewModel!
+    var viewModel = SettingsViewModel()
     
     
     override func viewDidLoad() {
@@ -35,5 +35,8 @@ class SettingsViewController: UIViewController {
     
     @IBAction func deleteAccountButtonTapped(_ sender: Any) {
         viewModel.deleteUser()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginView")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: mainViewController)
     }
 }

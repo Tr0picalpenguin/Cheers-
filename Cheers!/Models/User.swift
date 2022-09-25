@@ -7,11 +7,10 @@
 
 import Foundation
 
-class User: Codable {
+class User {
     
     enum Keys {
-        static let username = "username"
-        static let password = "password"
+        
         static let email = "email"
         static let uuid = "uuid"
         static let customCocktails = "customCocktails"
@@ -19,8 +18,6 @@ class User: Codable {
     }
     
     // MARK: - Properties
-    let username: String
-    let password: String
     let email: String
     let uuid: String
     var customCocktails: [CustomCocktail]
@@ -28,11 +25,10 @@ class User: Codable {
     
     // Dictionary representation
     var userData: [String : Any] {
-        [Keys.username : self.username,
-         Keys.password : self.password,
-         Keys.email : self.email,
+        [Keys.email : self.email,
          Keys.uuid : self.uuid,
-         Keys.customCocktails : self.customCocktails.map {$0.cocktailData}]
+         Keys.customCocktails : self.customCocktails.map {$0.cocktailData},
+         Keys.collectionType : self.collectionType]
     }
     
     init(email: String, uuid: String, customcocktails: [CustomCocktail], collectionType: String = "users") {
@@ -47,7 +43,9 @@ class User: Codable {
               let uuid = dictionary[Keys.uuid] as? String,
               let customCocktailsArray = dictionary[Keys.customCocktails] as? [[String : Any]],
               let collectionType = dictionary[Keys.collectionType] as? String else { return nil }
+        
         let customCocktails = customCocktailsArray.compactMap({CustomCocktail(from: $0)})
+        
         self.init(email: email, uuid: uuid, customcocktails: customCocktails, collectionType: collectionType)
     }
 }

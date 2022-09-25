@@ -21,7 +21,7 @@ protocol FirebaseSyncable {
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func logoutUser()
-    func deleteUser(with userId: String)
+    func deleteUser()
     func signInWithApple(token: String, nonce: String)
 }
 
@@ -128,14 +128,13 @@ struct FirebaseService: FirebaseSyncable {
     func logoutUser() {
         let firebaseAuth = Auth.auth()
         do {
-            // explore if firebaseAuth.signOut has a closure.
           try firebaseAuth.signOut()
         } catch let signOutError as NSError {
           print("Error signing out.", signOutError)
         }
     }
     
-    func deleteUser(with userID: String) {
+    func deleteUser() {
         let user = Auth.auth().currentUser
 
         user?.delete { error in

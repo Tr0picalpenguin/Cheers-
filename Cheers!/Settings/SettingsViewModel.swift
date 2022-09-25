@@ -23,6 +23,6 @@ class SettingsViewModel {
     }
     
     func deleteUser() {
-        
+        service.deleteUser()
     }
 }
