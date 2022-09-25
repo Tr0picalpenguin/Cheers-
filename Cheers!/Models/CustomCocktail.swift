@@ -17,7 +17,7 @@ class CustomCocktail {
             static let collectionType = "cocktails"
             static let imageURL = "imageURL"
             static let ingredients = "ingredients"
-           
+           static let numberOfLikes = "numberOfLikes"
 
         }
         // MARK: - Properties
@@ -27,11 +27,13 @@ class CustomCocktail {
     var uuid: String
     var imageURL: URL?
     var ingredients: [CustomIngredient]
+    var numberOfLikes: Int
     
 
         // Dictionary representation
         var cocktailData: [String: Any] {
             ["cocktailName": self.cocktailName,
+             "numberOfLikes": self.numberOfLikes,
              "glass": self.glass as Any,
              "instruction": self.instruction,
              "uuid": self.uuid,
@@ -40,8 +42,9 @@ class CustomCocktail {
         }
 
         // MARK: - Initializers
-    init(cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredients: [CustomIngredient]) {
-
+    init(numberOfLikes: Int, cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredients: [CustomIngredient]) {
+            
+        self.numberOfLikes = numberOfLikes
             self.cocktailName = cocktailName
             self.instruction = instruction
             self.glass = glass
@@ -55,7 +58,8 @@ class CustomCocktail {
 extension CustomCocktail {
 
     convenience init?(from dictionary: [String: Any]) {
-        guard let cocktailName = dictionary[CocktailKeys.cocktailName] as? String,
+        guard let numberOfLikes = dictionary[CocktailKeys.numberOfLikes] as? Int,
+            let cocktailName = dictionary[CocktailKeys.cocktailName] as? String,
               let instruction = dictionary[CocktailKeys.instruction] as? String,
               let glass = dictionary[CocktailKeys.glass] as? String,
               let uuid = dictionary[CocktailKeys.uuid] as? String,
@@ -63,7 +67,8 @@ extension CustomCocktail {
               let imageURL = dictionary[CocktailKeys.imageURL] as? String else { return nil }
         let ingredients = ingredientsArray.compactMap({CustomIngredient(from: $0)})
         
-        self.init(cocktailName: cocktailName,
+        self.init(numberOfLikes: numberOfLikes,
+                  cocktailName: cocktailName,
                   glass: glass,
                   instruction: instruction,
                   uuid: uuid,

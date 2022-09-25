@@ -21,6 +21,7 @@ protocol FirebaseSyncable {
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func logoutUser()
+    func deleteUser()
     func signInWithApple(token: String, nonce: String)
 }
 
@@ -109,8 +110,11 @@ struct FirebaseService: FirebaseSyncable {
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             switch authResult {
-            case .some:
-                UserDefaults.standard.set(authResult?.user.email, forKey: "email")
+            case .some(let result):
+                let id = result.user.uid
+                let email = result.user.email
+                UserDefaults.standard.set(id, forKey: "userID")
+                UserDefaults.standard.set(email, forKey: "email")
                 completion(.success(true))
             case .none:
                 if let error = error {
@@ -124,13 +128,25 @@ struct FirebaseService: FirebaseSyncable {
     func logoutUser() {
         let firebaseAuth = Auth.auth()
         do {
-            // explore if firebaseAuth.signOut has a closure.
           try firebaseAuth.signOut()
         } catch let signOutError as NSError {
           print("Error signing out.", signOutError)
         }
     }
     
+    func deleteUser() {
+        let user = Auth.auth().currentUser
+
+        user?.delete { error in
+          if let error = error {
+              print(error.localizedDescription)
+          } else {
+              
+            // Account deleted.
+          }
+        }
+        
+    }
     
     // TODO: - add a closure. result type with bool
     func signInWithApple(token: String, nonce: String) {

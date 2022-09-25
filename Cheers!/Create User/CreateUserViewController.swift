@@ -27,9 +27,6 @@ class CreateUserViewController: UIViewController {
         viewModel = CreateUserViewModel(delegate: self)
         setupAppleLoginButton()
         
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
-        view.addGestureRecognizer(tap)
-        
     }
     
 
@@ -100,8 +97,8 @@ class CreateUserViewController: UIViewController {
         authorizationController.performRequests()
     }
     
-    @objc
-    func handleAuthorizationAppleIDButtonPress() {
+   
+    @objc func handleAuthorizationAppleIDButtonPress() {
         viewModel.startSignInWithAppleFlow(delegate: self, presentationProvider: self)
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
@@ -156,4 +153,10 @@ extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthori
             print("Sign in with Apple errored: \(error)")
           }
     
+}
+extension CreateUserViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

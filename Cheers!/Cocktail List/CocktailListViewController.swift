@@ -74,10 +74,12 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
     // need to discover if they have signed in using sign in with apple or firebase.
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
-        viewModel.logout()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-         let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginView")
-                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: loginViewController)
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        let myAlert = storyboard.instantiateViewController(withIdentifier: "SettingsView")
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+//        myAlert.viewModel = 
+        self.present(myAlert, animated: true, completion: nil)
     }
 }// End of class
 

@@ -72,3 +72,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
 }
 
+// This extension gives radius functionality on the attributes inspector for the storyboard.
+@IBDesignable extension UIView {
+    @IBInspectable var cornerRadius: CGFloat {
+        get { return layer.cornerRadius }
+        set {
+              layer.cornerRadius = newValue
+
+              // If masksToBounds is true, subviews will be
+              // clipped to the rounded corners.
+              layer.masksToBounds = (newValue > 0)
+        }
+    }
+}

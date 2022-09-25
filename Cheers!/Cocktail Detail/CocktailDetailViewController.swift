@@ -9,6 +9,11 @@ import UIKit
 
 class CocktailDetailViewController: UIViewController {
     
+    @IBOutlet weak var numberOfLikesLabel: UILabel!
+    
+    @IBOutlet weak var likesButton: UIButton!
+    
+    
     @IBOutlet weak var cocktailImageView: CocktailImageView!
     
     @IBOutlet weak var cocktailNameLabel: UILabel!
@@ -45,18 +50,15 @@ class CocktailDetailViewController: UIViewController {
         self.ingredientTableView.reloadData()
     }
     
-//    var defaultLikes: Int = 0
-//
-//    @IBAction func likeButtonTapped(_ sender: Any) {
-//        let currentLikes = defaultLikes + 1
-//        let likes: String = "\(currentLikes) Likes"
-//        likesLabel.text = likes
-//        defaultLikes = currentLikes
-//    }
+    var defaultLikes: Int = 0
     
-    @IBAction func favoritesButtonTapped(_ sender: Any) {
+    @IBAction func likesButtonTapped(_ sender: Any) {
+        let currentLikes = defaultLikes + 1
+        numberOfLikesLabel.text = "\(currentLikes)"
+        defaultLikes = currentLikes
         
     }
+    
     
 } // end of class
 

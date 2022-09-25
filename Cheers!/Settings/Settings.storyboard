@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsView" id="Y6W-OH-hqX" customClass="SettingsViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Logout"/>
                                         <connections>
+                                            <action selector="logoutButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Na-jZ-WI3"/>
                                             <action selector="logoutButtonTapped:" destination="2Nc-3o-EXR" eventType="touchUpInside" id="nO4-9O-5vC"/>
                                         </connections>
                                     </button>
@@ -43,7 +44,21 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Delete Account"/>
                                         <connections>
+                                            <action selector="deleteAccountButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="OZC-cg-WFY"/>
                                             <action selector="deleteAccountButtonTapped:" destination="2Nc-3o-EXR" eventType="touchUpInside" id="oSo-Sd-whh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rP-RO-zj3">
+                                        <rect key="frame" x="190" y="4" width="46" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="xmark.square" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="closeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gf1-p2-3Ni"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -52,16 +67,23 @@
                                     <constraint firstItem="3sp-LR-nod" firstAttribute="top" secondItem="Nee-rE-fBj" secondAttribute="bottom" constant="20" id="4x0-0t-gph"/>
                                     <constraint firstAttribute="bottom" secondItem="JlM-vR-633" secondAttribute="bottom" constant="12" id="97w-BB-UlZ"/>
                                     <constraint firstItem="Nee-rE-fBj" firstAttribute="centerX" secondItem="t1K-sV-r1K" secondAttribute="centerX" id="Fdq-D5-W16"/>
+                                    <constraint firstAttribute="trailing" secondItem="5rP-RO-zj3" secondAttribute="trailing" constant="4" id="Qcv-3q-S0r"/>
+                                    <constraint firstItem="5rP-RO-zj3" firstAttribute="top" secondItem="t1K-sV-r1K" secondAttribute="top" constant="4" id="W6m-yc-sqW"/>
                                     <constraint firstItem="JlM-vR-633" firstAttribute="leading" secondItem="t1K-sV-r1K" secondAttribute="leading" constant="12" id="ZcJ-nZ-aSf"/>
                                     <constraint firstItem="3sp-LR-nod" firstAttribute="leading" secondItem="t1K-sV-r1K" secondAttribute="leading" constant="12" id="cNG-x7-Hd0"/>
                                     <constraint firstAttribute="trailing" secondItem="JlM-vR-633" secondAttribute="trailing" constant="12" id="g9h-sY-zyv"/>
                                     <constraint firstItem="Nee-rE-fBj" firstAttribute="top" secondItem="t1K-sV-r1K" secondAttribute="top" constant="4" id="hWW-oO-qZG"/>
                                     <constraint firstAttribute="trailing" secondItem="3sp-LR-nod" secondAttribute="trailing" constant="12" id="qAT-F8-XpT"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.6041804722377232" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="t1K-sV-r1K" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="293" id="Blz-6S-P7o"/>
                             <constraint firstItem="t1K-sV-r1K" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="87" id="cYg-k4-gSm"/>
@@ -77,6 +99,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="xmark.square" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
