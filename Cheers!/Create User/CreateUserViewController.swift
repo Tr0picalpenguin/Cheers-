@@ -145,6 +145,7 @@ extension CreateUserViewController: ASAuthorizationControllerDelegate, ASAuthori
               }
             // Need to set the user defaults
             viewModel.signInWithApple(token: idTokenString, nonce: nonce)
+            userSignedIn()
             }
           }
 
