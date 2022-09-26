@@ -38,7 +38,7 @@ class CreateCocktailViewController: UIViewController {
     }
  
     @objc private func showAlert() {
-        let alert = UIAlertController(title: "Add ingredeient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Add ingredient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
         
         alert.addTextField { field in
             field.placeholder = "Ingredient..."
