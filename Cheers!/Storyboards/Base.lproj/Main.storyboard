@@ -185,6 +185,18 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="uFo-M9-dDj" firstAttribute="top" secondItem="4sQ-zB-zg9" secondAttribute="bottom" constant="38" id="36W-u0-OKh"/>
+                                    <constraint firstItem="4sQ-zB-zg9" firstAttribute="top" secondItem="Tqc-C8-3Ac" secondAttribute="bottom" constant="38" id="CLF-s1-xdZ"/>
+                                    <constraint firstItem="kZR-sP-tqz" firstAttribute="top" secondItem="bLW-f8-SpQ" secondAttribute="bottom" constant="38" id="DDP-kY-h3U"/>
+                                    <constraint firstItem="kZR-sP-tqz" firstAttribute="top" secondItem="bLW-f8-SpQ" secondAttribute="bottom" constant="38" id="MLK-U1-4Om"/>
+                                    <constraint firstItem="bLW-f8-SpQ" firstAttribute="top" secondItem="fwf-Tf-aJi" secondAttribute="bottom" constant="38" id="NSo-dZ-1jx"/>
+                                    <constraint firstItem="Tqc-C8-3Ac" firstAttribute="top" secondItem="kZR-sP-tqz" secondAttribute="bottom" constant="38" id="e00-dX-EnV"/>
+                                    <constraint firstItem="bLW-f8-SpQ" firstAttribute="top" secondItem="fwf-Tf-aJi" secondAttribute="bottom" constant="38" id="foI-qf-Zrx"/>
+                                    <constraint firstItem="uFo-M9-dDj" firstAttribute="top" secondItem="4sQ-zB-zg9" secondAttribute="bottom" constant="38" id="r0n-5b-XVy"/>
+                                    <constraint firstItem="Tqc-C8-3Ac" firstAttribute="top" secondItem="kZR-sP-tqz" secondAttribute="bottom" constant="38" id="woq-jh-Ihc"/>
+                                    <constraint firstItem="4sQ-zB-zg9" firstAttribute="top" secondItem="Tqc-C8-3Ac" secondAttribute="bottom" constant="38" id="yG9-qB-EJr"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p43-RV-o74"/>

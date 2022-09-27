@@ -77,7 +77,9 @@ class CreateUserViewController: UIViewController {
     }
     
     @IBAction func returnToLoginButtonTapped(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "LoginView")
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: mainViewController)
     }
     
     func setupAppleLoginButton() {
