@@ -51,6 +51,7 @@
 		EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */; };
 		EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */; };
 		EDB82BC328A7302900CF974C /* CustomIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB82BC228A7302900CF974C /* CustomIngredient.swift */; };
+		EDBFB17E28ECEC4800A81D51 /* IngredientsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDBFB17D28ECEC4800A81D51 /* IngredientsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailImageView.swift; sourceTree = "<group>"; };
 		EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabController.storyboard; sourceTree = "<group>"; };
 		EDB82BC228A7302900CF974C /* CustomIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIngredient.swift; sourceTree = "<group>"; };
+		EDBFB17D28ECEC4800A81D51 /* IngredientsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,13 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				ED14B3D92885D12A00D7A5C3 /* FavoritesTableViewCell.swift */,
-			);
-			path = "Custom Cell";
-			sourceTree = "<group>";
-		};
-		ED14B3DC288858DA00D7A5C3 /* Custom Cell */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -203,9 +198,6 @@
 				EDB0BE5A286CD5BF005EC7E9 /* LaunchScreen.storyboard */,
 				EDB0BEE2287E562E005EC7E9 /* TabController.storyboard */,
 				EDB0BE55286CD5BD005EC7E9 /* Main.storyboard */,
-				EDB0BE6A287498F9005EC7E9 /* Home.storyboard */,
-				EDB0BE6D28749968005EC7E9 /* Create.storyboard */,
-				EDB0BE7028749995005EC7E9 /* Favorites.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -224,6 +216,7 @@
 		EDB0BE742874AF25005EC7E9 /* Cocktail List */ = {
 			isa = PBXGroup;
 			children = (
+				EDB0BE6A287498F9005EC7E9 /* Home.storyboard */,
 				EDB0BE752874AF42005EC7E9 /* CocktailListViewModel.swift */,
 				EDB0BE7A2874AFD4005EC7E9 /* CocktailListViewController.swift */,
 				EDB0BE832874C3B9005EC7E9 /* Custom Cell */,
@@ -244,9 +237,10 @@
 		EDB0BE7E2874C0DB005EC7E9 /* Create Cocktail */ = {
 			isa = PBXGroup;
 			children = (
+				EDB0BE6D28749968005EC7E9 /* Create.storyboard */,
 				EDB0BE7F2874C101005EC7E9 /* CreateCocktailViewModel.swift */,
 				EDB0BE812874C111005EC7E9 /* CreateCocktailViewController.swift */,
-				ED14B3DC288858DA00D7A5C3 /* Custom Cell */,
+				EDBFB17C28ECEC2A00A81D51 /* Custom Cell */,
 			);
 			path = "Create Cocktail";
 			sourceTree = "<group>";
@@ -280,6 +274,7 @@
 		EDB0BEC92877A5D2005EC7E9 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				EDB0BE7028749995005EC7E9 /* Favorites.storyboard */,
 				EDB0BECA2877A5F9005EC7E9 /* FavoritesViewModel.swift */,
 				EDB0BECC2877A66C005EC7E9 /* FavoritesViewController.swift */,
 				ED14B3D82885D0FA00D7A5C3 /* Custom Cell */,
@@ -294,6 +289,14 @@
 				EDB0BEE0287D2C7E005EC7E9 /* CocktailImageView.swift */,
 			);
 			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		EDBFB17C28ECEC2A00A81D51 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EDBFB17D28ECEC4800A81D51 /* IngredientsTableViewCell.swift */,
+			);
+			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED14B3DA2885D12A00D7A5C3 /* FavoritesTableViewCell.swift in Sources */,
+				EDBFB17E28ECEC4800A81D51 /* IngredientsTableViewCell.swift in Sources */,
 				EDB0BED5287B8BD2005EC7E9 /* NetworkController.swift in Sources */,
 				EDB0BECF2878F4BB005EC7E9 /* FirebaseService.swift in Sources */,
 				EDB0BEC128778F4B005EC7E9 /* UserLoginViewModel.swift in Sources */,
@@ -580,6 +584,7 @@
 				DEVELOPMENT_TEAM = W2576L6Y5L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cheers!/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cocktail Creations";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -609,6 +614,7 @@
 				DEVELOPMENT_TEAM = W2576L6Y5L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cheers!/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Cocktail Creations";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

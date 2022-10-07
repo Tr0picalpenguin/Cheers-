@@ -8,18 +8,19 @@
 import UIKit
 
 class CreateCocktailViewController: UIViewController {
-
+    
     @IBOutlet weak var cocktailNameTextField: UITextField!
     @IBOutlet weak var glassTypeTextField: UITextField!
     @IBOutlet weak var instructionsTextView: UITextView!
     
-  
+    @IBOutlet weak var ingredientsTableView: UITableView!
+    
     
     @IBOutlet weak var cocktailImageView: UIImageView!
     
     var viewModel: CreateCocktailViewModel!
     var cocktail: CustomCocktail?
-    var ingredients: [CustomIngredient]?
+    var ingredients: [CustomIngredient]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +31,15 @@ class CreateCocktailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        let alertController = UIAlertController(title: "Create your own cocktail feature coming soon!", message: "Click ok and get back to enjoying a full database of curated cocktail. Cheers!", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alertController.addAction(confirmAction)
-        self.present(alertController, animated: true, completion: nil)
-        return
+        ingredientsTableView.dataSource = self
+
+//        let alertController = UIAlertController(title: "Create your own cocktail feature coming soon!", message: "Click ok and get back to enjoying a full database of curated cocktail. Cheers!", preferredStyle: .alert)
+//        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+//        alertController.addAction(confirmAction)
+//        self.present(alertController, animated: true, completion: nil)
+//        return
     }
- 
+    
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
         
@@ -60,13 +63,17 @@ class CreateCocktailViewController: UIViewController {
                 print("Invalid entries")
                 return
             }
+            let customIngredient = CustomIngredient(ingredient: ingredient, measurement: measurement)
+            self.ingredients?.append(customIngredient)
+            self.ingredientsTableView.reloadData()
         }))
         present(alert, animated: true)
+        
     }
     
     
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
-       showAlert()
+        showAlert()
         
     }
     
@@ -74,10 +81,10 @@ class CreateCocktailViewController: UIViewController {
         guard let cocktailName = cocktailNameTextField.text?.capitalized,
               let glass = glassTypeTextField.text?.capitalized,
               let instructions = instructionsTextView.text,
- //             let ingredients = ingredients,
+              let ingredientsArray = ingredients,
               let cocktailImage = cocktailImageView.image else { return }
         
-        viewModel.createCocktail(with: cocktailName, glass: glass, instruction: instructions, image: cocktailImage)
+        viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)
     }
     
     @objc func imageViewTapped() {
@@ -101,4 +108,24 @@ extension CreateCocktailViewController: UIImagePickerControllerDelegate, UINavig
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         cocktailImageView.image = image
     }
+}
+
+
+// MARK: - Tableview datasource methods
+extension CreateCocktailViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let ingredients = ingredients else { return 0 }
+        return ingredients.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customIngredientCell", for: indexPath) as? IngredientsTableViewCell else { return UITableViewCell() }
+        
+        guard let ingredient = ingredients?[indexPath.row] else { return UITableViewCell() }
+        
+        cell.updateViews(ingredient: ingredient)
+        return cell
+    }
+    
 }
