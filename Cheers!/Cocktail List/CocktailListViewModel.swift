@@ -16,8 +16,6 @@ class CocktailListViewModel {
     
 
     var standardCocktails: [Cocktail] = []
-    var customCocktails: [CustomCocktail] = []
-    
 
     private weak var delegate: CocktailListViewModelDelegate?
     private var service: FirebaseSyncable
@@ -82,16 +80,6 @@ class CocktailListViewModel {
         }
     }
     //function that updates the views from Firebase storage
-    func fetchCustomCocktailList() {
-        service.loadCocktails { result in
-            switch result {
-            case .success(let customCocktails):
-                self.customCocktails = customCocktails
-                self.delegate?.cocktailsLoadedSuccessfully()
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-    }
+    
     
 }

@@ -32,12 +32,12 @@ class CustomCocktail {
 
         // Dictionary representation
         var cocktailData: [String: Any] {
-            ["cocktailName": self.cocktailName,
-             "numberOfLikes": self.numberOfLikes,
-             "glass": self.glass as Any,
-             "instruction": self.instruction,
-             "uuid": self.uuid,
-             "imageURL": self.imageURL as Any,
+            [CocktailKeys.cocktailName: self.cocktailName,
+             CocktailKeys.numberOfLikes: self.numberOfLikes,
+             CocktailKeys.glass: self.glass as Any,
+             CocktailKeys.instruction: self.instruction,
+             CocktailKeys.uuid: self.uuid,
+             CocktailKeys.imageURL: self.imageURL as Any,
              CocktailKeys.ingredients: self.ingredients.map {$0.ingredientData}]
         }
 

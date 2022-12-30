@@ -57,8 +57,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house" catalog="system" width="128" height="106"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="house" catalog="system" width="32" height="32"/>
+        <image name="plus" catalog="system" width="32" height="32"/>
+        <image name="star.fill" catalog="system" width="32" height="32"/>
     </resources>
 </document>

@@ -19,7 +19,6 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
      
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     @IBOutlet weak var cocktailListTableView: UITableView!
     
     @IBOutlet weak var tableView: UITableView!
@@ -41,7 +40,7 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // will need a similar if else statement so the the correct cocktail object from the correct collection is being sent to the cocktail reciever.
+       
         if segue.identifier == "toDetailVC" {
             if let destination = segue.destination as? CocktailDetailViewController {
                 if let index = tableView.indexPathForSelectedRow {
@@ -63,9 +62,6 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
         case 1:
             homeSegmentedControl.titleForSegment(at: 1)
             viewModel.fetchFullApiCocktailList()
-        case 2:
-            homeSegmentedControl.titleForSegment(at: 2)
-            viewModel.fetchCustomCocktailList()
         default:
             break
         }
@@ -78,7 +74,7 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
         let myAlert = storyboard.instantiateViewController(withIdentifier: "SettingsView")
         myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//        myAlert.viewModel = 
+
         self.present(myAlert, animated: true, completion: nil)
     }
 }// End of class
@@ -89,8 +85,8 @@ extension CocktailListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch homeSegmentedControl.selectedSegmentIndex {
-        case 2:
-            return viewModel.customCocktails.count
+        case 0:
+            return viewModel.standardCocktails.count
         default:
             return viewModel.standardCocktails.count
         }
@@ -99,13 +95,10 @@ extension CocktailListViewController: UITableViewDataSource {
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailCell", for: indexPath) as? CocktailListTableViewCell else { return UITableViewCell() }
         
-       //depending on what segment the user is on I want to display the correct tableview list.
-      
        let standard = viewModel.standardCocktails[indexPath.row]
-//       let custom = viewModel.customCocktails[indexPath.row]
       
-       // update the updateViews function to "configureWith" then pass in whatever cocktail list is currently indexed on the segmented control ... ie "standardCocktail" or "customCocktail" ....... Then use a switch statement to call the cocktail type.
-       cell.updateViews(with: standard)
+           cell.updateViews(with: standard)
+       
        return cell
     }
 } //  end of extension

@@ -9,19 +9,13 @@ import UIKit
 
 class CocktailDetailViewController: UIViewController {
     
-    @IBOutlet weak var numberOfLikesLabel: UILabel!
-    
-    @IBOutlet weak var likesButton: UIButton!
-    
-    
     @IBOutlet weak var cocktailImageView: CocktailImageView!
-    
+   
     @IBOutlet weak var cocktailNameLabel: UILabel!
     @IBOutlet weak var glassTypeLabel: UILabel!
-    @IBOutlet weak var intstructionsTextView: UITextView!
- 
-    
+    @IBOutlet weak var instructionsTextView: UITextView!
     @IBOutlet weak var ingredientTableView: UITableView!
+   
     
     var cocktailDetailViewModel: CocktailDetailViewModel!
     var cocktail: [CocktailDetail] = []
@@ -43,23 +37,12 @@ class CocktailDetailViewController: UIViewController {
         guard let cocktail = cocktailDetailViewModel.cocktail else { return }
         cocktailNameLabel.text = cocktail.name
         glassTypeLabel.text = cocktail.glass
-        intstructionsTextView.text = cocktail.instruction
+        instructionsTextView.text = cocktail.instruction
         if let imageURL = cocktail.imageURL {
             self.cocktailImageView.fetchImage(using: imageURL)
         }
         self.ingredientTableView.reloadData()
     }
-    
-    var defaultLikes: Int = 0
-    
-    @IBAction func likesButtonTapped(_ sender: Any) {
-        let currentLikes = defaultLikes + 1
-        numberOfLikesLabel.text = "\(currentLikes)"
-        defaultLikes = currentLikes
-        
-    }
-    
-    
 } // end of class
 
 extension CocktailDetailViewController: CocktailDetailViewModeldelegate {

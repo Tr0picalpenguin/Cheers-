@@ -19,26 +19,31 @@ class CreateCocktailViewController: UIViewController {
     @IBOutlet weak var cocktailImageView: UIImageView!
     
     var viewModel: CreateCocktailViewModel!
-    var cocktail: CustomCocktail?
     var ingredients: [CustomIngredient]? = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImageView()
-        
+        viewModel = CreateCocktailViewModel()
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
+       
+        instructionsTextView.text = "Enter instructions..."
+        instructionsTextView.textColor = UIColor.lightGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
         ingredientsTableView.dataSource = self
-
-//        let alertController = UIAlertController(title: "Create your own cocktail feature coming soon!", message: "Click ok and get back to enjoying a full database of curated cocktail. Cheers!", preferredStyle: .alert)
-//        let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//        alertController.addAction(confirmAction)
-//        self.present(alertController, animated: true, completion: nil)
-//        return
+      
     }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if instructionsTextView.textColor == UIColor.lightGray {
+            instructionsTextView.text = nil
+            instructionsTextView.textColor = UIColor.black
+        }
+    }
+    
+   
     
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
@@ -77,16 +82,57 @@ class CreateCocktailViewController: UIViewController {
         
     }
     
+    // MARK: - Save Button
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let cocktailName = cocktailNameTextField.text?.capitalized,
-              let glass = glassTypeTextField.text?.capitalized,
-              let instructions = instructionsTextView.text,
-              let ingredientsArray = ingredients,
-              let cocktailImage = cocktailImageView.image else { return }
-        
-        viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)
+        if cocktailNameTextField.text?.isEmpty == true && instructionsTextView.text == "Enter instructions..." {
+            let alertController = UIAlertController(title: "Required fields missing!", message: "Please fill in remaining fields for your Cocktail Creation", preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alertController.addAction(confirmAction)
+            self.present(alertController, animated: true, completion: nil)
+            return
+          
+        } else {
+            guard let cocktailName = cocktailNameTextField.text?.capitalized,
+                  let glass = glassTypeTextField.text?.capitalized,
+                  let instructions = instructionsTextView.text,
+                  let ingredientsArray = ingredients,
+                  let cocktailImage = cocktailImageView.image else { return }
+            
+            self.viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)
+            
+            // MARK: - Need to instantiate the "my creations" tab when the save button is tapped or maybe go straight to the finished detail view. But thats a slide to dismiss view and I need to figure out where I want the user to end up.
+            // create a reset views function that resets all the views.
+//            loadTabBarController(atIndex: 2)
+            refreshVC(sender: CreateCocktailViewController.self)
+        }
+    }
+    func refreshView() -> () {
+        // Calling the viewDidLoad and viewWillAppear methods to "refresh" the VC and run through the code within the methods themselves
+        self.viewDidLoad()
+        self.viewWillAppear(true)
+    }
+
+    func refreshVC(sender: AnyObject) {
+        self.refreshView()
     }
     
+    var tabBarIndex: Int = 2
+
+    //function that will trigger the **MODAL** segue
+    private func loadTabBarController(atIndex: Int){
+         self.tabBarIndex = atIndex
+         self.performSegue(withIdentifier: "showTabBar", sender: self)
+    }
+
+    //in here you set the index of the destination tab and you are done
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+         if segue.identifier == "showTabBar" {
+             let tabBarController = segue.destination as! UITabBarController
+             tabBarController.selectedIndex = self.tabBarIndex
+         }
+    }
     @objc func imageViewTapped() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary

@@ -35,7 +35,7 @@ class CreateUserViewModel {
             }
         }
     }
-    
+   
     func signInWithApple(token: String, nonce: String) {
         service?.signInWithApple(token: token, nonce: nonce)
     }

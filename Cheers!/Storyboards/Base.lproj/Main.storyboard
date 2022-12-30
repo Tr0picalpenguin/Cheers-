@@ -252,6 +252,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="R6F-3a-krA"/>
         <segue reference="mpa-MT-dKc"/>
     </inferredMetricsTieBreakers>
     <resources>
