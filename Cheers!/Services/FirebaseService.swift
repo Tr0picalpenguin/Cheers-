@@ -13,12 +13,11 @@ import FirebaseAuth
 
 
 protocol FirebaseSyncable {
-    func saveNewCocktail(name: String, glass: String, instruction: String, ingredients: [CustomIngredient], numberOfLikes: Int, with image: UIImage)
-//    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
+    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
 //    func deleteCocktail(cocktail: CustomCocktail)
 //    func updateCocktail(with cocktail: CustomCocktail)
-    func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void)
+    func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping(Bool) -> Void)
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void)
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
@@ -33,17 +32,11 @@ struct FirebaseService: FirebaseSyncable {
     let reference = Firestore.firestore()
     let storage = Storage.storage().reference()
     
-    func saveNewCocktail(name: String, glass: String, instruction: String, ingredients: [CustomIngredient], numberOfLikes: Int, with image: UIImage) {
-        let uID = UUID().uuidString
-        saveImage(image, with: uID) { result in
-            switch result {
-            case .success(let photoURL):
-                let urlString = photoURL.absoluteString
-                let customCocktail = CustomCocktail(numberOfLikes: 0, cocktailName: name, glass: glass, instruction: instruction, uuid: uID, imageURL: urlString, ingredients: ingredients)
-                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(customCocktail.uuid).setData(customCocktail.cocktailData)
-            case .failure(let failure):
-                print(failure)
-                return
+    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage) {
+        saveImage(image, to: cocktail) { success in
+            if success {
+                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid)
+                    .setData(cocktail.cocktailData)
             }
         }
     }
@@ -72,51 +65,48 @@ struct FirebaseService: FirebaseSyncable {
 //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
 //    }
 
-    func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void) {
+    func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping (Bool) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
         let uploadMetadata = StorageMetadata()
         uploadMetadata.contentType = "image/jpeg"
         
         
-        let uploadTask = storage.child("images").child(uuidString).putData(imageData, metadata: uploadMetadata) { data, error in
+        let uploadTask = storage.child("images").child(cocktail.uuid).putData(imageData, metadata: uploadMetadata) { data, error in
             if let error = error {
                 print(error.localizedDescription)
-                completion(.failure(.fireBaseError(error)))
+                completion(false)
                 return
             }
         }
         uploadTask.observe(.success) { snapshot in
             print("Uploaded Image")
-            self.storage.child("images").child(uuidString).downloadURL { url, error in
+            self.storage.child("images").child(cocktail.uuid).downloadURL { url, error in
                 if let error = error {
                     print(error.localizedDescription)
-                    completion(.failure(.fireBaseError(error)))
+                    completion(false)
                     return
                 }
-                if let url {
-                    print(url)
-                    completion(.success(url))
-                } // success observer
-                
-                // MARK: - This code used for multiple photos
-//                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData) { error in
-//                    if let error = error {
-//                        print(error)
-//                    }
-//                    let photo = Photo(documentID: cocktail.uuid, photoURL: url!.absoluteString)
-//                    let photRef = reference.collection("cocktails").document(cocktail.uuid).collection("photos").document(photo.documentID)
-//                    photRef.setData(photo.dictionary) { error in
-//                        if let error = error {
-//                            print(error.localizedDescription)
-//                        } else {
-//                            completion(true)
-//                        }
-//                    }
-                
+                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData) { error in
+                    if let error = error {
+                        print(error)
+                    }
+                    let photo = Photo(documentID: cocktail.uuid, photoURL: url!.absoluteString)
+                    let photRef = reference.collection("cocktails").document(cocktail.uuid).collection("photos").document(photo.documentID)
+                    photRef.setData(photo.dictionary) { error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            completion(true)
+                        }
+                    }
+                }
             }
-        }
+        } // success observer
         uploadTask.observe(.failure) { snapshot in
-            completion(.failure(.fireBaseError(snapshot.error!)))
+            if let error = snapshot.error {
+                print("Error saving image to Firestore!", error)
+            }
+            completion(false)
         } // failure observer
     }
         

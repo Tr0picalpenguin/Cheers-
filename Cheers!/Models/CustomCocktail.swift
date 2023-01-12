@@ -42,7 +42,7 @@ class CustomCocktail {
         }
 
         // MARK: - Initializers
-    init(numberOfLikes: Int, cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, imageURL: String, ingredients: [CustomIngredient]) {
+    init(numberOfLikes: Int, cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredients: [CustomIngredient]) {
             
         self.numberOfLikes = numberOfLikes
             self.cocktailName = cocktailName
