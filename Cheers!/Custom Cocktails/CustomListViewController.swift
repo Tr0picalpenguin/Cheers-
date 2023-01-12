@@ -10,6 +10,7 @@ import UIKit
 class CustomListViewController: UIViewController {
 
     @IBOutlet weak var customSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var customSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel: CustomListViewModel!
@@ -19,25 +20,21 @@ class CustomListViewController: UIViewController {
         
         viewModel = CustomListViewModel(delegate: self)
         tableView.dataSource = self
-        viewModel.fetchMyCustomCocktails()
+        viewModel.fetchCustomCocktailList()
     }
-    
-    
-    // MARK: - Navigation - segue to the CustomDetailView
-
-}
+} // end of class
 
 extension CustomListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch customSegmentedControl.selectedSegmentIndex {
-        case 1:
-            return viewModel.customCocktails.count
-        default:
-            // MARK: - need a specific users custom creations here. Not the full list.
+//        switch customSegmentedControl.selectedSegmentIndex {
+//        case 1:
+//            return viewModel.customCocktails.count
+//        default:
+         
             return viewModel.customCocktails.count
         }
-    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell() }
@@ -45,9 +42,10 @@ extension CustomListViewController: UITableViewDelegate, UITableViewDataSource {
         let customCocktail = viewModel.customCocktails[indexPath.row]
         
         cell.updateViews(with: customCocktail)
+        
         return cell
     }
-}
+} // end of extension
 
 extension CustomListViewController: CustomListViewModelDelegate {
     func customCocktailsLoadedSuccessfully() {
@@ -55,4 +53,6 @@ extension CustomListViewController: CustomListViewModelDelegate {
             self.tableView.reloadData()
         }
     }
-}
+} // end of extension
+
+

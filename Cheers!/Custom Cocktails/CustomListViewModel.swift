@@ -24,8 +24,6 @@ class CustomListViewModel {
         self.service = firebaseService
     }
     
-    // CRUD
-    
     
     func fetchMyCustomCocktails() {
         

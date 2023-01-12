@@ -9,6 +9,7 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
     
+    
     @IBOutlet weak var favoritesImageView: UIImageView!
     @IBOutlet weak var favoritesNameLabel: UILabel!
     
@@ -19,25 +20,9 @@ class FavoritesTableViewCell: UITableViewCell {
         favoritesImageView.image = nil
     }
     
-   
-//    func fetchImage(for cocktail: CustomCocktail) {
-//        guard let imageString = cocktail.imageURL else { return }
-//        NetworkController.fetchImage(with: imageString) { result in
-//            switch result {
-//            case.success(let cocktailImage):
-//                DispatchQueue.main.async {
-//                    self.favoritesImageView.image = cocktailImage
-//                    self.cocktailImage = cocktailImage
-//                }
-//            case .failure(let error):
-//                print("Error", error.localizedDescription)
-//            }
-//        }
-//    }
-    
-    func updateViews(with cocktail: CustomCocktail) {
-        favoritesNameLabel.text = cocktail.cocktailName
-//       fetchImage(for: cocktail)
+    func updateViews(with customCocktail: CustomCocktail) {
+        favoritesNameLabel.text = customCocktail.cocktailName
+        
     }
 } // end of class
 

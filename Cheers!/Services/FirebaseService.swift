@@ -13,11 +13,12 @@ import FirebaseAuth
 
 
 protocol FirebaseSyncable {
-    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
+    func saveNewCocktail(name: String, glass: String, instruction: String, ingredients: [CustomIngredient], numberOfLikes: Int, with image: UIImage)
+//    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
-    func deleteCocktail(cocktail: CustomCocktail)
-    func updateCocktail(with cocktail: CustomCocktail)
-    func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping() -> Void)
+//    func deleteCocktail(cocktail: CustomCocktail)
+//    func updateCocktail(with cocktail: CustomCocktail)
+    func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void)
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void)
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
@@ -32,9 +33,19 @@ struct FirebaseService: FirebaseSyncable {
     let reference = Firestore.firestore()
     let storage = Storage.storage().reference()
     
-    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage) {
-        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid)
-            .setData(cocktail.cocktailData)
+    func saveNewCocktail(name: String, glass: String, instruction: String, ingredients: [CustomIngredient], numberOfLikes: Int, with image: UIImage) {
+        let uID = UUID().uuidString
+        saveImage(image, with: uID) { result in
+            switch result {
+            case .success(let photoURL):
+                let urlString = photoURL.absoluteString
+                let customCocktail = CustomCocktail(numberOfLikes: 0, cocktailName: name, glass: glass, instruction: instruction, uuid: uID, imageURL: urlString, ingredients: ingredients)
+                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(customCocktail.uuid).setData(customCocktail.cocktailData)
+            case .failure(let failure):
+                print(failure)
+                return
+            }
+        }
     }
     
     func loadCocktails(completion: @escaping (Result<[CustomCocktail], FirebaseError>) -> Void) {
@@ -48,38 +59,86 @@ struct FirebaseService: FirebaseSyncable {
             }
             let customCocktailsArray = data.compactMap({ $0.data() })
             let cocktails = customCocktailsArray.compactMap({ CustomCocktail(from: $0)})
-            completion(.success(cocktails))
+            let sortedCocktails = cocktails.sorted(by: {$0.cocktailName < $1.cocktailName})
+            completion(.success(sortedCocktails))
         }
     }
+    // MARK: - Dont want just anybody able to delete or update custom cocktails from the full list.
+//    func deleteCocktail(cocktail: CustomCocktail) {
+//        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()
+//    }
     
-    func deleteCocktail(cocktail: CustomCocktail) {
-        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()
-    }
-    
-    func updateCocktail(with cocktail: CustomCocktail) {
-        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
-    }
+//    func updateCocktail(with cocktail: CustomCocktail) {
+//        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
+//    }
 
-    func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping () -> Void) {
-        guard let imageData = image.pngData() else { return }
-        storage.child("images").child(cocktail.uuid).putData(imageData, metadata: nil) { _, error in
+    func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
+        let uploadMetadata = StorageMetadata()
+        uploadMetadata.contentType = "image/jpeg"
+        
+        
+        let uploadTask = storage.child("images").child(uuidString).putData(imageData, metadata: uploadMetadata) { data, error in
             if let error = error {
                 print(error.localizedDescription)
-                completion()
+                completion(.failure(.fireBaseError(error)))
                 return
             }
-            self.storage.child("images").child(cocktail.uuid).downloadURL { url, error in
+        }
+        uploadTask.observe(.success) { snapshot in
+            print("Uploaded Image")
+            self.storage.child("images").child(uuidString).downloadURL { url, error in
                 if let error = error {
                     print(error.localizedDescription)
-                    completion()
+                    completion(.failure(.fireBaseError(error)))
                     return
                 }
-                guard let url = url else { return }
-                cocktail.imageURL = url
-                completion()
+                if let url {
+                    print(url)
+                    completion(.success(url))
+                } // success observer
+                
+                // MARK: - This code used for multiple photos
+//                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData) { error in
+//                    if let error = error {
+//                        print(error)
+//                    }
+//                    let photo = Photo(documentID: cocktail.uuid, photoURL: url!.absoluteString)
+//                    let photRef = reference.collection("cocktails").document(cocktail.uuid).collection("photos").document(photo.documentID)
+//                    photRef.setData(photo.dictionary) { error in
+//                        if let error = error {
+//                            print(error.localizedDescription)
+//                        } else {
+//                            completion(true)
+//                        }
+//                    }
+                
             }
         }
+        uploadTask.observe(.failure) { snapshot in
+            completion(.failure(.fireBaseError(snapshot.error!)))
+        } // failure observer
     }
+        
+    
+//        storage.child("images").child(cocktail.uuid).putData(imageData, metadata: nil) { _, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                completion()
+//                return
+//            }
+//            self.storage.child("images").child(cocktail.uuid).downloadURL { url, error in
+//                if let error = error {
+//                    print(error.localizedDescription)
+//                    completion()
+//                    return
+//                }
+//                guard let url = url else { return }
+//                cocktail.imageURL = url
+//                completion()
+//            }
+//        }
+//    }
 
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void) {
         storage.child("images").child(cocktail.uuid).getData(maxSize: 1024 * 1024) { result in

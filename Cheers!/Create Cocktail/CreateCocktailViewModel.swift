@@ -34,7 +34,7 @@ class CreateCocktailViewModel {
         
         self.cocktail = CustomCocktail(numberOfLikes: numberOfLikes, cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients)
         
-        service.saveCocktail(self.cocktail!, with: image)
+        service.saveNewCocktail(name: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients, numberOfLikes: 0, with: <#T##UIImage#>)
         
     }
     

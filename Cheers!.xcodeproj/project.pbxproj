@@ -14,6 +14,7 @@
 		ED14B3DE2888590400D7A5C3 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */; };
 		ED68C9EF28F48F55002321F6 /* CocktailDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED68C9EE28F48F55002321F6 /* CocktailDetail.storyboard */; };
 		ED69B8182913037600EA3617 /* CustomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69B8172913037600EA3617 /* CustomDetailViewController.swift */; };
+		ED9FECD52968EFD70013ACC0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9FECD42968EFD70013ACC0 /* Photo.swift */; };
 		EDAA1EB028E12FD800B47A3C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDAA1EAF28E12FD800B47A3C /* IQKeyboardManagerSwift */; };
 		EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */; };
 		EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE51286CD5BD005EC7E9 /* SceneDelegate.swift */; };
@@ -66,6 +67,7 @@
 		ED3CF1D028835D3800333E9A /* Cheers!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheers!.entitlements"; sourceTree = "<group>"; };
 		ED68C9EE28F48F55002321F6 /* CocktailDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CocktailDetail.storyboard; sourceTree = "<group>"; };
 		ED69B8172913037600EA3617 /* CustomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDetailViewController.swift; sourceTree = "<group>"; };
+		ED9FECD42968EFD70013ACC0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		EDB0BE4C286CD5BD005EC7E9 /* Cheers!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cheers!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDB0BE51286CD5BD005EC7E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				EDB0BE67286E1742005EC7E9 /* User.swift */,
 				EDB0BEDD287D1205005EC7E9 /* CustomCocktail.swift */,
 				EDB82BC228A7302900CF974C /* CustomIngredient.swift */,
+				ED9FECD42968EFD70013ACC0 /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,8 +313,8 @@
 		EDEFFF8D291EC6C40099D7C4 /* Custom Detail */ = {
 			isa = PBXGroup;
 			children = (
-				ED69B8172913037600EA3617 /* CustomDetailViewController.swift */,
 				EDEFFF8E291EC6E60099D7C4 /* CustomDetailViewModel.swift */,
+				ED69B8172913037600EA3617 /* CustomDetailViewController.swift */,
 			);
 			path = "Custom Detail";
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				EDB0BEE1287D2C7E005EC7E9 /* CocktailImageView.swift in Sources */,
 				EDB0BED12878F722005EC7E9 /* FirebaseError.swift in Sources */,
 				EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */,
+				ED9FECD52968EFD70013ACC0 /* Photo.swift in Sources */,
 				EDB0BEC328778F62005EC7E9 /* UserLoginViewController.swift in Sources */,
 				EDB0BE52286CD5BD005EC7E9 /* SceneDelegate.swift in Sources */,
 				EDB0BE802874C101005EC7E9 /* CreateCocktailViewModel.swift in Sources */,

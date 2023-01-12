@@ -27,15 +27,20 @@ class CreateCocktailViewController: UIViewController {
         viewModel = CreateCocktailViewModel()
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
-       
+        
+        cocktailImageView.image = UIImage(systemName: "camera.fill")
+        cocktailNameTextField.text = nil
+        glassTypeTextField.text = nil
         instructionsTextView.text = "Enter instructions..."
         instructionsTextView.textColor = UIColor.lightGray
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         ingredientsTableView.dataSource = self
-      
+        
     }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         if instructionsTextView.textColor == UIColor.lightGray {
             instructionsTextView.text = nil
@@ -43,7 +48,6 @@ class CreateCocktailViewController: UIViewController {
         }
     }
     
-   
     
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
@@ -90,48 +94,54 @@ class CreateCocktailViewController: UIViewController {
             let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController.addAction(confirmAction)
             self.present(alertController, animated: true, completion: nil)
-            return
-          
+            
+            
         } else {
             guard let cocktailName = cocktailNameTextField.text?.capitalized,
                   let glass = glassTypeTextField.text?.capitalized,
                   let instructions = instructionsTextView.text,
-                  let ingredientsArray = ingredients,
+                  var ingredientsArray = ingredients,
                   let cocktailImage = cocktailImageView.image else { return }
             
             self.viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)
             
             // MARK: - Need to instantiate the "my creations" tab when the save button is tapped or maybe go straight to the finished detail view. But thats a slide to dismiss view and I need to figure out where I want the user to end up.
+            
+            //            loadTabBarController(atIndex: 2)
+            
             // create a reset views function that resets all the views.
-//            loadTabBarController(atIndex: 2)
+            // I dont know if this refreshVC code is right
+            ingredients?.removeAll()
             refreshVC(sender: CreateCocktailViewController.self)
         }
     }
+    
     func refreshView() -> () {
         // Calling the viewDidLoad and viewWillAppear methods to "refresh" the VC and run through the code within the methods themselves
         self.viewDidLoad()
         self.viewWillAppear(true)
+        self.ingredientsTableView.reloadData()
     }
-
+    
     func refreshVC(sender: AnyObject) {
         self.refreshView()
     }
     
     var tabBarIndex: Int = 2
-
+    
     //function that will trigger the **MODAL** segue
     private func loadTabBarController(atIndex: Int){
-         self.tabBarIndex = atIndex
-         self.performSegue(withIdentifier: "showTabBar", sender: self)
+        self.tabBarIndex = atIndex
+        self.performSegue(withIdentifier: "showTabBar", sender: self)
     }
-
+    
     //in here you set the index of the destination tab and you are done
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-         if segue.identifier == "showTabBar" {
-             let tabBarController = segue.destination as! UITabBarController
-             tabBarController.selectedIndex = self.tabBarIndex
-         }
+        
+        if segue.identifier == "showTabBar" {
+            let tabBarController = segue.destination as! UITabBarController
+            tabBarController.selectedIndex = self.tabBarIndex
+        }
     }
     @objc func imageViewTapped() {
         let picker = UIImagePickerController()

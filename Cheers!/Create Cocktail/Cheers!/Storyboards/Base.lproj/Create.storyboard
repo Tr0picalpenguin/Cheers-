@@ -61,7 +61,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="4n0-d2-q7K" eventType="touchUpInside" id="pC7-zr-vQN"/>
-                                    <segue destination="T5L-8T-3uH" kind="presentation" identifier="showTabBar" id="18T-DN-3bi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sf5-tD-U9p">
@@ -124,7 +123,7 @@
                             <constraint firstItem="JTc-gt-NCp" firstAttribute="top" secondItem="4Du-gX-6CD" secondAttribute="top" constant="335" id="5Ku-tB-a2K"/>
                             <constraint firstItem="JTc-gt-NCp" firstAttribute="centerX" secondItem="hoZ-EH-8AX" secondAttribute="centerX" id="EJ8-fZ-ISO"/>
                             <constraint firstItem="JTc-gt-NCp" firstAttribute="centerX" secondItem="vTO-35-KNe" secondAttribute="centerX" id="GRj-8k-s88"/>
-                            <constraint firstItem="iC6-hh-Oki" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vTO-35-KNe" secondAttribute="trailing" symbolic="YES" id="J6l-ry-MqD"/>
+                            <constraint firstItem="iC6-hh-Oki" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vTO-35-KNe" secondAttribute="trailing" constant="8" symbolic="YES" id="J6l-ry-MqD"/>
                             <constraint firstItem="mbh-Gx-lyL" firstAttribute="centerX" secondItem="EWk-tJ-xrh" secondAttribute="centerX" id="OjD-jN-jt0"/>
                             <constraint firstItem="Sf5-tD-U9p" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="EWk-tJ-xrh" secondAttribute="leading" symbolic="YES" id="RpH-nm-3Sc"/>
                             <constraint firstItem="EWk-tJ-xrh" firstAttribute="trailing" secondItem="mbh-Gx-lyL" secondAttribute="trailing" constant="82" id="Sw6-uP-zdN"/>
@@ -160,14 +159,6 @@
                 <exit id="NzN-5G-ip3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="821.73913043478262" y="1606.4732142857142"/>
-        </scene>
-        <!--TabController-->
-        <scene sceneID="ETk-QA-6zv">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TabController" id="T5L-8T-3uH" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bhf-Au-OVR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1475" y="1545"/>
         </scene>
     </scenes>
     <resources>
