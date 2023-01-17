@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>437820934667-2guaa898fv04u1gqorab7pi9fo3ogldr.apps.googleusercontent.com</string>
+	<string>216344887770-fesig0l8fvck3jo69qfciekq9hf9ap5t.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.437820934667-2guaa898fv04u1gqorab7pi9fo3ogldr</string>
+	<string>com.googleusercontent.apps.216344887770-fesig0l8fvck3jo69qfciekq9hf9ap5t</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC1ZjwmhmggYrawHtiEpRSPFw3sf0lO50M</string>
+	<string>AIzaSyB8YHkg2V3SoUVY6qTzYx8rkHG6UKlZ2qs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>437820934667</string>
+	<string>216344887770</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Tr0picalpenguin.Cheers-</string>
+	<string>Tr0picalpenguin.Cocktail-Creations</string>
 	<key>PROJECT_ID</key>
-	<string>cheers-df5e5</string>
+	<string>cocktail-creations-4208c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>cheers-df5e5.appspot.com</string>
+	<string>cocktail-creations-4208c.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:437820934667:ios:dbd6d6e093c1d3823f550e</string>
+	<string>1:216344887770:ios:a0d371f280c5cacf83c0e3</string>
 </dict>
 </plist>
