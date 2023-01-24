@@ -21,13 +21,13 @@ class CustomCocktail {
 
         }
         // MARK: - Properties
+    var numberOfLikes: Int
     var cocktailName: String
     var glass: String?
     var instruction: String
     var uuid: String
-    var imageURL: URL?
+    var imageURL: String
     var ingredients: [CustomIngredient]
-    var numberOfLikes: Int
     
 
         // Dictionary representation
@@ -42,14 +42,14 @@ class CustomCocktail {
         }
 
         // MARK: - Initializers
-    init(numberOfLikes: Int, cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, imageURL: String = "", ingredients: [CustomIngredient]) {
+    init(numberOfLikes: Int, cocktailName: String, glass:String, instruction: String, uuid: String = UUID().uuidString, ingredients: [CustomIngredient], imageURL: String) {
             
         self.numberOfLikes = numberOfLikes
             self.cocktailName = cocktailName
             self.instruction = instruction
             self.glass = glass
             self.uuid = uuid
-            self.imageURL = URL(string: imageURL)
+            self.imageURL = imageURL
             self.ingredients = ingredients
         }
 } // end of class
@@ -72,8 +72,8 @@ extension CustomCocktail {
                   glass: glass,
                   instruction: instruction,
                   uuid: uuid,
-                  imageURL: imageURL,
-                  ingredients: ingredients)
+                  ingredients: ingredients,
+                  imageURL: imageURL)
     }
 }
 

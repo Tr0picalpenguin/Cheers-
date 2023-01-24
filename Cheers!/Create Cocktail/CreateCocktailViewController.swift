@@ -100,7 +100,7 @@ class CreateCocktailViewController: UIViewController {
             guard let cocktailName = cocktailNameTextField.text?.capitalized,
                   let glass = glassTypeTextField.text?.capitalized,
                   let instructions = instructionsTextView.text,
-                  var ingredientsArray = ingredients,
+                  let ingredientsArray = ingredients,
                   let cocktailImage = cocktailImageView.image else { return }
             
             self.viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)

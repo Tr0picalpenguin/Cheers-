@@ -13,11 +13,11 @@ import FirebaseAuth
 
 
 protocol FirebaseSyncable {
-    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage)
+    func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
-//    func deleteCocktail(cocktail: CustomCocktail)
-//    func updateCocktail(with cocktail: CustomCocktail)
-    func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping(Bool) -> Void)
+    //    func deleteCocktail(cocktail: CustomCocktail)
+    //    func updateCocktail(with cocktail: CustomCocktail)
+    func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void)
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void)
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
     func loginUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
@@ -32,14 +32,22 @@ struct FirebaseService: FirebaseSyncable {
     let reference = Firestore.firestore()
     let storage = Storage.storage().reference()
     
-    func saveCocktail(_ cocktail: CustomCocktail, with image: UIImage) {
-        saveImage(image, to: cocktail) { success in
-            if success {
-                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid)
-                    .setData(cocktail.cocktailData)
+    func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage) {
+        let uID = UUID().uuidString
+        
+        saveImage(image, with: uID) { result in
+            switch result {
+            case .success(let photoURL):
+                let urlString = photoURL.absoluteString
+                let cocktail = CustomCocktail(numberOfLikes: numberOfLikes, cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients, imageURL: urlString)
+                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData)
+            case .failure(let failure):
+                print(failure)
+                return
             }
         }
     }
+    
     
     func loadCocktails(completion: @escaping (Result<[CustomCocktail], FirebaseError>) -> Void) {
         reference.collection(CustomCocktail.CocktailKeys.collectionType).getDocuments { snapshot, error in
@@ -57,79 +65,53 @@ struct FirebaseService: FirebaseSyncable {
         }
     }
     // MARK: - Dont want just anybody able to delete or update custom cocktails from the full list.
-//    func deleteCocktail(cocktail: CustomCocktail) {
-//        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()
-//    }
+    //    func deleteCocktail(cocktail: CustomCocktail) {
+    //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()
+    //    }
     
-//    func updateCocktail(with cocktail: CustomCocktail) {
-//        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
-//    }
-
-    func saveImage(_ image: UIImage, to cocktail: CustomCocktail, completion: @escaping (Bool) -> Void) {
+    //    func updateCocktail(with cocktail: CustomCocktail) {
+    //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
+    //    }
+    
+    func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }
         let uploadMetadata = StorageMetadata()
         uploadMetadata.contentType = "image/jpeg"
         
-        
-        let uploadTask = storage.child("images").child(cocktail.uuid).putData(imageData, metadata: uploadMetadata) { data, error in
+        let uploadTask = storage.child("images").child(uuidString).putData(imageData, metadata: uploadMetadata) { data, error in
             if let error = error {
                 print(error.localizedDescription)
-                completion(false)
+                completion(.failure(.fireBaseError(error)))
                 return
             }
         }
+        
         uploadTask.observe(.success) { snapshot in
             print("Uploaded Image")
-            self.storage.child("images").child(cocktail.uuid).downloadURL { url, error in
+            //Save a reference to this file in the log
+            self.storage.child("images").child(uuidString).downloadURL { url, error in
                 if let error = error {
                     print(error.localizedDescription)
-                    completion(false)
+                    completion(.failure(.fireBaseError(error)))
                     return
                 }
-                reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData) { error in
-                    if let error = error {
-                        print(error)
-                    }
-                    let photo = Photo(documentID: cocktail.uuid, photoURL: url!.absoluteString)
-                    let photRef = reference.collection("cocktails").document(cocktail.uuid).collection("photos").document(photo.documentID)
-                    photRef.setData(photo.dictionary) { error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                        } else {
-                            completion(true)
-                        }
-                    }
+                
+                if let url {
+                    print(url)
+                    completion(.success(url))
                 }
             }
-        } // success observer
-        uploadTask.observe(.failure) { snapshot in
-            if let error = snapshot.error {
-                print("Error saving image to Firestore!", error)
-            }
-            completion(false)
-        } // failure observer
-    }
+        } // Success observer
         
+        uploadTask.observe(.failure) { snapshot in
+            //            if let error = snapshot.error {
+            //                print("Error! Error saving image to Firestore", error)
+            //            }
+            completion(.failure(.fireBaseError(snapshot.error!)))
+        }
+    }
     
-//        storage.child("images").child(cocktail.uuid).putData(imageData, metadata: nil) { _, error in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                completion()
-//                return
-//            }
-//            self.storage.child("images").child(cocktail.uuid).downloadURL { url, error in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                    completion()
-//                    return
-//                }
-//                guard let url = url else { return }
-//                cocktail.imageURL = url
-//                completion()
-//            }
-//        }
-//    }
-
+    
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void) {
         storage.child("images").child(cocktail.uuid).getData(maxSize: 1024 * 1024) { result in
             switch result {
@@ -174,28 +156,28 @@ struct FirebaseService: FirebaseSyncable {
                 }
             }
         }
-
+        
     }
     
     func logoutUser() {
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-          print("Error signing out.", signOutError)
+            print("Error signing out.", signOutError)
         }
     }
     
     func deleteUser() {
         let user = Auth.auth().currentUser
-
+        
         user?.delete { error in
-          if let error = error {
-              print(error.localizedDescription)
-          } else {
-              
-            // Account deleted.
-          }
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                
+                // Account deleted.
+            }
         }
         
     }
@@ -211,11 +193,11 @@ struct FirebaseService: FirebaseSyncable {
             if let error = error {
                 print(error.localizedDescription)
                 return
-          }
+            }
             let storyboard = UIStoryboard(name: "TabController", bundle: nil)
-                    guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
-         
+            guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
+            
         }
     }
     
