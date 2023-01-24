@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateCocktailViewController: UIViewController {
+class CreateCocktailViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var cocktailNameTextField: UITextField!
     @IBOutlet weak var glassTypeTextField: UITextField!
@@ -21,6 +21,7 @@ class CreateCocktailViewController: UIViewController {
     var viewModel: CreateCocktailViewModel!
     var ingredients: [CustomIngredient]? = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImageView()
@@ -33,7 +34,7 @@ class CreateCocktailViewController: UIViewController {
         glassTypeTextField.text = nil
         instructionsTextView.text = "Enter instructions..."
         instructionsTextView.textColor = UIColor.lightGray
-        
+        instructionsTextView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +49,12 @@ class CreateCocktailViewController: UIViewController {
         }
     }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Enter instructions..."
+            textView.textColor = UIColor.lightGray
+        }
+    }
     
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
