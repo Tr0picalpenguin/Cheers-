@@ -26,7 +26,7 @@ class CustomCocktail {
     var glass: String?
     var instruction: String
     var uuid: String
-    var imageURL: String
+    var imageURL: String?
     var ingredients: [CustomIngredient]
     
 

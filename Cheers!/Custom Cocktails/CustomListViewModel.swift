@@ -41,4 +41,9 @@ class CustomListViewModel {
         }
     }
     
+    func fetchCustomImage(from customCocktail: CustomCocktail) {
+        
+    }
+    
+    
 } // end of class

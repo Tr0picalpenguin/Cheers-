@@ -64,6 +64,4 @@ extension CocktailDetailViewController: UITableViewDataSource, UITableViewDelega
         cell.updateViews(measuredIngredient: measuredIngredient)
         return cell
     }
-    
-    
 }

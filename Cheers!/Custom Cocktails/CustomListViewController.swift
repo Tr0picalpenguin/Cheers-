@@ -19,12 +19,36 @@ class CustomListViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel = CustomListViewModel(delegate: self)
+        
         tableView.dataSource = self
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         viewModel.fetchCustomCocktailList()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toCustomDetailVC" {
+            if let destination = segue.destination as? CustomDetailViewController {
+                if let index = tableView.indexPathForSelectedRow {
+                    
+                    let cocktail = viewModel.customCocktails[index.row]
+                    let customDetailViewModel = CustomDetailViewModel(delegate: destination as! CustomDetailViewModelDelegate)
+                    customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)
+                    destination.customDetailViewModel = customDetailViewModel
+                }
+            }
+        }
     }
 } // end of class
 
 extension CustomListViewController: UITableViewDelegate, UITableViewDataSource {
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        switch customSegmentedControl.selectedSegmentIndex {
@@ -45,6 +69,7 @@ extension CustomListViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
 } // end of extension
 
 extension CustomListViewController: CustomListViewModelDelegate {

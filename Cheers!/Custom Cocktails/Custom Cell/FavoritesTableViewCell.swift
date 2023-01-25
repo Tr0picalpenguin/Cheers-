@@ -9,7 +9,6 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var favoritesImageView: UIImageView!
     @IBOutlet weak var favoritesNameLabel: UILabel!
     
@@ -19,7 +18,7 @@ class FavoritesTableViewCell: UITableViewCell {
         super.prepareForReuse()
         favoritesImageView.image = nil
     }
-    
+
     func updateViews(with customCocktail: CustomCocktail) {
         favoritesNameLabel.text = customCocktail.cocktailName
         

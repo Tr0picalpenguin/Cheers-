@@ -8,7 +8,8 @@
 import UIKit
 
 class CustomDetailViewController: UIViewController {
-
+    
+    
     @IBOutlet weak var numberOfLikesLabel: UILabel!
     
     @IBOutlet weak var customImageView: CocktailImageView!
@@ -18,12 +19,15 @@ class CustomDetailViewController: UIViewController {
     
     @IBOutlet weak var instructionsTextView: UITextView!
     
+    @IBOutlet weak var ingredientsTableView: UITableView!
+    
     var customDetailViewModel: CustomDetailViewModel!
     var customCocktail: [CustomCocktail] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ingredientsTableView.delegate = self
+        ingredientsTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
@@ -31,15 +35,19 @@ class CustomDetailViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    var defaultLikes: Int = 0
+    
     func updateViews() {
         guard let customCocktail = customDetailViewModel.cocktail else { return }
         customCocktailNameLabel.text = customCocktail.cocktailName
         glassLabel.text = customCocktail.glass
         numberOfLikesLabel.text = "\(customCocktail.numberOfLikes)"
         instructionsTextView.text = customCocktail.instruction
-        // need to add the image
+        if let imageURL = customCocktail.imageURL {
+            self.customImageView.fetchImage(using: imageURL)
         }
-    var defaultLikes: Int = 0
+        self.ingredientsTableView.reloadData()
+    }
     
     @IBAction func reportButtonTapped(_ sender: Any) {
         // present the alert controller to report the post
@@ -47,7 +55,7 @@ class CustomDetailViewController: UIViewController {
         let declineAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         let confirmAction = UIAlertAction(title: "Report", style: .destructive) { _ in
-           // this is the code to report the the post
+            // this is where the code to report the post will go
         }
         alertController.addAction(confirmAction)
         alertController.addAction(declineAction)
@@ -60,8 +68,22 @@ class CustomDetailViewController: UIViewController {
         numberOfLikesLabel.text = "\(currentLikes)"
     }
     
-    }
+} // end of class
 
-   
+extension CustomDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        customDetailViewModel.cocktail?.ingredients.count ?? 0
+    }
     
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as? IngredientTableViewCell
+ //           let measuredIngredient = customDetailViewModel.cocktail.measuredIngredients[indexPath.row]
+        else { return UITableViewCell() }
+ //       cell.updateViews(measuredIngredient: measuredIngredient)
+        return cell
+    }
+}
+
+
+
+

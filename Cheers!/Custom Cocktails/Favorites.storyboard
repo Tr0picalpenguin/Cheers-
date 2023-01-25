@@ -12,7 +12,7 @@
         <!--Cocktail Creations-->
         <scene sceneID="kA0-5d-vwJ">
             <objects>
-                <viewController storyboardIdentifier="Favorites" id="vHn-I6-knQ" customClass="CustomListViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Favorites" id="vHn-I6-knQ" customClass="CustomListViewController" customModule="Cocktail_Creations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yW0-61-g36">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                 <rect key="frame" x="12" y="209.5" width="390" height="543.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="118" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cheers_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="118" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cocktail_Creations" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s93-tk-C16" id="95a-OQ-vK5">
@@ -53,15 +53,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxN-2y-XRj">
-                                                    <rect key="frame" x="-5" y="-141" width="400" height="400"/>
+                                                    <rect key="frame" x="138" y="2" width="114" height="114"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="rxN-2y-XRj" secondAttribute="height" multiplier="1:1" id="83a-it-OLZ"/>
-                                                        <constraint firstAttribute="height" constant="400" id="pJW-5G-K6V"/>
+                                                        <constraint firstAttribute="height" constant="400" id="GlP-x6-O9a"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzV-rF-BKk">
-                                                    <rect key="frame" x="243" y="71" width="135" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzV-rF-BKk">
+                                                    <rect key="frame" x="235" y="74" width="135" height="24"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -69,14 +68,19 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rxN-2y-XRj" firstAttribute="centerY" secondItem="95a-OQ-vK5" secondAttribute="centerY" id="Mde-3g-4xW"/>
-                                                <constraint firstItem="rxN-2y-XRj" firstAttribute="centerX" secondItem="95a-OQ-vK5" secondAttribute="centerX" id="TtA-Ex-h6V"/>
+                                                <constraint firstAttribute="bottom" secondItem="rxN-2y-XRj" secondAttribute="bottom" constant="2" id="DZo-ec-ndW"/>
+                                                <constraint firstAttribute="bottom" secondItem="SzV-rF-BKk" secondAttribute="bottom" constant="20" id="LzK-si-vQu"/>
+                                                <constraint firstItem="rxN-2y-XRj" firstAttribute="top" secondItem="95a-OQ-vK5" secondAttribute="top" constant="2" id="hj2-Wm-1jy"/>
+                                                <constraint firstAttribute="trailing" secondItem="SzV-rF-BKk" secondAttribute="trailing" constant="20" id="sA8-FY-Dg8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="rxN-2y-XRj" firstAttribute="centerX" secondItem="s93-tk-C16" secondAttribute="centerX" id="jF1-U4-8s7"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="favoritesImageView" destination="rxN-2y-XRj" id="RNb-0M-vOO"/>
                                             <outlet property="favoritesNameLabel" destination="SzV-rF-BKk" id="DFq-Uy-kyo"/>
-                                            <segue destination="5iz-Pg-kXQ" kind="show" id="6oz-zr-lRL"/>
+                                            <segue destination="5iz-Pg-kXQ" kind="show" identifier="toCustomDetailVC" id="6oz-zr-lRL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -116,7 +120,7 @@
         <!--Custom Detail View Controller-->
         <scene sceneID="uMK-l2-FZD">
             <objects>
-                <viewController storyboardIdentifier="toDetailVC" id="5iz-Pg-kXQ" customClass="CustomDetailViewController" customModule="Cheers_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="toDetailVC" id="5iz-Pg-kXQ" customClass="CustomDetailViewController" customModule="Cocktail_Creations" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WEd-AH-PUl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +140,7 @@
                                     <action selector="likesButtonTapped:" destination="5iz-Pg-kXQ" eventType="touchUpInside" id="dBn-D8-Nhx"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGA-k4-ACC" customClass="CocktailImageView" customModule="Cheers_" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGA-k4-ACC" customClass="CocktailImageView" customModule="Cocktail_Creations" customModuleProvider="target">
                                 <rect key="frame" x="82" y="98.5" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="v1F-w2-YhX"/>
@@ -184,7 +188,7 @@
                                     <constraint firstAttribute="height" constant="201.5" id="qyT-HT-EQA"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell" id="0MC-xM-KIu" customClass="IngredientTableViewCell" customModule="Cheers_" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell" id="0MC-xM-KIu" customClass="IngredientTableViewCell" customModule="Cocktail_Creations" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="398" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0MC-xM-KIu" id="nie-aq-0dW">
@@ -256,6 +260,7 @@
                         <outlet property="customCocktailNameLabel" destination="gF7-28-dMS" id="Mvc-Mi-Z57"/>
                         <outlet property="customImageView" destination="wGA-k4-ACC" id="kcn-cR-UZQ"/>
                         <outlet property="glassLabel" destination="aqC-yw-oPT" id="Ydv-X2-eYU"/>
+                        <outlet property="ingredientsTableView" destination="cFD-Fi-BGq" id="1Sj-rg-JPb"/>
                         <outlet property="instructionsTextView" destination="enE-1N-IKa" id="xYW-Rj-66s"/>
                         <outlet property="numberOfLikesLabel" destination="MeW-1S-yox" id="7c2-Lp-tfa"/>
                     </connections>
