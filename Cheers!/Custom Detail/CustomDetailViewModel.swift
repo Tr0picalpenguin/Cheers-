@@ -13,16 +13,20 @@ protocol CustomDetailViewModelDelegate: AnyObject {
 
 class CustomDetailViewModel {
     
-    private weak var delegate: CustomDetailViewModelDelegate?
+    private var delegate: CustomDetailViewModelDelegate?
+    
+    private var service: FirebaseSyncable
+    
+    init(delegate: CustomDetailViewModelDelegate, firebaseService: FirebaseSyncable = FirebaseService()) {
+        self.delegate = delegate
+        self.service = firebaseService
+    }
     
     var cocktail: CustomCocktail?
     
-    init(delegate: CustomDetailViewModelDelegate) {
-        self.delegate = delegate
-    }
     
     func fetchCustomCocktailDetail(with customCocktailID: String) {
-        // fetch from firestore
+        
     }
     
 }// end of class

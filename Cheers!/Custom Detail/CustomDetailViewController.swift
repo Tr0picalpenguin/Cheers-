@@ -76,14 +76,19 @@ extension CustomDetailViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath) as? IngredientTableViewCell
- //           let measuredIngredient = customDetailViewModel.cocktail.measuredIngredients[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customIngredientCell", for: indexPath) as? IngredientsTableViewCell,
+            let customIngredient = customDetailViewModel.cocktail?.ingredients[indexPath.row]
         else { return UITableViewCell() }
- //       cell.updateViews(measuredIngredient: measuredIngredient)
+        cell.updateViews(ingredient: customIngredient)
         return cell
     }
 }
 
-
+extension CustomDetailViewController: CustomDetailViewModelDelegate {
+    func customCocktailLoadedSuccessfully() {
+        
+        updateViews()
+    }
+}
 
 

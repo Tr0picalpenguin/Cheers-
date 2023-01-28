@@ -14,6 +14,7 @@
 		ED14B3DE2888590400D7A5C3 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED14B3DD2888590400D7A5C3 /* IngredientTableViewCell.swift */; };
 		ED68C9EF28F48F55002321F6 /* CocktailDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED68C9EE28F48F55002321F6 /* CocktailDetail.storyboard */; };
 		ED69B8182913037600EA3617 /* CustomDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69B8172913037600EA3617 /* CustomDetailViewController.swift */; };
+		ED91A19029834B10001758D4 /* CustomDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED91A18F29834B10001758D4 /* CustomDetail.storyboard */; };
 		ED9FECD52968EFD70013ACC0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9FECD42968EFD70013ACC0 /* Photo.swift */; };
 		EDAA1EB028E12FD800B47A3C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EDAA1EAF28E12FD800B47A3C /* IQKeyboardManagerSwift */; };
 		EDB0BE50286CD5BD005EC7E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		ED3CF1D028835D3800333E9A /* Cheers!.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cheers!.entitlements"; sourceTree = "<group>"; };
 		ED68C9EE28F48F55002321F6 /* CocktailDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CocktailDetail.storyboard; sourceTree = "<group>"; };
 		ED69B8172913037600EA3617 /* CustomDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDetailViewController.swift; sourceTree = "<group>"; };
+		ED91A18F29834B10001758D4 /* CustomDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomDetail.storyboard; sourceTree = "<group>"; };
 		ED9FECD42968EFD70013ACC0 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		EDB0BE4C286CD5BD005EC7E9 /* Cocktail Creations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail Creations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB0BE4F286CD5BD005EC7E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -288,7 +290,6 @@
 				EDB0BE7028749995005EC7E9 /* Favorites.storyboard */,
 				EDEFFF86291C49DF0099D7C4 /* CustomListViewModel.swift */,
 				EDEFFF84291C49BB0099D7C4 /* CustomListViewController.swift */,
-				ED14B3D82885D0FA00D7A5C3 /* Custom Cell */,
 			);
 			path = "Custom Cocktails";
 			sourceTree = "<group>";
@@ -313,8 +314,10 @@
 		EDEFFF8D291EC6C40099D7C4 /* Custom Detail */ = {
 			isa = PBXGroup;
 			children = (
+				ED91A18F29834B10001758D4 /* CustomDetail.storyboard */,
 				EDEFFF8E291EC6E60099D7C4 /* CustomDetailViewModel.swift */,
 				ED69B8172913037600EA3617 /* CustomDetailViewController.swift */,
+				ED14B3D82885D0FA00D7A5C3 /* Custom Cell */,
 			);
 			path = "Custom Detail";
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				EDB0BE6F28749968005EC7E9 /* Create.storyboard in Resources */,
 				EDB0BE5C286CD5BF005EC7E9 /* LaunchScreen.storyboard in Resources */,
 				EDB0BEE3287E562E005EC7E9 /* TabController.storyboard in Resources */,
+				ED91A19029834B10001758D4 /* CustomDetail.storyboard in Resources */,
 				EDB0BE7128749995005EC7E9 /* Favorites.storyboard in Resources */,
 				ED68C9EF28F48F55002321F6 /* CocktailDetail.storyboard in Resources */,
 				EDB0BE59286CD5BF005EC7E9 /* Assets.xcassets in Resources */,
