@@ -45,7 +45,8 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if instructionsTextView.textColor == UIColor.lightGray {
             instructionsTextView.text = nil
-            instructionsTextView.textColor = UIColor.black
+            // MARK: - Need to establish if user is using dark mode or not to change text color
+            instructionsTextView.textColor = UIColor.systemGray
         }
     }
     
@@ -87,7 +88,6 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
         
     }
     
-    
     @IBAction func addIngredientButtonTapped(_ sender: Any) {
         showAlert()
         
@@ -112,14 +112,16 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
             
             self.viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)
             
-            // MARK: - Need to instantiate the "my creations" tab when the save button is tapped or maybe go straight to the finished detail view. But thats a slide to dismiss view and I need to figure out where I want the user to end up.
-            
-            //            loadTabBarController(atIndex: 2)
-            
             // create a reset views function that resets all the views.
             // I dont know if this refreshVC code is right
             ingredients?.removeAll()
             refreshVC(sender: CreateCocktailViewController.self)
+            
+            cocktailSaved()
+            
+//            loadTabBarController(atIndex: 2)
+            
+            // MARK: - Need to instantiate the "my creations" tab when the save button is tapped or maybe go straight to the finished detail view. But thats a slide to dismiss view and I need to figure out where I want the user to end up.
         }
     }
     
@@ -137,19 +139,24 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
     var tabBarIndex: Int = 2
     
     //function that will trigger the **MODAL** segue
-    private func loadTabBarController(atIndex: Int){
-        self.tabBarIndex = atIndex
-        self.performSegue(withIdentifier: "showTabBar", sender: self)
+    func cocktailSaved() {
+        let storyboard = UIStoryboard(name: "TabController", bundle: nil)
+        guard let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarName") as? UITabBarController else { return }
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(viewController: tabBarController)
     }
+//    private func loadTabBarController(atIndex: Int){
+//        self.tabBarIndex = atIndex
+//        self.performSegue(withIdentifier: "showTabBar", sender: self)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "showTabBar" {
+//            let tabBarController = segue.destination as! UITabBarController
+//            tabBarController.selectedIndex = self.tabBarIndex
+//        }
+//    }
     
-    //in here you set the index of the destination tab and you are done
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "showTabBar" {
-            let tabBarController = segue.destination as! UITabBarController
-            tabBarController.selectedIndex = self.tabBarIndex
-        }
-    }
     @objc func imageViewTapped() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary

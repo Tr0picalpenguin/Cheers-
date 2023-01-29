@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cocktail Creations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjo-G2-tX7">
-                                <rect key="frame" x="20" y="60" width="374" height="26.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <rect key="frame" x="20" y="60" width="374" height="42"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T1R-Si-7qH">
-                                <rect key="frame" x="12" y="98.5" width="390" height="32"/>
+                                <rect key="frame" x="12" y="114" width="390" height="32"/>
                                 <segments>
                                     <segment title="My Creations"/>
                                     <segment title="Cocktail Creations Full List"/>
@@ -34,25 +34,25 @@
                                     <action selector="customSegmentedControlTapped:" destination="vHn-I6-knQ" eventType="valueChanged" id="cfg-xC-OLW"/>
                                 </connections>
                             </segmentedControl>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-Ph-Oig">
-                                <rect key="frame" x="0.0" y="141.5" width="414" height="56"/>
+                            <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-Ph-Oig">
+                                <rect key="frame" x="0.0" y="157" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="vHn-I6-knQ" id="x10-Fg-0YO"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rdQ-o5-uhU">
-                                <rect key="frame" x="12" y="209.5" width="390" height="543.5"/>
+                                <rect key="frame" x="12" y="225" width="390" height="528"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="118" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cocktail_Creations" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customCell" rowHeight="118" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cocktail_Creations" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s93-tk-C16" id="95a-OQ-vK5">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="118"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359.5" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxN-2y-XRj">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rxN-2y-XRj" customClass="CocktailImageView" customModule="Cocktail_Creations" customModuleProvider="target">
                                                     <rect key="frame" x="138" y="2" width="114" height="114"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="rxN-2y-XRj" secondAttribute="height" multiplier="1:1" id="83a-it-OLZ"/>
@@ -60,7 +60,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzV-rF-BKk">
-                                                    <rect key="frame" x="235" y="74" width="135" height="24"/>
+                                                    <rect key="frame" x="204.5" y="74" width="135" height="24"/>
                                                     <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
@@ -80,7 +80,7 @@
                                         <connections>
                                             <outlet property="favoritesImageView" destination="rxN-2y-XRj" id="RNb-0M-vOO"/>
                                             <outlet property="favoritesNameLabel" destination="SzV-rF-BKk" id="DFq-Uy-kyo"/>
-                                            <segue destination="5iz-Pg-kXQ" kind="show" identifier="toCustomDetailVC" id="6oz-zr-lRL"/>
+                                            <segue destination="4Gu-xN-2mi" kind="show" identifier="toCustomDetailVC" id="5vQ-D2-Q9l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,165 +117,19 @@
             </objects>
             <point key="canvasLocation" x="1589.8550724637682" y="1606.4732142857142"/>
         </scene>
-        <!--Custom Detail View Controller-->
-        <scene sceneID="uMK-l2-FZD">
+        <!--CustomDetail-->
+        <scene sceneID="5s8-9L-YFw">
             <objects>
-                <viewController storyboardIdentifier="toDetailVC" id="5iz-Pg-kXQ" customClass="CustomDetailViewController" customModule="Cocktail_Creations" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WEd-AH-PUl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeW-1S-yox">
-                                <rect key="frame" x="324" y="56" width="10.5" height="34.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGK-yO-rXt">
-                                <rect key="frame" x="342.5" y="56" width="63.5" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Likes"/>
-                                <connections>
-                                    <action selector="likesButtonTapped:" destination="Lrz-a3-5Re" eventType="touchUpInside" id="Hrr-Ki-g81"/>
-                                    <action selector="likesButtonTapped:" destination="5iz-Pg-kXQ" eventType="touchUpInside" id="dBn-D8-Nhx"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wGA-k4-ACC" customClass="CocktailImageView" customModule="Cocktail_Creations" customModuleProvider="target">
-                                <rect key="frame" x="82" y="98.5" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="v1F-w2-YhX"/>
-                                    <constraint firstAttribute="width" constant="250" id="zaL-UT-5K9"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HBl-ru-8qN">
-                                <rect key="frame" x="57" y="356.5" width="300" height="224.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="(cocktail name)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF7-28-dMS">
-                                        <rect key="frame" x="91.5" y="0.0" width="117.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(glass type)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqC-yw-oPT">
-                                        <rect key="frame" x="105" y="28.5" width="90" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Instructions for making the cocktail..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="enE-1N-IKa">
-                                        <rect key="frame" x="0.0" y="57" width="300" height="167.5"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="b4d-a6-mDl"/>
-                                        </constraints>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="gF7-28-dMS" firstAttribute="centerX" secondItem="HBl-ru-8qN" secondAttribute="centerX" id="GPu-DB-CeS"/>
-                                    <constraint firstItem="aqC-yw-oPT" firstAttribute="top" secondItem="gF7-28-dMS" secondAttribute="bottom" constant="8" id="J7P-1D-0L7"/>
-                                    <constraint firstItem="enE-1N-IKa" firstAttribute="centerX" secondItem="HBl-ru-8qN" secondAttribute="centerX" id="Mtj-1N-V8E"/>
-                                    <constraint firstItem="aqC-yw-oPT" firstAttribute="centerX" secondItem="HBl-ru-8qN" secondAttribute="centerX" id="Yxa-EC-ofh"/>
-                                    <constraint firstItem="enE-1N-IKa" firstAttribute="top" secondItem="aqC-yw-oPT" secondAttribute="bottom" constant="8" id="vb2-wp-yH5"/>
-                                </constraints>
-                            </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cFD-Fi-BGq">
-                                <rect key="frame" x="8" y="589" width="398" height="201.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="201.5" id="qyT-HT-EQA"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ingredientCell" id="0MC-xM-KIu" customClass="IngredientTableViewCell" customModule="Cocktail_Creations" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="398" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0MC-xM-KIu" id="nie-aq-0dW">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tnp-lu-8zq">
-                                                    <rect key="frame" x="28" y="15.5" width="342" height="17"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(ingredient)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jba-Af-a0O">
-                                                            <rect key="frame" x="0.0" y="0.0" width="233" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(measurement)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rf-73-4MA">
-                                                            <rect key="frame" x="243" y="0.0" width="99" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="tnp-lu-8zq" firstAttribute="leading" secondItem="nie-aq-0dW" secondAttribute="leadingMargin" constant="8" id="VEQ-ko-G95"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="tnp-lu-8zq" secondAttribute="trailing" constant="8" id="kKJ-Rd-F5N"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="tnp-lu-8zq" secondAttribute="bottom" id="oxy-KE-SIM"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="ingredientLabel" destination="Jba-Af-a0O" id="9hH-tW-AkF"/>
-                                            <outlet property="measurementLabel" destination="0rf-73-4MA" id="LQt-BU-c7t"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zX0-0t-Dy6">
-                                <rect key="frame" x="20" y="55" width="76" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Report"/>
-                                <connections>
-                                    <action selector="reportButtonTapped:" destination="5iz-Pg-kXQ" eventType="touchUpInside" id="fnS-aA-yFw"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="X3X-9b-jNF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="cFD-Fi-BGq" firstAttribute="centerX" secondItem="X3X-9b-jNF" secondAttribute="centerX" id="4Xy-Pf-6LA"/>
-                            <constraint firstItem="HBl-ru-8qN" firstAttribute="top" secondItem="wGA-k4-ACC" secondAttribute="bottom" constant="8" id="AUX-9E-Vn7"/>
-                            <constraint firstItem="X3X-9b-jNF" firstAttribute="trailing" secondItem="rGK-yO-rXt" secondAttribute="trailing" constant="8" id="BEA-HI-zyg"/>
-                            <constraint firstItem="wGA-k4-ACC" firstAttribute="centerX" secondItem="X3X-9b-jNF" secondAttribute="centerX" id="Ofq-t7-IbB"/>
-                            <constraint firstItem="cFD-Fi-BGq" firstAttribute="leading" secondItem="X3X-9b-jNF" secondAttribute="leading" constant="8" id="YMa-8X-CvI"/>
-                            <constraint firstItem="rGK-yO-rXt" firstAttribute="top" secondItem="X3X-9b-jNF" secondAttribute="top" constant="8" id="awy-qC-E3f"/>
-                            <constraint firstItem="wGA-k4-ACC" firstAttribute="top" secondItem="MeW-1S-yox" secondAttribute="bottom" constant="8" id="gd6-pA-Wr7"/>
-                            <constraint firstItem="X3X-9b-jNF" firstAttribute="trailing" secondItem="cFD-Fi-BGq" secondAttribute="trailing" constant="8" id="iAt-TI-IlS"/>
-                            <constraint firstItem="rGK-yO-rXt" firstAttribute="leading" secondItem="MeW-1S-yox" secondAttribute="trailing" constant="8" id="t0r-mx-n1D"/>
-                            <constraint firstItem="cFD-Fi-BGq" firstAttribute="top" secondItem="HBl-ru-8qN" secondAttribute="bottom" constant="8" id="uwv-CA-RKN"/>
-                            <constraint firstItem="HBl-ru-8qN" firstAttribute="centerX" secondItem="X3X-9b-jNF" secondAttribute="centerX" id="vTi-Ef-Mmb"/>
-                            <constraint firstItem="X3X-9b-jNF" firstAttribute="bottom" secondItem="cFD-Fi-BGq" secondAttribute="bottom" constant="47.5" id="wZc-AO-CYJ"/>
-                            <constraint firstItem="wGA-k4-ACC" firstAttribute="top" secondItem="rGK-yO-rXt" secondAttribute="bottom" constant="8" id="yWH-ry-ErD"/>
-                            <constraint firstItem="MeW-1S-yox" firstAttribute="top" secondItem="X3X-9b-jNF" secondAttribute="top" constant="8" id="zuf-rw-POw"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="NLe-Kd-WVb"/>
-                    <connections>
-                        <outlet property="customCocktailNameLabel" destination="gF7-28-dMS" id="Mvc-Mi-Z57"/>
-                        <outlet property="customImageView" destination="wGA-k4-ACC" id="kcn-cR-UZQ"/>
-                        <outlet property="glassLabel" destination="aqC-yw-oPT" id="Ydv-X2-eYU"/>
-                        <outlet property="ingredientsTableView" destination="cFD-Fi-BGq" id="1Sj-rg-JPb"/>
-                        <outlet property="instructionsTextView" destination="enE-1N-IKa" id="xYW-Rj-66s"/>
-                        <outlet property="numberOfLikesLabel" destination="MeW-1S-yox" id="7c2-Lp-tfa"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sjr-TL-eWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Lrz-a3-5Re" userLabel="Exit" sceneMemberID="exit"/>
+                <viewControllerPlaceholder storyboardName="CustomDetail" id="4Gu-xN-2mi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WV3-nQ-DOQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tYV-70-DgZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483" y="1606"/>
+            <point key="canvasLocation" x="2391" y="1606"/>
         </scene>
     </scenes>
     <resources>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

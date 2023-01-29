@@ -38,9 +38,9 @@ class CustomListViewController: UIViewController {
                 if let index = tableView.indexPathForSelectedRow {
                     
                     let cocktail = viewModel.customCocktails[index.row]
-                    let customDetailViewModel = CustomDetailViewModel(delegate: destination as! CustomDetailViewModelDelegate)
-                    customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)
+                    let customDetailViewModel = CustomDetailViewModel(delegate: destination)
                     destination.customDetailViewModel = customDetailViewModel
+                    customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)
                 }
             }
         }

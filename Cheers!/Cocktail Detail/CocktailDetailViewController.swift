@@ -10,7 +10,6 @@ import UIKit
 class CocktailDetailViewController: UIViewController {
     
     @IBOutlet weak var cocktailImageView: CocktailImageView!
-   
     @IBOutlet weak var cocktailNameLabel: UILabel!
     @IBOutlet weak var glassTypeLabel: UILabel!
     @IBOutlet weak var instructionsTextView: UITextView!

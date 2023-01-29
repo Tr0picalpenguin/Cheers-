@@ -17,6 +17,7 @@ protocol FirebaseSyncable {
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
     //    func deleteCocktail(cocktail: CustomCocktail)
     //    func updateCocktail(with cocktail: CustomCocktail)
+    func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CustomCocktail, NetworkError>) -> Void)
     func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void)
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void)
     func createUser(with email: String, password: String, completion: @escaping (Result<Bool, FirebaseError>) -> Void)
@@ -72,6 +73,24 @@ struct FirebaseService: FirebaseSyncable {
     //    func updateCocktail(with cocktail: CustomCocktail) {
     //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
     //    }
+    
+    func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CustomCocktail, NetworkError>) -> Void) {
+        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktailID).getDocument { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                completion(.failure(.requestError(error)))
+            }
+            guard let snapshot = snapshot,
+                  let data = snapshot.data() else { completion(.failure(.couldNotUnwrap))
+                return
+            }
+            guard let cocktail = CustomCocktail(from: data) else {
+                completion(.failure(.couldNotUnwrap))
+                return
+            }
+            completion(.success(cocktail))
+        }
+    }
     
     func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.5) else { return }

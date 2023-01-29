@@ -9,7 +9,7 @@ import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var favoritesImageView: UIImageView!
+    @IBOutlet weak var favoritesImageView: CocktailImageView!
     @IBOutlet weak var favoritesNameLabel: UILabel!
     
     var cocktailImage: UIImage?
@@ -21,7 +21,7 @@ class FavoritesTableViewCell: UITableViewCell {
 
     func updateViews(with customCocktail: CustomCocktail) {
         favoritesNameLabel.text = customCocktail.cocktailName
-        
+        favoritesImageView.fetchImage(using: customCocktail.imageURL ?? "")
     }
 } // end of class
 
