@@ -25,7 +25,18 @@ class CustomDetailViewModel {
     var cocktail: CustomCocktail?
     
     
-    func fetchCustomCocktailDetail(with customCocktailID: String) {
+    func fetchCustomCocktailDetail(with uuid: String) {
+        service.fetchCocktailDetail(with: uuid) { result in
+            switch result {
+            case .success(let customDetail):
+                DispatchQueue.main.async {
+                    self.cocktail = customDetail// scott is a bitch
+                    self.delegate?.customCocktailLoadedSuccessfully()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
     }
     

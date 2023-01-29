@@ -46,7 +46,7 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
         if instructionsTextView.textColor == UIColor.lightGray {
             instructionsTextView.text = nil
             // MARK: - Need to establish if user is using dark mode or not to change text color
-            instructionsTextView.textColor = UIColor.black
+            instructionsTextView.textColor = UIColor.systemGray
         }
     }
     
