@@ -35,13 +35,15 @@ struct FirebaseService: FirebaseSyncable {
     
     func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage) {
         let uID = UUID().uuidString
-        
+        let userRef = reference.collection(User.Keys.collectionType).document(User.Keys.uuid)
         saveImage(image, with: uID) { result in
             switch result {
             case .success(let photoURL):
                 let urlString = photoURL.absoluteString
+                
                 let cocktail = CustomCocktail(numberOfLikes: numberOfLikes, cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients, imageURL: urlString)
                 
+                userRef.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData)
                 reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData)
             case .failure(let failure):
                 print(failure)
