@@ -24,7 +24,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T1R-Si-7qH">
-                                <rect key="frame" x="12" y="114" width="390" height="32"/>
+                                <rect key="frame" x="12" y="110" width="390" height="32"/>
                                 <segments>
                                     <segment title="My Creations"/>
                                     <segment title="Cocktail Creations Full List"/>
@@ -35,14 +35,14 @@
                                 </connections>
                             </segmentedControl>
                             <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-Ph-Oig">
-                                <rect key="frame" x="0.0" y="157" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="153" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="vHn-I6-knQ" id="x10-Fg-0YO"/>
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rdQ-o5-uhU">
-                                <rect key="frame" x="12" y="225" width="390" height="528"/>
+                                <rect key="frame" x="12" y="217" width="390" height="536"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="customCell" rowHeight="118" id="s93-tk-C16" customClass="FavoritesTableViewCell" customModule="Cocktail_Creations" customModuleProvider="target">
@@ -61,9 +61,9 @@
                                                 </imageView>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(cocktail name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SzV-rF-BKk">
                                                     <rect key="frame" x="204.5" y="74" width="135" height="24"/>
-                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.99659222359999999" green="0.99977821109999998" blue="0.32876467700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -96,9 +96,9 @@
                             <constraint firstItem="T1R-Si-7qH" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="12" id="PHq-5d-WCW"/>
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="rdQ-o5-uhU" secondAttribute="trailing" constant="12" id="Rqq-iA-zVe"/>
                             <constraint firstItem="Xjo-G2-tX7" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="20" id="Xzt-Mb-UIz"/>
-                            <constraint firstItem="T1R-Si-7qH" firstAttribute="top" secondItem="Xjo-G2-tX7" secondAttribute="bottom" constant="12" id="YCO-7X-c4X"/>
+                            <constraint firstItem="T1R-Si-7qH" firstAttribute="top" secondItem="Xjo-G2-tX7" secondAttribute="bottom" constant="8" id="YCO-7X-c4X"/>
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="T1R-Si-7qH" secondAttribute="trailing" constant="12" id="gbE-Wh-SQs"/>
-                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="top" secondItem="7nE-Ph-Oig" secondAttribute="bottom" constant="12" id="gyu-3C-a73"/>
+                            <constraint firstItem="rdQ-o5-uhU" firstAttribute="top" secondItem="7nE-Ph-Oig" secondAttribute="bottom" constant="8" id="gyu-3C-a73"/>
                             <constraint firstItem="Xjo-G2-tX7" firstAttribute="centerX" secondItem="8iR-rn-wWG" secondAttribute="centerX" id="nCX-td-IEw"/>
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="Xjo-G2-tX7" secondAttribute="trailing" constant="20" id="nuS-p9-c2c"/>
                             <constraint firstItem="7nE-Ph-Oig" firstAttribute="top" secondItem="T1R-Si-7qH" secondAttribute="bottom" constant="12" id="tha-1V-IaT"/>
@@ -132,9 +132,6 @@
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

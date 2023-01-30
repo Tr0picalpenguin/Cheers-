@@ -16,7 +16,7 @@ protocol FirebaseSyncable {
     func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
     //    func deleteCocktail(cocktail: CustomCocktail)
-    //    func updateCocktail(with cocktail: CustomCocktail)
+    func updateCocktail(with cocktail: CustomCocktail)
     func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CustomCocktail, NetworkError>) -> Void)
     func saveImage(_ image: UIImage, with uuidString: String, completion: @escaping (Result<URL, FirebaseError>) -> Void)
     func fetchImage(from cocktail: CustomCocktail, completion: @escaping (Result<UIImage, FirebaseError>) -> Void)
@@ -41,6 +41,7 @@ struct FirebaseService: FirebaseSyncable {
             case .success(let photoURL):
                 let urlString = photoURL.absoluteString
                 let cocktail = CustomCocktail(numberOfLikes: numberOfLikes, cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients, imageURL: urlString)
+                
                 reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).setData(cocktail.cocktailData)
             case .failure(let failure):
                 print(failure)
@@ -70,9 +71,9 @@ struct FirebaseService: FirebaseSyncable {
     //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()
     //    }
     
-    //    func updateCocktail(with cocktail: CustomCocktail) {
-    //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
-    //    }
+        func updateCocktail(with cocktail: CustomCocktail) {
+            reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).updateData(cocktail.cocktailData)
+        }
     
     func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CustomCocktail, NetworkError>) -> Void) {
         reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktailID).getDocument { snapshot, error in
