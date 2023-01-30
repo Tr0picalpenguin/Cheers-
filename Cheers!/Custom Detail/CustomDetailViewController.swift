@@ -58,10 +58,12 @@ class CustomDetailViewController: UIViewController {
         present(alertController, animated: true)
     }
     
+    //MARK: - need to call the update cocktail function to save the details with the likes button is tapped.
     @IBAction func likesButtonTapped(_ sender: Any) {
-        let currentLikes = defaultLikes
         defaultLikes += 1
+        let currentLikes = defaultLikes
         numberOfLikesLabel.text = "\(currentLikes)"
+        
     }
     
 } // end of class

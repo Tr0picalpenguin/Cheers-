@@ -40,4 +40,8 @@ class CustomDetailViewModel {
         
     }
     
+    func updateLikes(with cocktail: CustomCocktail) {
+        service.updateCocktail(with: cocktail)
+    }
+    
 }// end of class
