@@ -35,7 +35,8 @@ struct FirebaseService: FirebaseSyncable {
     
     func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage) {
         let uID = UUID().uuidString
-        let userRef = reference.collection(User.Keys.collectionType).document(User.Keys.uuid)
+        let userID = Auth.auth().currentUser?.uid
+        let userRef = reference.collection(User.Keys.collectionType).document(userID!)
         saveImage(image, with: uID) { result in
             switch result {
             case .success(let photoURL):

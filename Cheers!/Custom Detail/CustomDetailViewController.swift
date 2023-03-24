@@ -31,7 +31,18 @@ class CustomDetailViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    var defaultLikes: Int = 0
+//    var defaultLikes: Int = 0
+    
+    func increaseLikesCount(_ numberOfLikesLabel: UILabel) {
+        guard let currentLikes = Int(numberOfLikesLabel.text ?? "0") else {
+            print("Error: Couldn't convert likes label text to Int.")
+            return
+        }
+        let newLikes = currentLikes + 1
+        numberOfLikesLabel.text = "\(newLikes)"
+        guard let cocktail = customDetailViewModel.cocktail else { return }
+        customDetailViewModel.updateLikes(with: cocktail)
+    }
     
     func updateViews() {
         guard let customCocktail = customDetailViewModel.cocktail else { return }
@@ -58,12 +69,9 @@ class CustomDetailViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-    //MARK: - need to call the update cocktail function to save the details with the likes button is tapped.
+    //MARK: - need to call the update cocktail function to save the details when the likes button is tapped.
     @IBAction func likesButtonTapped(_ sender: Any) {
-        defaultLikes += 1
-        let currentLikes = defaultLikes
-        numberOfLikesLabel.text = "\(currentLikes)"
-        
+        increaseLikesCount(numberOfLikesLabel)
     }
     
 } // end of class

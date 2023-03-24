@@ -36,16 +36,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2EE3153B-8EE1-4EBB-A84B-2724481318BA"
+            uuid = "0B55C041-8F12-4485-8B13-00BD2A3476B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Cheers!/Custom Detail/CustomDetailViewModel.swift"
+            filePath = "Cheers!/Services/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "fetchCustomCocktailDetail(with:)"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "updateCocktail(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

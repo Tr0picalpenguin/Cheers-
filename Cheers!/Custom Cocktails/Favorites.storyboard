@@ -23,6 +23,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-vr-PLJ">
+                                <rect key="frame" x="348" y="45" width="48" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                <connections>
+                                    <action selector="settingsButtonTapped:" destination="vHn-I6-knQ" eventType="touchUpInside" id="aix-BI-P2h"/>
+                                </connections>
+                            </button>
                             <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T1R-Si-7qH">
                                 <rect key="frame" x="12" y="100" width="390" height="32"/>
                                 <segments>
@@ -90,19 +98,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QUQ-vr-PLJ">
-                                <rect key="frame" x="307" y="57" width="87" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Settings"/>
-                                <connections>
-                                    <action selector="settingsButtonTapped:" destination="vHn-I6-knQ" eventType="touchUpInside" id="aix-BI-P2h"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8iR-rn-wWG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="QUQ-vr-PLJ" secondAttribute="trailing" constant="18" id="0Kd-Wj-WyC"/>
                             <constraint firstItem="7nE-Ph-Oig" firstAttribute="leading" secondItem="yW0-61-g36" secondAttribute="leading" id="32h-Zw-Dsz"/>
                             <constraint firstItem="Xjo-G2-tX7" firstAttribute="top" secondItem="8iR-rn-wWG" secondAttribute="top" constant="12" id="DN9-hG-exA"/>
                             <constraint firstItem="rdQ-o5-uhU" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="12" id="KU1-5h-AUC"/>
@@ -111,6 +111,7 @@
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="rdQ-o5-uhU" secondAttribute="trailing" constant="12" id="Rqq-iA-zVe"/>
                             <constraint firstItem="Xjo-G2-tX7" firstAttribute="leading" secondItem="8iR-rn-wWG" secondAttribute="leading" constant="20" id="Xzt-Mb-UIz"/>
                             <constraint firstItem="T1R-Si-7qH" firstAttribute="top" secondItem="Xjo-G2-tX7" secondAttribute="bottom" constant="8" id="YCO-7X-c4X"/>
+                            <constraint firstItem="QUQ-vr-PLJ" firstAttribute="top" secondItem="yW0-61-g36" secondAttribute="top" constant="45" id="aFd-qr-LKh"/>
                             <constraint firstItem="8iR-rn-wWG" firstAttribute="trailing" secondItem="T1R-Si-7qH" secondAttribute="trailing" constant="12" id="gbE-Wh-SQs"/>
                             <constraint firstItem="rdQ-o5-uhU" firstAttribute="top" secondItem="7nE-Ph-Oig" secondAttribute="bottom" constant="8" id="gyu-3C-a73"/>
                             <constraint firstItem="Xjo-G2-tX7" firstAttribute="centerX" secondItem="8iR-rn-wWG" secondAttribute="centerX" id="nCX-td-IEw"/>
@@ -143,7 +144,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="ellipsis" catalog="system" width="128" height="42"/>
+        <image name="star.fill" catalog="system" width="128" height="111"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

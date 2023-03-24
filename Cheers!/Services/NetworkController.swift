@@ -80,7 +80,7 @@ class NetworkController {
         }
         URLSession.shared.dataTask(with: imageURL) { imageData, _, error in
             if let error = error {
-                print("Encountered error; \(error.localizedDescription)")
+                print("Encountered error: \(error.localizedDescription)")
                 completion(.failure(.badURL))
             }
             guard let imageData = imageData else {
