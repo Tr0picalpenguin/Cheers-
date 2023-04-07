@@ -11,7 +11,7 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var cocktailNameTextField: UITextField!
     @IBOutlet weak var glassTypeTextField: UITextField!
-    @IBOutlet weak var instructionsTextView: UITextView!
+    @IBOutlet weak var instructionsTextView: TextView!
     
     @IBOutlet weak var ingredientsTableView: UITableView!
     
@@ -26,36 +26,49 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         setupImageView()
         viewModel = CreateCocktailViewModel()
+        addTapGesture()
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
         
         cocktailImageView.image = UIImage(systemName: "camera.fill")
         cocktailNameTextField.text = nil
         glassTypeTextField.text = nil
-        instructionsTextView.text = "Enter instructions..."
-        instructionsTextView.textColor = UIColor.lightGray
-        instructionsTextView.delegate = self
+//        instructionsTextView.text = "Enter instructions..."
+//        instructionsTextView.textColor = UIColor.lightGray
+//        instructionsTextView.delegate = self
+        instructionsTextView.textColor = .darkGray
     }
     
     override func viewWillAppear(_ animated: Bool) {
         ingredientsTableView.dataSource = self
-        
+    
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if instructionsTextView.textColor == UIColor.lightGray {
-            instructionsTextView.text = nil
-            // MARK: - Need to establish if user is using dark mode or not to change text color
-            instructionsTextView.textColor = UIColor.systemGray
-        }
+    func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text.isEmpty {
-            textView.text = "Enter instructions..."
-            textView.textColor = UIColor.lightGray
-        }
-    }
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if instructionsTextView.textColor == UIColor.lightGray {
+//            instructionsTextView.text = nil
+//            // MARK: - Need to establish if user is using dark mode or not to change text color
+//            instructionsTextView.textColor = UIColor.systemGray
+//            instructionsTextView.alpha = 1
+//        }
+//    }
+//
+//    func textViewDidEndEditing(_ textView: UITextView) {
+//        if textView.text.isEmpty {
+//            textView.text = "Enter instructions..."
+//            textView.textColor = UIColor.lightGray
+//            textView.alpha = 0.50
+//        }
+//    }
     
     @objc private func showAlert() {
         let alert = UIAlertController(title: "Add ingredient", message: "Please input the ingredient and measurement you want to add to the cocktail.", preferredStyle: .alert)
@@ -96,7 +109,7 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
     // MARK: - Save Button
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if cocktailNameTextField.text?.isEmpty == true && instructionsTextView.text == "Enter instructions..." {
+        if cocktailNameTextField.text?.isEmpty == true {
             let alertController = UIAlertController(title: "Required fields missing!", message: "Please fill in remaining fields for your Cocktail Creation", preferredStyle: .alert)
             let confirmAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alertController.addAction(confirmAction)
@@ -197,5 +210,67 @@ extension CreateCocktailViewController: UITableViewDataSource, UITableViewDelega
         cell.updateViews(ingredient: ingredient)
         return cell
     }
-    
+}
+
+class TextView: UITextView {
+
+    // MARK: - Properties
+    private let placeholderLabel = UILabel()
+    var placeholder: String = "Enter text here..." {
+        didSet {
+            placeholderLabel.text = placeholder
+        }
+    }
+    var placeholderColor: UIColor = .gray {
+        didSet {
+            placeholderLabel.textColor = placeholderColor
+        }
+    }
+
+    // MARK: - Init
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    private func commonInit() {
+        delegate = self
+
+        placeholderLabel.text = placeholder
+        placeholderLabel.textColor = placeholderColor
+        placeholderLabel.font = self.font
+        placeholderLabel.numberOfLines = 0
+        addSubview(placeholderLabel)
+    }
+
+    // MARK: - Functions
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        placeholderLabel.frame = CGRect(x: textContainerInset.left + textContainer.lineFragmentPadding,
+                                        y: textContainerInset.top,
+                                        width: bounds.width - textContainerInset.left - textContainerInset.right - textContainer.lineFragmentPadding * 2,
+                                        height: bounds.height - textContainerInset.top - textContainerInset.bottom)
+        placeholderLabel.sizeToFit()
+    }
+
+    private func updatePlaceholder() {
+        placeholderLabel.isHidden = !text.isEmpty
+    }
+}
+
+// MARK: - UITextViewDelegate
+extension TextView: UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+        updatePlaceholder()
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        placeholderLabel.isHidden = true
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        updatePlaceholder()
+    }
 }
