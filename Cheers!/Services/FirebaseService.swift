@@ -15,6 +15,7 @@ import FirebaseAuth
 protocol FirebaseSyncable {
     func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
+    func loadMyCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
     //    func deleteCocktail(cocktail: CustomCocktail)
     func updateCocktail(with cocktail: CustomCocktail)
     func fetchCocktailDetail(with cocktailID: String, completion: @escaping (Result<CustomCocktail, NetworkError>) -> Void)
@@ -69,6 +70,25 @@ struct FirebaseService: FirebaseSyncable {
             completion(.success(sortedCocktails))
         }
     }
+    
+    func loadMyCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        let userRef = reference.collection(User.Keys.collectionType).document(userID)
+        userRef.collection(CustomCocktail.CocktailKeys.collectionType).getDocuments { snapshot, error in
+            if let error = error {
+                completion(.failure(.fireBaseError(error)))
+            }
+            guard let data = snapshot?.documents else {
+                completion(.failure(.noDataFound))
+                return
+            }
+            let myCocktailsArray = data.compactMap({ $0.data() })
+            let myCocktails = myCocktailsArray.compactMap({ CustomCocktail(from: $0)})
+            let mySortedCocktails = myCocktails.sorted(by: {$0.cocktailName < $1.cocktailName})
+            completion(.success(mySortedCocktails))
+        }
+    }
+    
     // MARK: - Dont want just anybody able to delete or update custom cocktails from the full list.
     //    func deleteCocktail(cocktail: CustomCocktail) {
     //        reference.collection(CustomCocktail.CocktailKeys.collectionType).document(cocktail.uuid).delete()

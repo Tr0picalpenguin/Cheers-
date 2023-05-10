@@ -19,13 +19,11 @@ class CustomListViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel = CustomListViewModel(delegate: self)
+        viewModel.loadData()
         tableView.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.fetchCustomCocktailList()
-    }
+   
     
     @IBAction func settingsButtonTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Settings", bundle: nil)
@@ -35,6 +33,7 @@ class CustomListViewController: UIViewController {
         
         self.present(myAlert, animated: true, completion: nil)
     }
+    
     
     // MARK: - Navigation
     
@@ -52,35 +51,56 @@ class CustomListViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func customIndexChanged(_ sender: Any) {
+        switch customSegmentedControl.selectedSegmentIndex {
+        case 0:
+            customSegmentedControl.titleForSegment(at: 0)
+            viewModel.fetchCustomCocktailList()
+        case 1:
+            customSegmentedControl.titleForSegment(at: 1)
+            viewModel.fetchMyCocktails()
+        default:
+            break
+        }
+    }
 } // end of class
 
 extension CustomListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        switch customSegmentedControl.selectedSegmentIndex {
-        //        case 1:
-        //            return viewModel.customCocktails.count
-        //        default:
-        
-        return viewModel.customCocktails.count
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell() }
-        
-        let customCocktail = viewModel.customCocktails[indexPath.row]
-        cell.updateViews(with: customCocktail)
-        return cell
-    }
-} // end of extension
-
-extension CustomListViewController: CustomListViewModelDelegate {
-    func customCocktailsLoadedSuccessfully() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        switch customSegmentedControl.selectedSegmentIndex {
+        case 1:
+            return viewModel.myCocktails.count
+        default:
+            return viewModel.customCocktails.count
         }
     }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as? FavoritesTableViewCell else { return UITableViewCell() }
+            
+            switch customSegmentedControl.selectedSegmentIndex {
+            case 1:
+                let customCocktail = viewModel.myCocktails[indexPath.row]
+                cell.updateViews(with: customCocktail)
+                return cell
+                
+            default:
+                let customCocktail = viewModel.customCocktails[indexPath.row]
+                cell.updateViews(with: customCocktail)
+                return cell
+            }
+        }
+    
 } // end of extension
-
+    
+    extension CustomListViewController: CustomListViewModelDelegate {
+        func customCocktailsLoadedSuccessfully() {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+} // end of extension
+    
 

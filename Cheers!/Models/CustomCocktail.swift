@@ -64,7 +64,9 @@ extension CustomCocktail {
               let glass = dictionary[CocktailKeys.glass] as? String,
               let uuid = dictionary[CocktailKeys.uuid] as? String,
               let ingredientsArray = dictionary[CocktailKeys.ingredients] as? [[String : Any]],
-              let imageURL = dictionary[CocktailKeys.imageURL] as? String else { return nil }
+              let imageURL = dictionary[CocktailKeys.imageURL] as? String else {
+            return nil
+        }
         let ingredients = ingredientsArray.compactMap({CustomIngredient(from: $0)})
         
         self.init(numberOfLikes: numberOfLikes,

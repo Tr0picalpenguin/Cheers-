@@ -31,15 +31,14 @@
                                     <action selector="settingsButtonTapped:" destination="vHn-I6-knQ" eventType="touchUpInside" id="aix-BI-P2h"/>
                                 </connections>
                             </button>
-                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T1R-Si-7qH">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="T1R-Si-7qH">
                                 <rect key="frame" x="12" y="100" width="390" height="32"/>
                                 <segments>
-                                    <segment title="My Creations"/>
                                     <segment title="Cocktail Creations Full List"/>
+                                    <segment title="My Cocktails"/>
                                 </segments>
                                 <connections>
-                                    <action selector="customSegmentedControl:" destination="vHn-I6-knQ" eventType="valueChanged" id="rCD-Qs-CIg"/>
-                                    <action selector="customSegmentedControlTapped:" destination="vHn-I6-knQ" eventType="valueChanged" id="cfg-xC-OLW"/>
+                                    <action selector="customIndexChanged:" destination="vHn-I6-knQ" eventType="valueChanged" id="caF-Jm-Qun"/>
                                 </connections>
                             </segmentedControl>
                             <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-Ph-Oig">
@@ -144,8 +143,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ellipsis" catalog="system" width="128" height="42"/>
-        <image name="star.fill" catalog="system" width="128" height="111"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
