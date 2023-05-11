@@ -42,11 +42,18 @@ class CustomListViewController: UIViewController {
         if segue.identifier == "toCustomDetailVC" {
             if let destination = segue.destination as? CustomDetailViewController {
                 if let index = tableView.indexPathForSelectedRow {
-                    
-                    let cocktail = viewModel.customCocktails[index.row]
-                    let customDetailViewModel = CustomDetailViewModel(delegate: destination)
-                    destination.customDetailViewModel = customDetailViewModel
-                    customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)
+                    switch customSegmentedControl.selectedSegmentIndex {
+                    case 1:
+                        let cocktail = viewModel.myCocktails[index.row]
+                        let customDetailViewModel = CustomDetailViewModel(delegate: destination)
+                        destination.customDetailViewModel = customDetailViewModel
+                        customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)
+                    default:
+                        let cocktail = viewModel.customCocktails[index.row]
+                        let customDetailViewModel = CustomDetailViewModel(delegate: destination)
+                        destination.customDetailViewModel = customDetailViewModel
+                        customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)
+                    }
                 }
             }
         }
