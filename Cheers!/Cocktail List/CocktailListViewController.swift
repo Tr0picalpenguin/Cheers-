@@ -12,9 +12,7 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
     
     
     var viewModel: CocktailListViewModel!
-    var cocktailList: [Cocktail] = []
-    var topLevelDictionary: TopLevelDictionary?
-
+    
     @IBOutlet weak var homeSegmentedControl: UISegmentedControl!
      
     @IBOutlet weak var searchBar: UISearchBar!
@@ -41,6 +39,7 @@ class CocktailListViewController: UIViewController, UITextFieldDelegate {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
+        // What segment the user is on? api or custom?
         if segue.identifier == "toDetailVC" {
             if let destination = segue.destination as? CocktailDetailViewController {
                 if let index = tableView.indexPathForSelectedRow {

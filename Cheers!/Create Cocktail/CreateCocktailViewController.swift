@@ -17,6 +17,7 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
     
     
     @IBOutlet weak var cocktailImageView: UIImageView!
+    @IBOutlet weak var cocktailDefaultImageView: UIImageView!
     
     var viewModel: CreateCocktailViewModel!
     var ingredients: [CustomIngredient]? = []
@@ -30,7 +31,10 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
         
-        cocktailImageView.image = UIImage(systemName: "camera.fill")
+            cocktailDefaultImageView.image = UIImage(systemName: "cocktailDefault")
+            cocktailImageView.image = UIImage(named: "cocktailDefault")
+       
+        
         cocktailNameTextField.text = nil
         glassTypeTextField.text = nil
 //        instructionsTextView.text = "Enter instructions..."
@@ -120,10 +124,10 @@ class CreateCocktailViewController: UIViewController, UITextViewDelegate {
             guard let cocktailName = cocktailNameTextField.text?.capitalized,
                   let glass = glassTypeTextField.text?.capitalized,
                   let instructions = instructionsTextView.text,
-                  let ingredientsArray = ingredients,
-                  let cocktailImage = cocktailImageView.image else { return }
+                  let ingredientsArray = ingredients else {return }
+                  //let cocktailImage = cocktailImageView.image else { return }
             
-            self.viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImage, ingredients: ingredientsArray)
+            self.viewModel.createCocktail(with: cocktailName, numberOfLikes: 0, glass: glass, instruction: instructions, image: cocktailImageView.image, ingredients: ingredientsArray)
             
             // create a reset views function that resets all the views.
             // I dont know if this refreshVC code is right

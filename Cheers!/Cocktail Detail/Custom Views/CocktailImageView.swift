@@ -19,12 +19,12 @@ class CocktailImageView: UIImageView {
                     self?.image = image
                 }
             case .failure:
-                self?.seDefaultImage()
+                self?.setDefaultImage()
             }
         }
     }
-    func seDefaultImage() {
+    func setDefaultImage() {
         contentMode = .scaleAspectFit
-        self.image = UIImage(systemName: "ticket")
+        self.image = UIImage(named: "cocktailDefault")
     }
 }

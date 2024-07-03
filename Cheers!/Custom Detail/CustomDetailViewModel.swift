@@ -30,7 +30,7 @@ class CustomDetailViewModel {
             switch result {
             case .success(let customDetail):
                 DispatchQueue.main.async {
-                    self.cocktail = customDetail// scott is a bitch
+                    self.cocktail = customDetail
                     self.delegate?.customCocktailLoadedSuccessfully()
                 }
             case .failure(let error):

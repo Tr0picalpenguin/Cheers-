@@ -38,12 +38,14 @@ class CustomListViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+    
+      
         if segue.identifier == "toCustomDetailVC" {
             if let destination = segue.destination as? CustomDetailViewController {
                 if let index = tableView.indexPathForSelectedRow {
                     
-                    let cocktail = viewModel.customCocktails[index.row]
+                    let cocktail = customSegmentedControl.selectedSegmentIndex == 0 ? viewModel.customCocktails[index.row] : viewModel.myCocktails[index.row]
+
                     let customDetailViewModel = CustomDetailViewModel(delegate: destination)
                     destination.customDetailViewModel = customDetailViewModel
                     customDetailViewModel.fetchCustomCocktailDetail(with: cocktail.uuid)

@@ -13,7 +13,7 @@ import FirebaseAuth
 
 
 protocol FirebaseSyncable {
-    func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage)
+    func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage?)
     func loadCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
     func loadMyCocktails(completion: @escaping(Result<[CustomCocktail], FirebaseError>) -> Void)
     //    func deleteCocktail(cocktail: CustomCocktail)
@@ -34,10 +34,11 @@ struct FirebaseService: FirebaseSyncable {
     let reference = Firestore.firestore()
     let storage = Storage.storage().reference()
     
-    func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage) {
+    func saveCocktail(numberOfLikes: Int, cocktailName: String, glass: String, instruction: String, ingredients: [CustomIngredient], with image: UIImage?) {
         let uID = UUID().uuidString
         guard let userID = Auth.auth().currentUser?.uid else { return }
         let userRef = reference.collection(User.Keys.collectionType).document(userID)
+        guard let image = image else {return}
         saveImage(image, with: uID) { result in
             switch result {
             case .success(let photoURL):

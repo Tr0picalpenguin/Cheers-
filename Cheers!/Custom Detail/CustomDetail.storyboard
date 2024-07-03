@@ -23,7 +23,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XK4-iz-yae" customClass="CocktailImageView" customModule="Cocktail_Creations" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cocktailDefault" translatesAutoresizingMaskIntoConstraints="NO" id="XK4-iz-yae" customClass="CocktailImageView" customModule="Cocktail_Creations" customModuleProvider="target">
                                 <rect key="frame" x="71.666666666666686" y="109.33333333333331" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="6UL-Pa-pWi"/>
@@ -179,7 +179,13 @@
             <point key="canvasLocation" x="2481.679389312977" y="1605.6338028169014"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="XK4-iz-yae">
+            <size key="intrinsicContentSize" width="688" height="412"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="cocktailDefault" width="688" height="412"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

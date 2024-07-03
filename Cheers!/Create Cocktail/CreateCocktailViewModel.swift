@@ -24,7 +24,7 @@ class CreateCocktailViewModel {
     
     
     // MARK: - CRUD
-    func createCocktail(with cocktailName: String, numberOfLikes: Int = 0, glass: String, instruction: String, image: UIImage, ingredients: [CustomIngredient] = []) {
+    func createCocktail(with cocktailName: String, numberOfLikes: Int = 0, glass: String, instruction: String, image: UIImage?, ingredients: [CustomIngredient] = []) {
        
             service.saveCocktail(numberOfLikes: numberOfLikes, cocktailName: cocktailName, glass: glass, instruction: instruction, ingredients: ingredients, with: image)
     }

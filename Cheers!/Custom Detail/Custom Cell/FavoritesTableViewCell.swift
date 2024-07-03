@@ -21,7 +21,7 @@ class FavoritesTableViewCell: UITableViewCell {
 
     func updateViews(with customCocktail: CustomCocktail) {
         favoritesNameLabel.text = customCocktail.cocktailName
-        favoritesImageView.fetchImage(using: customCocktail.imageURL ?? "")
+        favoritesImageView.fetchImage(using: customCocktail.imageURL ?? "cocktailDefault")
     }
 } // end of class
 
